@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="foro.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+    <title>Foro</title>
+</head>
+<body>
+    <div class="sidebar">
+        <a href="index4.html">
+          <i class="fas fa-home"></i>
+          <span>Inicio</span>
+        </a>
+        <a href="index2.html">
+          <i class="fas fa-shopping-cart"></i>
+          <span>Compra</span>
+        </a>
+        <a href="index3.html">
+          <i class="fas fa-clinic-medical"></i>
+          <span>Veterinaria</span>
+        </a>
+        <a href="index1.html">
+          <i class="fas fa-paw"></i>
+          <span>Adopciones</span>
+        </a>
+        <a href="foro.html">
+          <i class="fas fa-comments"></i>
+          <span>Foro</span>
+        </a>
+        <a href="#">
+          <i class="fas fa-user"></i>
+          <span>Perfil</span>
+        </a>
+        <a href="ajustes.html">
+          <i class="fas fa-cog"></i>
+          <span>Configuración</span>
+        </a>
+    </div>
+
+    <div class="container mt-5">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <h2 class="text-center">Foro</h2>
+                
+                <div class="post-list mb-4">
+                    <div class="post">
+                        <h5 class="post-title">Título de la Publicación 1</h5>
+                        <p class="post-content">Este es el contenido de la primera publicación. Aquí se pueden discutir diversos temas relacionados con el foro.</p>
+                        <div class="post-footer">
+                            <span class="post-author">Autor: Usuario1</span>
+                            <span class="post-date">Fecha: 01/04/2025</span>
+                        </div>
+                    </div>
+
+                    <div class="post">
+                        <h5 class="post-title">Título de la Publicación 2</h5>
+                        <p class="post-content">Contenido de la segunda publicación. Comparte tus pensamientos y opiniones sobre el tema.</p>
+                        <div class="post-footer">
+                            <span class="post-author">Autor: Usuario2</span>
+                            <span class="post-date">Fecha: 02/04/2025</span>
+                        </div>
+                    </div>
+                </div>
+
+                <h3>Crear Nueva Publicación</h3>
+                <form class="mb-4">
+                    <div class="form-group">
+                        <label for="postTitle">Título</label>
+                        <input type="text" class="form-control" id="postTitle" placeholder="Escribe el título aquí" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="postContent">Contenido</label>
+                        <textarea class="form-control" id="postContent" rows="4" placeholder="Escribe tu contenido aquí" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Publicar</button>
+                </form>
+            </div>
+
+            <div class="col-md-4">
+                <div class="groups-section">
+                    <h3>Grupos</h3>
+                    <div class="group">
+                        <h5>Grupo 1</h5>
+                        <p>Descripción breve del grupo 1.</p>
+                        <button class="btn btn-outline-primary btn-sm">Unirse</button>
+                    </div>
+                    <div class="group">
+                        <h5>Grupo 2</h5>
+                        <p>Descripción breve del grupo 2.</p>
+                        <button class="btn btn-outline-primary btn-sm">Unirse</button>
+                    </div>
+                    <div class="group">
+                        <h5>Grupo 3</h5>
+                        <p>Descripción breve del grupo 3.</p>
+                        <button class="btn btn-outline-primary btn-sm">Unirse</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+</html>
