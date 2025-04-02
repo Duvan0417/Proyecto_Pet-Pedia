@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="es"> 
+<head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Petpedia</title> <!-- Título que aparece en la pestaña del navegador -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Enlace a la hoja de estilos de Bootstrap -->
+  <link rel="stylesheet" href="Styles4.css"> <!-- Enlace a la hoja de estilos personalizada -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Enlace a Font Awesome para iconos -->
+</head>
+<body>
+  <div class="sidebar"> <!-- Contenedor de la barra lateral de navegación -->
+    <a href="index4.html"> <!-- Enlace a la página de inicio -->
+      <i class="fas fa-home"></i> <!-- Icono de casa de Font Awesome -->
+      <span>Inicio</span> <!-- Texto del enlace -->
+    </a>
+    <a href="index2.html"> <!-- Enlace a la página de compras -->
+      <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito de compras -->
+      <span>Compra</span> <!-- Texto del enlace -->
+    </a>
+    <a href="index3.html"> <!-- Enlace a la página de veterinaria -->
+      <i class="fas fa-clinic-medical"></i> <!-- Icono de clínica médica -->
+      <span>Veterinaria</span> <!-- Texto del enlace -->
+    </a>
+    <a href="index1.html"> <!-- Enlace a la página de adopciones -->
+      <i class="fas fa-paw"></i> <!-- Icono de pata de animal -->
+      <span>Adopciones</span> <!-- Texto del enlace -->
+    </a>
+    <a href="#"> <!-- Enlace al foro (sin destino definido) -->
+      <i class="fas fa-comments"></i> <!-- Icono de comentarios -->
+      <span>Foro</span> <!-- Texto del enlace -->
+    </a>
+    <a href="#"> <!-- Enlace al perfil (sin destino definido) -->
+      <i class="fas fa-user"></i> <!-- Icono de usuario -->
+      <span>Perfil</span> <!-- Texto del enlace -->
+    </a>
+    <a href="#"> <!-- Enlace a configuración (sin destino definido) -->
+      <i class="fas fa-cog"></i> <!-- Icono de engranaje -->
+      <span>Configuración</span> <!-- Texto del enlace -->
+    </a>
+  </div>
+
+  <div class="main-content"> <!-- Contenedor principal del contenido -->
+
+    <nav class="navbar navbar-expand-lg navbar-light"> <!-- Barra de navegación usando Bootstrap -->
+      <a class="navbar-brand" href="#"> <!-- Marca de navegación -->
+        <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo"> <!-- Imagen de logo -->
+      </a>
+    </nav>
+
+    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel"> <!-- Carrusel de imágenes -->
+      <ol class="carousel-indicators"> <!-- Indicadores del carrusel -->
+        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li> <!-- Indicador activo -->
+        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li> <!-- Indicador para la segunda imagen -->
+        <li data-target="#carouselExampleIndicators" data-slide-to="2"></li> <!-- Indicador para la tercera imagen -->
+      </ol>
+      <div class="carousel-inner"> <!-- Contenedor de las imágenes del carrusel -->
+        <div class="carousel-item active"> <!-- Primera imagen activa -->
+          <img src="https://via.placeholder.com/1200x500?text=Imagen+1" class="d-block w-100" alt="Imagen 1"> <!-- Imagen del carrusel -->
+        </div>
+        <div class="carousel-item"> <!-- Segunda imagen -->
+          <img src="https://via.placeholder.com/1200x500?text=Imagen+2" class="d-block w-100" alt="Imagen 2"> <!-- Imagen del carrusel -->
+        </div>
+        <div class="carousel-item"> <!-- Tercera imagen -->
+          <img src="https://via.placeholder.com/1200x500?text=Imagen+3" class="d-block w-100" alt="Imagen 3"> <!-- Imagen del carrusel -->
+        </div>
+      </div>
+      <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev"> <!-- Control para la imagen anterior -->
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span> <!-- Icono de control anterior -->
+        <span class="sr-only">Previous</span> <!-- Texto alternativo para accesibilidad -->
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next"> <!-- Control para la siguiente imagen -->
+        <span class="carousel-control-next-icon" aria-hidden="true"></span> <!-- Icono de control siguiente -->
+        <span class="sr-only">Next</span> <!-- Texto alternativo para accesibilidad -->
+      </a>
+    </div>
+
+    <div class="container py-5"> <!-- Contenedor para el texto descriptivo -->
+      <h2 class="text-center">Petpedia</h2> <!-- Título centrado -->
+      <p class="text-justify"> <!-- Párrafo justificado -->
+        Este proyecto tiene como objetivo proporcionar una plataforma completa para el cuidado y bienestar de las mascotas. Ofrecemos una variedad de productos y servicios para asegurar que tus mascotas tengan lo mejor. Desde alimentos, accesorios, hasta consultas veterinarias, todo en un solo lugar. ¡Únete a nuestra comunidad y haz que tu mascota viva mejor!
+      </p>
+    </div>
+  </div>
+
+  <footer> <!-- Sección de pie de página -->
+    <div class="container"> <!-- Contenedor para el pie de página -->
+      <div class="row justify-content-center"> <!-- Fila centrada en el pie de página -->
+        <div class="col-md-6 text-center"> <!-- Columna centrada con texto -->
+          <p>&copy; 2024 Petpedia. Todos los derechos reservados.</p> <!-- Mensaje de derechos de autor -->
+          <div> <!-- Contenedor para los iconos de redes sociales -->
+            <a href="https://www.facebook.com" target="_blank" class="social-icon"> <!-- Enlace a Facebook -->
+              <i class="fab fa-facebook-f"></i> <!-- Icono de Facebook -->
+            </a>
+            <a href="https://twitter.com" target="_blank" class="social-icon"> <!-- Enlace a Twitter -->
+              <i class="fab fa-twitter"></i> <!-- Icono de Twitter -->
+            </a>
+            <a href="https://www.instagram.com" target="_blank" class="social-icon"> <!-- Enlace a Instagram -->
+              <i class="fab fa-instagram"></i> <!-- Icono de Instagram -->
+            </a>
+            <a href="https://www.linkedin.com" target="_blank" class="social-icon"> <!-- Enlace a LinkedIn -->
+              <i class="fab fa-linkedin-in"></i> <!-- Icono de LinkedIn -->
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="Script1.js"></script> <!-- Enlace a un archivo JavaScript personalizado -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script> <!-- Enlace a jQuery -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script> <!-- Enlace a Popper.js -->
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script> <!-- Enlace a Bootstrap JS -->
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+
+    <title>petpedia formulario </title>
+</head>
+<body>
+    <div class="container">  <!-- Contenedor principal -->
+        <h2>Registro de Veterinaria</h2>  <!-- Titulo principal  -->
+        <label>Nombre de la Veterinaria:</label>  <!-- etiqueta de la interfaz para ingresar datos-->
+        <input type="text" id="nombre">  <!-- elemento para ingresar datos del usuario -->
+        
+        <label>Descripción:</label>
+        <textarea id="descripcion"></textarea>
+        
+        <label>Horario de Atención:</label>
+        <input type="text" id="horario">
+        
+        <label>Imagen:</label>  <!-- eiqueta de interfaz para agregar imagen -->
+        <input type="file" id="imagen" accept="image/*" onchange="mostrarImagen(event)" hidden>  <!-- campo para seleccionar un archivo img  y que la muestre  -->
+        <button id="botonImagen" onclick="document.getElementById('imagen').click()">  <!-- boton para seleccionar imagen con un logo de camara -->
+            📷 Agregar Imagen
+        </button>
+        <img id="vistaPrevia" src="#" alt="Vista previa" style="display: none; max-width: 100%; margin-top: 10px;">   <!-- muestre imagen en vista previa y el tamaño que no puede pasar el contenedor  -->
+        
+        <button id="guardarBtn">Guardar</button>
+        <button id="verListaBtn" onclick="irAIndex3()">Ver Lista</button>
+
+
+
+        
+        <div id="resultado"></div>
+    </div>
+
+    <script src="script5.js"></script>
+</body>
+</html>

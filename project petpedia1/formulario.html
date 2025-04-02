@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registro de Mascotas</title>
+    <link rel="stylesheet" href="formulario.css"> <!-- Conectar archivo CSS -->
+</head>
+<body>
+
+    <div class="container">
+        <h2>Registrar Mascota</h2>
+
+        <!-- Formulario para registrar mascotas -->
+        <form id="formMascota">
+            <label for="nombre">Nombre:</label>
+            <input type="text" id="nombre" required>
+
+            <label for="edad">Edad:</label>
+            <input type="text" id="edad" required>
+
+            <label for="raza">Raza:</label>
+            <input type="text" id="raza" required>
+
+            <label for="tipo">Tipo de animal:</label>
+            <select id="tipo">
+                <option value="Perro">Perro</option>
+                <option value="Gato">Gato</option>
+                <option value="Otro">Otro</option>
+            </select>
+
+            <label for="sexo">Sexo:</label>
+            <select id="sexo">
+                <option value="Macho">Macho</option>
+                <option value="Hembra">Hembra</option>
+            </select>
+
+            <label for="descripcion">Descripcion:</label>
+            <textarea id="descripcion" rows="3"></textarea>
+
+            <!-- Subida de imagen con vista previa -->
+            <label for="foto">Foto:</label>
+            <input type="file" id="foto" accept="image/*">
+            <img id="preview" src="" alt="Previsualizacion de imagen">
+
+            <button type="submit">Registrar Mascota</button>
+        </form>
+        <button id="verListaBtn" onclick="irAIndex1()">Ver Lista de Mascotas</button>
+
+    </div>
+
+    <!-- Sección donde se mostraran las tarjetas de mascotas -->
+    <div id="listaMascotas"></div>
+
+    <script src="formulario.js"></script> <!-- Conectar archivo JavaScript -->
+</body>
+</html>

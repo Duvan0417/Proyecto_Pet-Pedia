@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es"> 
+<head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Petpedia</title> <!-- Título que aparece en la pestaña del navegador -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Enlace a la hoja de estilos de Bootstrap -->
+  <link rel="stylesheet" href="Styles2.css"> <!-- Enlace a la hoja de estilos personalizada -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Enlace a Font Awesome para iconos -->
+</head>
+<body>
+  <div class="sidebar"> <!-- Contenedor de la barra lateral de navegación -->
+    <a href="index4.html"> <!-- Enlace a la página de inicio -->
+      <i class="fas fa-home"></i> <!-- Icono de casa de Font Awesome -->
+      <span>Inicio</span> <!-- Texto del enlace -->
+    </a>
+    <a href="index2.html"> <!-- Enlace a la página de compras -->
+      <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito de compras -->
+      <span>Compra</span> <!-- Texto del enlace -->
+    </a>
+    <a href="index3.html"> <!-- Enlace a la página de veterinaria -->
+      <i class="fas fa-clinic-medical"></i> <!-- Icono de clínica médica -->
+      <span>Veterinaria</span> <!-- Texto del enlace -->
+    </a>
+    <a href="index1.html"> <!-- Enlace a la página de adopciones -->
+      <i class="fas fa-paw"></i> <!-- Icono de pata de animal -->
+      <span>Adopciones</span> <!-- Texto del enlace -->
+    </a>
+    <a href="#"> <!-- Enlace al foro (sin destino definido) -->
+      <i class="fas fa-comments"></i> <!-- Icono de comentarios -->
+      <span>Foro</span> <!-- Texto del enlace -->
+    </a>
+    <a href="#"> <!-- Enlace al perfil (sin destino definido) -->
+      <i class="fas fa-user"></i> <!-- Icono de usuario -->
+      <span>Perfil</span> <!-- Texto del enlace -->
+    </a>
+    <a href="#"> <!-- Enlace a configuración (sin destino definido) -->
+      <i class="fas fa-cog"></i> <!-- Icono de engranaje -->
+      <span>Configuración</span> <!-- Texto del enlace -->
+    </a>
+  </div>
+
+  <div class="main-content"> <!-- Contenedor principal del contenido -->
+    <nav class="navbar navbar-expand-lg navbar-light"> <!-- Barra de navegación usando Bootstrap -->
+        <div class="search-filters"> <!-- Contenedor para los filtros de búsqueda -->
+            <div class="btn-group"> <!-- Grupo de botones para seleccionar tipo de mascota -->
+        <a class="navbar-brand" href="#"> <!-- Marca de navegación -->
+            <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo"> <!-- Imagen de logo -->
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <!-- Botón para colapsar la navegación en pantallas pequeñas -->
+            <span class="navbar-toggler-icon"></span> <!-- Icono del botón de colapso -->
+        </button>
+        
+        <div class="collapse navbar-collapse" id="navbarNav"> <!-- Contenedor colapsable para la navegación -->
+            <ul class="navbar-nav mr-auto"> <!-- Lista de navegación -->
+                <li class="nav-item dropdown"> <!-- Elemento de menú desplegable -->
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <!-- Enlace del menú desplegable -->
+                        Categorías
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown"> <!-- Contenedor del menú desplegable -->
+                        <a class="dropdown-item" href="#">Comida</a> <!-- Opción del menú -->
+                        <a class="dropdown-item" href="#">Juguetes</a> <!-- Opción del menú -->
+                        <a class="dropdown-item" href="#">Accesorios</a> <!-- Opción del menú -->
+                        <a class="dropdown-item" href="#">Ropa</a> <!-- Opción del menú -->
+                        <a class="dropdown-item" href="#">Camas y Muebles</a> <!-- Opción del menú -->
+                    </div>
+                </li>
+                
+                <li class="nav-item"> <!-- Elemento de navegación -->
+                    <a class="nav-link" href="#">Ofertas del Día</a> <!-- Enlace a ofertas del día -->
+                </li>
+                <li class="nav-item"> <!-- Elemento de navegación -->
+                    <a class="nav-link" href="">Pedidos</a> <!-- Enlace a pedidos -->
+                </li>
+            </ul>
+            
+            <ul class="navbar-nav">  <!-- Segunda lista de navegación -->
+                <li class="nav-item d-flex align-items-center"> <!-- Elemento de navegación con alineación flexible -->
+                    <input type="text" class="form-control search-input" placeholder="Buscar productos" aria-label="Buscar productos"> <!-- Campo de texto para búsqueda -->
+                    <button class="btn-actions">Buscar</button> <!-- Botón para ejecutar la búsqueda -->
+                </li>
+                <li class="nav-item"> <!-- Elemento de navegación -->
+                    <a class="nav-link" href="index6.html"> <!-- Enlace al carrito de compras -->
+                        <i class="fas fa-shopping-cart" style="font-size: 24px;"></i> <!-- Icono de carrito de compras -->
+                    </a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    
+    <div class="container-fluid py-5"> <!-- Contenedor fluido con margen superior e inferior -->
+        <div class="row" style="margin-left: 0%;"> <!-- Fila para organizar los productos -->
+          
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el primer producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+1" alt="Producto 1" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Comida para Gatos</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Alimento de alta calidad para gatos, ideal para su salud.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el segundo producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+2" alt="Producto 2" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Juguete para Perros</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Juguete resistente y divertido para perros activos.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el tercer producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+3" alt="Producto 3" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Collar para Mascotas</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Collar cómodo y elegante para tu mascota.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el cuarto producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+4" alt="Producto 4" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Alimento para Perros</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Nutrición completa para perros, adecuado para todas las razas.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                  <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el quinto producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+5" alt="Producto 5" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Juguete Interactivo</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Juguete que estimula la mente de tu mascota mientras juega.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el sexto producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+6" alt="Producto 6" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Cama para Mascotas</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Cama cómoda y suave para tu mascota, ideal para descansar.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el séptimo producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+7" alt="Producto 7" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Correa para Perros</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Correa resistente para paseos cómodos y seguros.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el octavo producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+4" alt="Producto 4" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Alimento para Perros</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Nutrición completa para perros, adecuado para todas las razas.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                  <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="row" id="productosContainer"> 
+           
+        </div>
+        </div>
+      </div>
+        
+      <footer> <!-- Sección de pie de página -->
+        <div class="container"> <!-- Contenedor para el pie de página -->
+          <div class="row justify-content-center"> <!-- Fila centrada en el pie de página -->
+            <div class="col-md-6 text-center"> <!-- Columna centrada con texto -->
+              <p>&copy; 2024 Petpedia. Todos los derechos reservados.</p> <!-- Mensaje de derechos de autor -->
+              <div> <!-- Contenedor para los iconos de redes sociales -->
+                <a href="https://www.facebook.com" target="_blank" class="social-icon"> <!-- Enlace a Facebook -->
+                  <i class="fab fa-facebook-f"></i> <!-- Icono de Facebook -->
+                </a>
+                <a href="https://twitter.com" target="_blank" class="social-icon"> <!-- Enlace a Twitter -->
+                  <i class="fab fa-twitter"></i> <!-- Icono de Twitter -->
+                </a>
+                <a href="https://www.instagram.com" target="_blank" class="social-icon"> <!-- Enlace a Instagram -->
+                  <i class="fab fa-instagram"></i> <!-- Icono de Instagram -->
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" class="social-icon"> <!-- Enlace a LinkedIn -->
+                  <i class="fab fa-linkedin-in"></i> <!-- Icono de LinkedIn -->
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> <!-- Enlace a jQuery -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gyb6Hf2XK4F8U1F6E1c9v4D0m4v1HqD+fG5y8V1b8+6e3M1F0X" crossorigin="anonymous"></script> <!-- Enlace a Popper.js -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-wX3cZ2k0C0P1Yx5L4d4Y3z2Z4v1HqD+fG5y8V1b8+6e3M1F0X" crossorigin="anonymous"></script> <!-- Enlace a Bootstrap JS -->
+      
+      <script src="Script2.js"></script> <!-- Enlace a un archivo JavaScript personalizado -->
+</body>
+</html>

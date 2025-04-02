@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="es"> 
+<head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Petpedia</title> <!-- Título que aparece en la pestaña del navegador -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Enlace a la hoja de estilos de Bootstrap -->
+  <link rel="stylesheet" href="Styles2.css"> <!-- Enlace a la hoja de estilos personalizada -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Enlace a Font Awesome para iconos -->
+</head>
+<body>
+  <div class="sidebar"> <!-- Contenedor de la barra lateral de navegación -->
+    <a href="index4.html"> <!-- Enlace a la página de inicio -->
+      <i class="fas fa-home"></i> <!-- Icono de casa de Font Awesome -->
+      <span>Inicio</span> <!-- Texto del enlace -->
+    </a>
+    <a href="index2.html"> <!-- Enlace a la página de compras -->
+      <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito de compras -->
+      <span>Compra</span> <!-- Texto del enlace -->
+    </a>
+    <a href="index3.html"> <!-- Enlace a la página de veterinaria -->
+      <i class="fas fa-clinic-medical"></i> <!-- Icono de clínica médica -->
+      <span>Veterinaria</span> <!-- Texto del enlace -->
+    </a>
+    <a href="index1.html"> <!-- Enlace a la página de adopciones -->
+      <i class="fas fa-paw"></i> <!-- Icono de pata de animal -->
+      <span>Adopciones</span> <!-- Texto del enlace -->
+    </a>
+    <a href="#"> <!-- Enlace al foro (sin destino definido) -->
+      <i class="fas fa-comments"></i> <!-- Icono de comentarios -->
+      <span>Foro</span> <!-- Texto del enlace -->
+    </a>
+    <a href="#"> <!-- Enlace al perfil (sin destino definido) -->
+      <i class="fas fa-user"></i> <!-- Icono de usuario -->
+      <span>Perfil</span> <!-- Texto del enlace -->
+    </a>
+    <a href="#"> <!-- Enlace a configuración (sin destino definido) -->
+      <i class="fas fa-cog"></i> <!-- Icono de engranaje -->
+      <span>Configuración</span> <!-- Texto del enlace -->
+    </a>
+  </div>
+
+  <div class="main-content"> <!-- Contenedor principal del contenido -->
+    <nav class="navbar navbar-expand-lg navbar-light"> <!-- Barra de navegación usando Bootstrap -->
+      <a class="navbar-brand" href="#"> <!-- Marca de navegación -->
+          <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo"> <!-- Imagen de logo -->
+      </a>
+      <div class="search-filters"> <!-- Contenedor para los filtros de búsqueda -->
+        <div class="btn-group"> <!-- Grupo de botones para seleccionar tipo de mascota -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <!-- Botón para colapsar la navegación en pantallas pequeñas -->
+          <span class="navbar-toggler-icon"></span> <!-- Icono del botón de colapso -->
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav"> <!-- Contenedor colapsable para la navegación -->
+          <ul class="navbar-nav ml-auto"> <!-- Lista de navegación alineada a la derecha -->
+              <li class="nav-item"> <!-- Elemento de navegación -->
+                  <a class="nav-link" href="#">Ofertas del Día</a> <!-- Enlace a ofertas del día -->
+              </li>
+              <li class="nav-item"> <!-- Elemento de navegación -->
+                  <a class="nav-link" href="#">Historial de Citas</a> <!-- Enlace a historial de citas -->
+              </li>
+              <li class="nav-item"> <!-- Elemento de navegación -->
+                  <div class="input-group"> <!-- Contenedor para el grupo de entrada -->
+                      <input type="text" class="form-control search-input" placeholder="Buscar..."> <!-- Campo de texto para búsqueda -->
+                      <div class="input-group-append"> <!-- Contenedor para el botón de búsqueda -->
+                        <button class="btn-actions">Buscar</button> <!-- Botón para ejecutar la búsqueda -->
+                      </div>
+                  </div>
+              </li>
+          </ul>
+      </div>
+    </nav>
+
+    <div class="container-fluid py-5"> <!-- Contenedor fluido con margen superior e inferior -->
+        <div class="row" style="margin-left: 0%;"> <!-- Fila para organizar las tarjetas de veterinarias -->
+          
+          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la primera veterinaria -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
+              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
+                <h3 class="pet-name">Veterinaria 1</h3> <!-- Nombre de la veterinaria -->
+                <p class="pet-description">Consulta y atención integral para tus mascotas, con un equipo profesional y amable.</p> <!-- Descripción de la veterinaria -->
+                <p><strong>Horario:</strong> Lunes a Viernes, 8:00 AM - 6:00 PM</p> <!-- Horario de atención -->
+                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
+                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
+                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la segunda veterinaria -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
+              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
+                <h3 class="pet-name">Veterinaria 2</h3> <!-- Nombre de la veterinaria -->
+                <p class="pet-description">Especialistas en cirugía y tratamientos avanzados para la salud de tus animales.</p> <!-- Descripción de la veterinaria -->
+                <p><strong>Horario:</strong> Martes a Sábado, 9:00 AM - 5:00 PM</p> <!-- Horario de atención -->
+                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
+                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
+                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la tercera veterinaria -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
+              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
+                <h3 class="pet-name">Veterinaria 3</h3> <!-- Nombre de la veterinaria -->
+                <p class="pet-description">Atención de emergencias y consultas generales, siempre listos para ayudar.</p> <!-- Descripción de la veterinaria -->
+                <p><strong>Horario:</strong> Lunes a Domingo, 10:00 AM - 8:00 PM</p> <!-- Horario de atención -->
+                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
+                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
+                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la cuarta veterinaria -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
+              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
+                <h3 class="pet-name">Veterinaria 4</h3> <!-- Nombre de la veterinaria -->
+                <p class="pet-description">Cuidado preventivo y vacunación, asegurando la salud de tus mascotas.</p> <!-- Descripción de la veterinaria -->
+                <p><strong>Horario:</strong> Miércoles a Domingo, 9:00 AM - 4:00 PM</p> <!-- Horario de atención -->
+                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
+                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
+                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la quinta veterinaria -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
+              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
+                <h3 class="pet-name">Veterinaria 5</h3> <!-- Nombre de la veterinaria -->
+                <p class="pet-description">Atención de emergencias y consultas generales, siempre listos para ayudar.</p> <!-- Descripción de la veterinaria -->
+                <p><strong>Horario:</strong> Lunes a Domingo, 10:00 AM - 8:00 PM</p> <!-- Horario de atención -->
+                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
+                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
+                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la sexta veterinaria -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
+              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
+                <h3 class="pet-name">Veterinaria 6</h3> <!-- Nombre de la veterinaria -->
+                <p class="pet-description">Cuidado preventivo y vacunación, asegurando la salud de tus mascotas.</p> <!-- Descripción de la veterinaria -->
+                <p><strong>Horario:</strong> Miércoles a Domingo, 9:00 AM - 4:00 PM</p> <!-- Horario de atención -->
+                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
+                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
+                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+        
+      <footer> <!-- Sección de pie de página -->
+        <div class="container"> <!-- Contenedor para el pie de página -->
+          <div class="row justify-content-center"> <!-- Fila centrada en el pie de página -->
+            <div class="col-md-6 text-center"> <!-- Columna centrada con texto -->
+              <p>&copy; 2024 Petpedia. Todos los derechos reservados.</p> <!-- Mensaje de derechos de autor -->
+              <div> <!-- Contenedor para los iconos de redes sociales -->
+                <a href="https://www.facebook.com" target="_blank" class="social-icon"> <!-- Enlace a Facebook -->
+                  <i class="fab fa-facebook-f"></i> <!-- Icono de Facebook -->
+                </a>
+                <a href="https://twitter.com" target="_blank" class="social-icon"> <!-- Enlace a Twitter -->
+                  <i class="fab fa-twitter"></i> <!-- Icono de Twitter -->
+                </a>
+                <a href="https://www.instagram.com" target="_blank" class="social-icon"> <!-- Enlace a Instagram -->
+                  <i class="fab fa-instagram"></i> <!-- Icono de Instagram -->
+                </a>
+                <a href="https://www.linkedin.com" target="_blank" class="social-icon"> <!-- Enlace a LinkedIn -->
+                  <i class="fab fa-linkedin-in"></i> <!-- Icono de LinkedIn -->
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> <!-- Enlace a jQuery -->
+      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gyb6Hf2XK4F8U1F6E1c9v4D0m4v1HqD+fG5y8V1b8+6e3M1F0X" crossorigin="anonymous"></script> <!-- Enlace a Popper.js -->
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-wX3cZ2k0C0P1Yx5L4d4Y3z2Z4v1HqD+fG5y8V1b8+6e3M1F0X" crossorigin="anonymous"></script> <!-- Enlace a Bootstrap JS -->
+      
+      <script src="Script1.js"></script> <!-- Enlace a un archivo JavaScript personalizado -->
+</body>
+</html>

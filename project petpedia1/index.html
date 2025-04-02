@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">  
+    <link rel="stylesheet" href="style.css"> <!-- Conecta el archivo CSS para los estilos -->
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script> <!-- Fuente de iconos -->
+</head>
+<body>
+
+    <div class="container">  <!-- Contenedor principal -->
+        <form id="productForm">  <!-- Formulario para ingresar datos del producto -->
+            <h2>Agregar Producto</h2>
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" required><!-- Campo de entrada para el nombre -->
+
+            <label for="price">Precio:</label> <!-- Campo de entrada para el precio -->
+
+            <input type="number" id="price" required>
+
+            <label for="description">Descripción:</label>
+            <textarea id="description" required></textarea> <!-- Área de texto para la descripción -->
+
+  <!-- Selector de imagen con un botón personalizado -->
+            <label>Imagen:</label>
+            <div class="custom-file">
+                <input type="file" id="image" accept="image/*" hidden><!-- Input oculto para subir imagen -->
+                <button type="button" id="uploadBtn"><i class="fas fa-camera"></i> Subir Imagen</button><!-- Botón con icono de cámara -->
+                <span id="fileName">Ningún archivo seleccionado</span>
+            </div>
+
+            <button type="submit">Guardar</button> <!-- Botón para enviar el formulario -->
+            <button id="verProductos">Ver Productos</button>
+        </form>
+<!-- Contenedor donde se mostrará la vista previa del producto -->
+        <div id="productDisplay" class="product-card">
+            
+
+            <h2>Vista previa</h2>
+            <div id="previewContent">
+                <p>No hay producto agregado.</p> <!-- Mensaje por defecto si no hay producto agregado -->
+            </div>
+        </div>
+    </div>
+
+    <script src="scrip.js"></script>  <!-- Conecta el archivo JavaScript -->
+</body>
+</html>
+
+
+
+
+

@@ -1,0 +1,79 @@
+/* Estilos generales de la página */
+body {
+    font-family: Arial, sans-serif; /* Se usa Arial como fuente principal, y sans-serif como respaldo */
+    margin: 0; 
+    padding: 20px;
+    background-color: #f4f4f4; /* Fondo blanco */
+}
+
+.container {
+    width: 50%; /* Define el ancho del contenedor como el 50% del ancho total de la pantalla */
+    margin: auto;/* Centra el contenedor horizontalmente */
+    background: white;/* Establece un fondo blanco para resaltar el contenido */
+    padding: 20px;/* Agrega espacio interno dentro del contenedor para mejorar la legibilidad */
+    border-radius: 10px;/* Aplica esquinas redondeadas para un diseño más suave */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+/*formulario*/
+form {
+    display: flex;/* Usa Flexbox para organizar los elementos dentro del formulario */
+    flex-direction: column; /* Asegura que los elementos del formulario estén en columna */
+}
+
+label {
+    margin-top: 10px; /* Agrega un margen superior para separar las etiquetas de los campos de entrada */
+    font-weight: bold;/* Hace que el texto de la etiqueta sea más grueso para destacar */
+}
+/*campos de entrada*/
+input, textarea {
+    padding: 8px;/* Agrega espacio dentro de los campos para que el texto sea más fácil de leer */
+    margin-top: 5px;/* Añade un pequeño margen superior para separarlos de las etiquetas */
+    border: 1px solid #ccc;
+    border-radius: 5px;/* Redondea las esquinas de los campos para un aspecto más moderno */
+}
+
+button {
+    margin-top: 15px; /* Agrego un margen superior para separarlo de los campos del formulario */
+    padding: 10px;  /* Añade espacio interno para que el botón sea más fácil de presionar */
+    background: #ee6c4d; /* Define un color de fondo naranja para que destaque */
+    color: white;/* Establece el color del texto en blanco para mejorar la legibilidad */
+    border: none;/* Elimina el borde predeterminado para un diseño más limpio */
+    cursor: pointer;  /* Cambia el cursor a una mano cuando el usuario pasa sobre el botón, indicando que es interactivo */
+    border-radius: 5px; /* Suaviza las esquinas del botón para un diseño más moderno */
+}
+
+button:hover {
+    background: #ee6c4d; /* Mantiene el mismo color cuando el cursor está sobre el botón */
+}
+
+.product-card {
+    margin-top: 20px; /* Añade un margen superior para separar la tarjeta de otros elementos */
+    padding: 15px;  /* Agrega espacio interno para que el contenido tenga un mejor aspecto */
+    border: 1px solid #ddd; /* Define un borde gris claro para diferenciar la tarjeta del fondo */
+    border-radius: 10px; /* Suaviza las esquinas de la tarjeta para un diseño más atractivo */
+    background: white; /* Fondo blanco para resaltar el contenido dentro de la tarjeta */
+    text-align: center;  /* Centra el contenido dentro de la tarjeta, útil para imágenes y textos */
+}
+
+.product-card img {
+    max-width: 100%; /* Asegura que la imagen no sea más ancha que su contenedor */
+    height: auto;/* Mantiene la proporción original de la imagen */
+    border-radius: 5px; /* Redondea las esquinas de la imagen para que coincida con el estilo de la tarjeta */
+    margin-top: 10px; /* Agrega un pequeño margen en la parte superior para separarla del contenido superior */
+}
+#verProductos {
+    margin-top: 15px;
+    padding: 10px;
+    background: #ee6c4d; 
+    color: white;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 16px;
+    text-align: center;
+    width: 100%;
+}
+
+#verProductos:hover {
+    background: #ee6c4d; 
+}

@@ -1,0 +1,88 @@
+/* -------------------- ESTILOS GENERALES -------------------- */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #121212; /* Color oscuro de fondo */
+    color: white; /* Texto en color blanco */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    margin: 0;
+}
+
+/* -------------------- FORMULARIO -------------------- */
+.container {
+    background: #1e1e1e; /* Fondo oscuro para el formulario */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.2); /* Efecto de sombra */
+    width: 90%;
+    max-width: 600px;
+}
+
+input, select, textarea {
+    padding: 10px;
+    background: #2a2a2a; /* Fondo oscuro */
+    color: white;
+    border: none;
+    border-radius: 8px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+/* Botón principal */
+button {
+    padding: 12px;
+    background: #ff4500; /* Color naranja */
+    border: none;
+    border-radius: 8px;
+    color: white;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+/* Efecto al pasar el mouse */
+button:hover {
+    background: #ff6347; /* Color rojo claro */
+}
+
+/* -------------------- TARJETAS DE MASCOTAS -------------------- */
+.tarjeta {
+    background: #232323; /* Fondo oscuro */
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0px 4px 10px rgba(0, 255, 255, 0.2);
+    margin-top: 20px;
+    text-align: center;
+    width: 300px;
+}
+
+/* Imagen de la mascota */
+.tarjeta img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover; /* Evita que la imagen se deforme */
+    border-radius: 10px;
+}
+
+/* -------------------- BOTONES DE ACCION -------------------- */
+.acciones {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.editar {
+    background: #009688; /* Color verde */
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.eliminar {
+    background: #d32f2f; /* Color rojo */
+    padding: 8px;
+    border-radius: 6px;
+    cursor: pointer;
+}

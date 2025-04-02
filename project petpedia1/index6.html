@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8"> <!-- Establece la codificación de caracteres a UTF-8 -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <title>Carrito de Compras</title> 
+    <link rel="stylesheet" href="style6.css">
+</head>
+<body>
+    <div class="container"> <!-- Contenedor principal -->
+        <h1>Carrito de Compras</h1> <!-- Título principal -->
+        <div class="products"> <!-- Sección de productos -->
+            <div class="product" data-name="Comida para Perros" data-price="20000"> <!-- Producto 1 -->
+                <h2>Comida para Perros</h2> <!-- Nombre del producto -->
+                <p>Precio: $20.000</p> <!-- Precio del producto -->
+                <button onclick="addToCart(this)">Agregar al Carrito</button> <!-- Botón para agregar al carrito -->
+            </div>
+            <div class="product" data-name="Juguete para Gatos" data-price="15000"> <!-- Producto 2 -->
+                <h2>Juguete para Gatos</h2> <!-- Nombre del producto -->
+                <p>Precio: $15.000</p> <!-- Precio del producto -->
+                <button onclick="addToCart(this)">Agregar al Carrito</button> <!-- Botón para agregar al carrito -->
+            </div>
+        </div>
+        <h2>Productos en el Carrito</h2> <!-- Título de la sección del carrito -->
+        <ul id="cart"></ul> <!-- Lista de productos en el carrito -->
+        <p id="total">Total: $0</p> <!-- Muestra el total del carrito -->
+    </div>
+    <script src="Script6.js"></script>
+</body>
+</html>

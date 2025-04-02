@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <title>Petpedia</title> <!-- Título que aparece en la pestaña del navegador -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Enlace a la hoja de estilos de Bootstrap -->
+  <link rel="stylesheet" href="Style1.css"> <!-- Enlace a la hoja de estilos personalizada -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Enlace a Font Awesome para iconos -->
+</head>
+<body>
+  <div class="sidebar"> <!-- Contenedor de la barra lateral de navegación -->
+    <a href="index4.html"> <!-- Enlace a la página de inicio -->
+      <i class="fas fa-home"></i> <!-- Icono de casa de Font Awesome -->
+      <span>Inicio</span> <!-- Texto del enlace -->
+    </a>
+    <a href="index2.html"> <!-- Enlace a la página de compras -->
+      <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito de compras -->
+      <span>Compra</span> <!-- Texto del enlace -->
+    </a>
+    <a href="index3.html"> <!-- Enlace a la página de veterinaria -->
+      <i class="fas fa-clinic-medical"></i> <!-- Icono de clínica médica -->
+      <span>Veterinaria</span> <!-- Texto del enlace -->
+    </a>
+    <a href="index1.html"> <!-- Enlace a la página de adopciones -->
+      <i class="fas fa-paw"></i> <!-- Icono de pata de animal -->
+      <span>Adopciones</span> <!-- Texto del enlace -->
+    </a>
+    <a href="#"> <!-- Enlace al foro (sin destino definido) -->
+      <i class="fas fa-comments"></i> <!-- Icono de comentarios -->
+      <span>Foro</span> <!-- Texto del enlace -->
+    </a>
+    <a href="#"> <!-- Enlace al perfil (sin destino definido) -->
+      <i class="fas fa-user"></i> <!-- Icono de usuario -->
+      <span>Perfil</span> <!-- Texto del enlace -->
+    </a>
+    <a href="#"> <!-- Enlace a configuración (sin destino definido) -->
+      <i class="fas fa-cog"></i> <!-- Icono de engranaje -->
+      <span>Configuración</span> <!-- Texto del enlace -->
+    </a>
+  </div>
+
+  <div class="main-content"> <!-- Contenedor principal del contenido -->
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light"> <!-- Barra de navegación usando Bootstrap -->
+      <a class="navbar-brand" href="#"> <!-- Marca de navegación -->
+        <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo"> <!-- Imagen de logo -->
+      </a>
+      <form class="form-inline ml-auto"> <!-- Formulario de búsqueda alineado a la derecha -->
+        
+        <div class="search-filters"> <!-- Contenedor de filtros de búsqueda -->
+          <div class="btn-group"> <!-- Grupo de botones para seleccionar tipo de mascota -->
+            <button class="btn-toggle active"><i class="fas fa-dog"></i> Perros</button> <!-- Botón para perros -->
+            <button class="btn-toggle"><i class="fas fa-cat"></i> Gatos</button> <!-- Botón para gatos -->
+          </div>
+        
+          <select class="form-control mx-2" id="size"> <!-- Selector para tamaño de mascota -->
+            <option value="">Tamaño</option> <!-- Opción por defecto -->
+            <option value="pequeño">Pequeño</option> <!-- Opción de tamaño pequeño -->
+            <option value="mediano">Mediano</option> <!-- Opción de tamaño mediano -->
+            <option value="grande">Grande</option> <!-- Opción de tamaño grande -->
+          </select>
+
+          <select class="form-control mx-2" id="breed"> <!-- Selector para raza de mascota -->
+            <option value="">Raza</option> <!-- Opción por defecto -->
+            <option value="labrador">Labrador</option> <!-- Opción de raza Labrador -->
+            <option value="pastor_aleman">Pastor Alemán</option> <!-- Opción de raza Pastor Alemán -->
+            <option value="siames">Siamés</option> <!-- Opción de raza Siamés -->
+            <option value="persa">Persa</option> <!-- Opción de raza Persa -->
+          </select>
+
+          <select class="form-control mx-2" id="gender"> <!-- Selector para género de mascota -->
+            <option value="">Género</option> <!-- Opción por defecto -->
+            <option value="macho">Macho</option> <!-- Opción de género macho -->
+            <option value="hembra">Hembra</option> <!-- Opción de género hembra -->
+          </select>
+
+          <input type="text" class="form-control mx-2" id="city" placeholder="Ciudad"> <!-- Campo de texto para ciudad -->
+
+          <button class="btn-actions">Buscar</button> <!-- Botón para ejecutar la búsqueda -->
+        </form>
+      </div>
+    </nav>
+    
+    <div class="container-fluid py-5"> <!-- Contenedor fluido con margen superior e inferior -->
+      <div class="row"> <!-- Fila para organizar las tarjetas de mascotas -->
+        <div class="col-md-4 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para la tarjeta de mascota -->
+          <div class="pet-card"> <!-- Contenedor para la tarjeta de mascota -->
+            <img src="https://th.bing.com/th/id/R.28862ab2171d1f8a655a5df7e94ee2bc?rik=%2b5q%2bIkmJ3juu7Q&pid=ImgRaw&r=0" alt="Pet Image" class="pet-image"> <!-- Imagen de la mascota -->
+            <div class="pet-info"> <!-- Contenedor para la información de la mascota -->
+              <h3 class="pet-name">Buddy</h3> <!-- Nombre de la mascota -->
+              <div class="pet-tags"> <!-- Contenedor para las etiquetas de la mascota -->
+                <span class="pet-tag">2 años</span> <!-- Edad de la mascota -->
+                <span class="pet-tag">Labrador</span> <!-- Raza de la mascota -->
+                <span class="pet-tag">Macho</span> <!-- Género de la mascota -->
+              </div>
+              <p class="pet-description">Perro amigable y cariñoso, listo para adoptar.</p> <!-- Descripción de la mascota -->
+              <div class="d-flex"> <!-- Contenedor flex para los botones de acción -->
+                <button class="btn-action flex-grow-1">Adoptar</button> <!-- Botón para adoptar la mascota -->
+                <button class="btn-action btn-secondary-action"> <!-- Botón para marcar como favorito -->
+                  <i class="fas fa-heart"></i> <!-- Icono de corazón -->
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Segunda columna para otra mascota -->
+          <div class="pet-card"> <!-- Contenedor para la tarjeta de mascota -->
+            <img src="https://cdn.pixabay.com/photo/2021/09/05/00/58/gato-6598701_1280.jpg" alt="Cat Image" class="pet-image"> <!-- Imagen de la mascota -->
+            <div class="pet-info"> <!-- Contenedor para la información de la mascota -->
+              <h3 class="pet-name">Whiskers</h3> <!-- Nombre de la mascota -->
+              <div class="pet-tags"> <!-- Contenedor para las etiquetas -->
+                <span class="pet-tag">1 año</span> <!-- Edad de la mascota -->
+                <span class="pet-tag">Bengalí</span> <!-- Raza de la mascota -->
+                <span class="pet-tag">Macho</span> <!-- Género de la mascota -->
+              </div>
+              <p class="pet-description">Gato juguetón y tranquilo, disponible para adopción.</p> <!-- Descripción de la mascota -->
+              <div class="d-flex"> <!-- Contenedor flex para los botones de acción -->
+                <button class="btn-action flex-grow-1">Adoptar</button> <!-- Botón para adoptar la mascota -->
+                <button class="btn-action btn-secondary-action"> <!-- Botón para marcar como favorito -->
+                  <i class="fas fa-heart"></i> <!-- Icono de corazón -->
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Tercera columna para otra mascota -->
+          <div class="pet-card"> <!-- Contenedor para la tarjeta de mascota -->
+            <img src="https://th.bing.com/th/id/R.df756a251a62d8fb09b9cf66711c1c09?rik=SKtoKItSIRDsqQ&riu=http%3a%2f%2fcms.softindustries.com%2fmultimedia%2f12%2f200808%2fBichon-maltes_1_2.jpg&ehk=Gd8ncrL%2ffQ5KRPk3D5iiXPywZz1Ih8YwBHfkzAM8z8E%3d&risl=&pid=ImgRaw&r=0" alt="Dog Image" class="pet-image"> <!-- Imagen de la mascota -->
+            <div class="pet-info"> <!-- Contenedor para la información de la mascota -->
+              <h3 class="pet-name">Max</h3> <!-- Nombre de la mascota -->
+              <div class="pet-tags"> <!-- Contenedor para las etiquetas -->
+                <span class="pet-tag">1 año</span> <!-- Edad de la mascota -->
+                <span class="pet-tag">Siamés</span> <!-- Raza de la mascota -->
+                <span class="pet-tag">Hembra</span> <!-- Género de la mascota -->
+              </div>
+              <p class="pet-description">Perro leal y protector, busca un hogar.</p> <!-- Descripción de la mascota -->
+              <div class="d-flex"> <!-- Contenedor flex para los botones de acción -->
+                <button class="btn-action flex-grow-1">Adoptar</button> <!-- Botón para adoptar la mascota -->
+                <button class="btn-action btn-secondary-action"> <!-- Botón para marcar como favorito -->
+                  <i class="fas fa-heart"></i> <!-- Icono de corazón -->
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-md-4 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para la tarjeta de la mascota, se amplía al hacer clic -->
+          <div class="pet-card"> <!-- Contenedor para la tarjeta de la mascota -->
+            <img src="https://uploads-ssl.webflow.com/63634f4a7b868a399577cf37/63e10bf28752f848463155b3_razas%20de%20gatos.jpg" alt="Cat Image" class="pet-image"> <!-- Imagen de la mascota -->
+            <div class="pet-info"> <!-- Contenedor para la información de la mascota -->
+              <h3 class="pet-name">Luna</h3> <!-- Nombre de la mascota -->
+              <div class="pet-tags"> <!-- Contenedor para las etiquetas de la mascota -->
+                <span class="pet-tag">6 meses</span> <!-- Edad de la mascota -->
+                <span class="pet-tag">Persa</span> <!-- Raza de la mascota -->
+                <span class="pet-tag">Macho</span> <!-- Género de la mascota -->
+              </div>
+              <p class="pet-description">gata dulce y cariñosa, perfecta para abrazos.</p> <!-- Descripción de la mascota -->
+              <div class="d-flex"> <!-- Contenedor flex para los botones de acción -->
+                <button class="btn-action flex-grow-1">Adoptar</button> <!-- Botón para adoptar la mascota -->
+                <button class="btn-action btn-secondary-action"> <!-- Botón para marcar como favorito -->
+                  <i class="fas fa-heart"></i> <!-- Icono de corazón -->
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Segunda columna para otra mascota -->
+          <div class="pet-card"> <!-- Contenedor para la tarjeta de la mascota -->
+            <img src="https://th.bing.com/th/id/R.b4a35952996b0363fb3b3823d171a8e8?rik=yPmvd9x3vMBR5Q&riu=http%3a%2f%2fc.files.bbci.co.uk%2f48DD%2fproduction%2f_107435681_perro1.jpg&ehk=LcxYxmKeK6CKzYChIUt5UGL2G3Zapsyy1nEJgOZAq3M%3d&risl=&pid=ImgRaw&r=0" alt="Dog Image" class="pet-image"> <!-- Imagen de la mascota -->
+            <div class="pet-info"> <!-- Contenedor para la información de la mascota -->
+              <h3 class="pet-name">Rocky</h3> <!-- Nombre de la mascota -->
+              <div class="pet-tags"> <!-- Contenedor para las etiquetas -->
+                <span class="pet-tag">3 años</span> <!-- Edad de la mascota -->
+                <span class="pet-tag">Pastor Alemán</span> <!-- Raza de la mascota -->
+                <span class="pet-tag">Macho</span> <!-- Género de la mascota -->
+              </div>
+              <p class="pet-description">Perro energético y divertido, siempre listo para jugar.</p> <!-- Descripción de la mascota -->
+              <div class="d-flex justify-content-between"> <!-- Contenedor flex con justificación entre elementos -->
+                <div class="d-flex"> <!-- Contenedor flex para los botones de acción -->
+                  <button class="btn-action flex-grow-1">Adoptar</button> <!-- Botón para adoptar la mascota -->
+                  <button class="btn-action btn-secondary-action"> <!-- Botón para marcar como favorito -->
+                    <i class="fas fa-heart"></i> <!-- Icono de corazón -->
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-md-4 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Tercera columna para otra mascota -->
+          <div class="pet-card"> <!-- Contenedor para la tarjeta de la mascota -->
+            <img src="https://th.bing.com/th/id/R.9a4d2589b4f182316546b5afefc67156?rik=fTcPvJZR6rkBNg&pid=ImgRaw&r=0" alt="Cat Image" class="pet-image"> <!-- Imagen de la mascota -->
+            <div class="pet-info"> <!-- Contenedor para la información de la mascota -->
+              <h3 class="pet-name">Bella</h3> <!-- Nombre de la mascota -->
+              <div class="pet-tags"> <!-- Contenedor para las etiquetas -->
+                <span class="pet-tag">3 años</span> <!-- Edad de la mascota -->
+                <span class="pet-tag">Maine Coon</span> <!-- Raza de la mascota -->
+                <span class="pet-tag">Hembra</span> <!-- Género de la mascota -->
+              </div>
+              <p class="pet-description">Gato curiosa y juguetona, lista para ser parte de tu familia.</p> <!-- Descripción de la mascota -->
+              <div class="d-flex"> <!-- Contenedor flex para los botones de acción -->
+                <button class="btn-action flex-grow-1">Adoptar</button> <!-- Botón para adoptar la mascota -->
+                <button class="btn-action btn-secondary-action"> <!-- Botón para marcar como favorito -->
+                  <i class="fas fa-heart"></i> <!-- Icono de corazón -->
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+        </div>
+        </div>
+        
+        <footer> <!-- Sección de pie de página -->
+          <div class="container"> <!-- Contenedor para el pie de página -->
+            <div class="row justify-content-center"> <!-- Fila centrada en el pie de página -->
+              <div class="col-md-6 text-center"> <!-- Columna centrada con texto -->
+                <p>&copy; 2024 Petpedia. Todos los derechos reservados.</p> <!-- Mensaje de derechos de autor -->
+                <div> <!-- Contenedor para los iconos de redes sociales -->
+                  <a href="https://www.facebook.com" target="_blank" class="social-icon"> <!-- Enlace a Facebook -->
+                    <i class="fab fa-facebook-f"></i> <!-- Icono de Facebook -->
+                  </a>
+                  <a href="https://twitter.com" target="_blank" class="social-icon"> <!-- Enlace a Twitter -->
+                    <i class="fab fa-twitter"></i> <!-- Icono de Twitter -->
+                  </a>
+                  <a href="https://www.instagram.com" target="_blank" class="social-icon"> <!-- Enlace a Instagram -->
+                    <i class="fab fa-instagram"></i> <!-- Icono de Instagram -->
+                  </a>
+                  <a href="https://www.linkedin.com" target="_blank" class="social-icon"> <!-- Enlace a LinkedIn -->
+                    <i class="fab fa-linkedin-in"></i> <!-- Icono de LinkedIn -->
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </footer>
+        
