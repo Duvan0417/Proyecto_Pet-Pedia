@@ -71,7 +71,7 @@
                     <a class="nav-link" href="#">Ofertas del Día</a> <!-- Enlace a ofertas del día -->
                 </li>
                 <li class="nav-item"> <!-- Elemento de navegación -->
-                    <a class="nav-link" href="">Pedidos</a> <!-- Enlace a pedidos -->
+                    <a class="nav-link" href="#">Pedidos</a> <!-- Enlace a pedidos -->
                 </li>
             </ul>
             
@@ -81,21 +81,122 @@
                     <button class="btn-actions">Buscar</button> <!-- Botón para ejecutar la búsqueda -->
                 </li>
                 <li class="nav-item"> <!-- Elemento de navegación -->
-                    <a class="nav-link" href="index6.html"> <!-- Enlace al carrito de compras -->
+                    <a class="nav-link" href="#"> <!-- Enlace al carrito de compras -->
                         <i class="fas fa-shopping-cart" style="font-size: 24px;"></i> <!-- Icono de carrito de compras -->
                     </a>
                 </li>
             </ul>
         </div>
     </nav>
-    <div>
-      <section>
-        
-      </section>
-      <section>
+    
+    <div class="container-fluid py-5"> <!-- Contenedor fluido con margen superior e inferior -->
+        <div class="row" style="margin-left: 0%;"> <!-- Fila para organizar los productos -->
+          
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el primer producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+1" alt="Producto 1" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Comida para Gatos</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Alimento de alta calidad para gatos, ideal para su salud.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el segundo producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+2" alt="Producto 2" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Juguete para Perros</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Juguete resistente y divertido para perros activos.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el tercer producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+3" alt="Producto 3" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Collar para Mascotas</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Collar cómodo y elegante para tu mascota.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el cuarto producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+4" alt="Producto 4" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Alimento para Perros</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Nutrición completa para perros, adecuado para todas las razas.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                  <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el quinto producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+5" alt="Producto 5" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Juguete Interactivo</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Juguete que estimula la mente de tu mascota mientras juega.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el sexto producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+6" alt="Producto 6" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Cama para Mascotas</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Cama cómoda y suave para tu mascota, ideal para descansar.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+      
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el séptimo producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+7" alt="Producto 7" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Correa para Perros</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Correa resistente para paseos cómodos y seguros.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
 
-      </section>
-    </div>
+          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el octavo producto -->
+            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
+              <img src="https://via.placeholder.com/400x200?text=Producto+4" alt="Producto 4" class="pet-image"> <!-- Imagen del producto -->
+              <div class="pet-info"> <!-- Contenedor para la información del producto -->
+                <h3 class="pet-name">Alimento para Perros</h3> <!-- Nombre del producto -->
+                <p class="pet-description">Nutrición completa para perros, adecuado para todas las razas.</p> <!-- Descripción del producto -->
+                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
+                  <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
         
       <footer> <!-- Sección de pie de página -->
         <div class="container"> <!-- Contenedor para el pie de página -->
