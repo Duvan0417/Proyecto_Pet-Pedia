@@ -1,0 +1,271 @@
+:root {
+    --primary-color: #3D5A80; /* Color primario para la interfaz */
+    --secondary-color: #98C1D9; /* Color secundario */
+    --accent-color: #EE6C4D; /* Color de acento */
+    --light-color: #E0FBFC; /* Color claro */
+    --dark-color: #293241; /* Color oscuro */
+  }
+  
+  body {
+    margin: 0; /* Elimina el margen por defecto del body */
+    padding: 0; /* Elimina el padding por defecto del body */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Establece la fuente de la página */
+    background-color: #f8f9fa; /* Color de fondo */
+  }
+  
+  /* Estilos para la barra lateral */
+  .sidebar {
+    position: fixed; /* Fija la barra lateral en la pantalla */
+    top: 0; /* Posición en la parte superior */
+    left: 0; /* Posición a la izquierda */
+    width: 70px; /* Ancho inicial de la barra lateral */
+    height: 100%; /* Altura completa */
+    background: var(--dark-color); /* Color de fondo de la barra lateral */
+    transition: width 0.3s ease; /* Transición suave para el cambio de ancho */
+    overflow-x: hidden; /* Oculta el desbordamiento horizontal */
+    z-index: 1000; /* Asegura que la barra lateral esté por encima de otros elementos */
+    box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Sombra para darle profundidad */
+  }
+  
+  .sidebar a {
+    display: flex; /* Usa flexbox para alinear los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    padding: 15px 20px; /* Espaciado interno */
+    color: var(--light-color); /* Color del texto */
+    text-decoration: none; /* Elimina el subrayado del texto */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+    white-space: nowrap; /* Evita que el texto se divida en varias líneas */
+  }
+  
+  .sidebar a:hover {
+    background: var(--primary-color); /* Color de fondo al pasar el mouse */
+    color: white; /* Cambia el color del texto al pasar el mouse */
+  }
+  
+  .sidebar a i {
+    font-size: 1.5rem; /* Tamaño de los iconos */
+    min-width: 30px; /* Ancho mínimo para los iconos */
+  }
+  
+  .sidebar a span {
+    opacity: 0; /* Inicialmente oculto */
+    transition: opacity 0.2s ease; /* Transición suave para la opacidad */
+    margin-left: 10px; /* Espacio a la izquierda del texto */
+  }
+  
+  .sidebar:hover {
+    width: 240px; /* Ancho expandido al pasar el mouse */
+  }
+  
+  .sidebar:hover a span {
+    opacity: 1; /* Muestra el texto al pasar el mouse */
+  }
+  
+  /* Estilos para la barra de navegación */
+  .navbar {
+    background: white; /* Color de fondo de la barra de navegación */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Sombra para la barra de navegación */
+    padding: 1rem 2rem; /* Espaciado interno */
+    margin-left: 70px; /* Margen izquierdo para evitar la superposición con la barra lateral */
+  }
+  
+  .navbar-brand img {
+    height: 50px; /* Altura del logo */
+  }
+  
+  .search-filters {
+    display: flex; /* Usa flexbox para los filtros de búsqueda */
+    gap: 1rem; /* Espacio entre los elementos */
+    align-items: center; /* Centra verticalmente los elementos */
+    flex-wrap: wrap; /* Permite que los elementos se envuelvan */
+  }
+  
+  .search-filters select,
+  .search-filters input {
+    border: 1px solid #ddd; /* Borde del campo de entrada */
+    border-radius: 20px; /* Esquinas redondeadas */
+    padding: 0.5rem 1rem; /* Espaciado interno */
+    font-size: 0.9rem; /* Tamaño de la fuente */
+  }
+  
+  .btn-toggle {
+    border: 1px solid var(--primary-color); /* Borde del botón */
+    padding: 0.5rem 1.5rem; /* Espaciado interno */
+    border-radius: 20px; /* Esquinas redondeadas */
+    background: white; /* Color de fondo del botón */
+    color: var(--primary-color); /* Color del texto */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+  }
+  
+  .btn-toggle.active {
+    background: var(--primary-color); /* Color de fondo cuando está activo */
+    color: white; /* Color del texto cuando está activo */
+  }
+  
+  /* Estilos para el contenido principal */
+  .main-content {
+    margin-left: 70px; /* Margen izquierdo para el contenido principal */
+    padding: 2rem; /* Espaciado interno */
+    transition: margin-left 0.3s ease; /* Transición suave para el margen izquierdo */
+  }
+  
+  .pet-card {
+    background: white; /* Color de fondo de la tarjeta */
+    border-radius: 15px; /* Esquinas redondeadas */
+    overflow: hidden; /* Oculta el desbordamiento */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+    height: 100%; /* Altura completa */
+    display: flex; /* Usa flexbox para organizar el contenido */
+    flex-direction: column; /* Organiza los elementos en columna */
+  }
+  
+  .pet-card:hover {
+    transform: translateY(-5px); /* Eleva la tarjeta al pasar el mouse */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Sombra para dar profundidad */
+  }
+  
+  .pet-image {
+    width: 100%; /* Ancho completo de la imagen */
+    height: 250px; /* Altura de la imagen */
+    object-fit: cover; /* Ajusta la imagen para cubrir el área */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+  }
+  
+  .pet-info {
+    padding: 1.5rem; /* Espaciado interno */
+    flex-grow: 1; /* Permite que el contenedor crezca */
+    display: flex; /* Usa flexbox para organizar el contenido */
+    flex-direction: column; /* Organiza los elementos en columna */
+  }
+  
+  .pet-name {
+    color: var(--dark-color); /* Color del nombre de la mascota */
+    font-size: 1.5rem; /* Tamaño de la fuente */
+    margin-bottom: 0.5rem; /* Margen inferior */
+  }
+  
+  .pet-description {
+    color: #666; /* Color de la descripción */
+    flex-grow: 1; /* Permite que el contenedor crezca */
+    margin-bottom: 1rem; /* Margen inferior */
+  }
+  
+  .pet-tags {
+    display: flex; /* Usa flexbox para organizar las etiquetas */
+    gap: 0.5rem; /* Espacio entre las etiquetas */
+    margin-bottom: 1rem; /* Margen inferior */
+    flex-wrap: wrap; /* Permite que las etiquetas se envuelvan */
+  }
+  
+  .pet-tag {
+    background: var(--light-color); /* Color de fondo de la etiqueta */
+    color: var(--primary-color); /* Color del texto de la etiqueta */
+    padding: 0.3rem 0.8rem; /* Espaciado interno */
+    border-radius: 15px; /* Esquinas redondeadas */
+    font-size: 0.8rem; /* Tamaño de la fuente */
+  }
+  
+  .btn-action {
+    background: var(--accent-color); /* Color de fondo del botón de acción */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 0.8rem 1.5rem; /* Espaciado interno */
+    border-radius: 25px; /* Esquinas redondeadas */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    font-weight: 600; /* Peso de la fuente */
+    letter-spacing: 0.5px; /* Espaciado entre letras */
+  }
+  
+  .btn-actions {
+    background: var(--accent-color); /* Color de fondo del botón de acción */
+    color: white; /* Color del texto */
+    border: none; /* Sin borde */
+    padding: 0.5rem 1rem; /* Espaciado interno reducido */
+    border-radius: 20px; /* Esquinas redondeadas */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+    text-transform: uppercase; /* Texto en mayúsculas */
+    font-weight: 600; /* Peso de la fuente */
+    letter-spacing: 0.5px; /* Espaciado entre letras */
+    font-size: 0.9rem; /* Tamaño de la fuente ajustado */
+  }
+  
+  .btn-action:hover {
+    background: #dd5c3d; /* Color de fondo al pasar el mouse */
+    transform: translateY(-2px); /* Eleva el botón al pasar el mouse */
+  }
+  
+  .btn-secondary-action {
+    background: var(--secondary-color); /* Color de fondo del botón secundario */
+    margin-left: 0.5rem; /* Margen izquierdo */
+  }
+  
+  /* Estilos para el pie de página */
+  footer {
+    background: var(--dark-color); /* Color de fondo del pie de página */
+    color: var(--light-color); /* Color del texto del pie de página */
+    padding: 3rem 0; /* Espaciado interno */
+    margin-left: 70px; /* Margen izquierdo */
+  }
+  
+  .social-links {
+    display: flex; /* Usa flexbox para organizar los enlaces sociales */
+    justify-content: center; /* Centra los enlaces */
+    gap: 1.5rem; /* Espacio entre los enlaces */
+    margin-top: 1.5rem; /* Margen superior */
+  }
+  
+  .social-icon {
+    color: var(--light-color); /* Color de los iconos sociales */
+    font-size: 1.5rem; /* Tamaño de los iconos */
+    transition: all 0.3s ease; /* Transición suave para todos los cambios */
+  }
+  
+  .social-icon:hover {
+    color: var(--accent-color); /* Color de los iconos al pasar el mouse */
+    transform: translateY(-3px); /* Eleva el icono al pasar el mouse */
+  }
+  
+  /* Estilos responsivos */
+  @media (max-width: 768px) { /* Estilos para pantallas pequeñas */
+    .search-filters {
+        flex-direction: column; /* Organiza los filtros en columna */
+        align-items: stretch; /* Estira los elementos */
+    }
+    
+    .navbar {
+        margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
+    }
+  
+    .main-content {
+        margin-left: 0; /* Elimina el margen izquierdo en pantallas pequeñas */
+        padding: 1rem; /* Reduce el espaciado interno */
+    }
+  
+    .sidebar {
+        width: 0; /* Ancho inicial de la barra lateral en pantallas pequeñas */
+        transform: translateX(-100%); /* Oculta la barra lateral */
+    }
+  
+    .sidebar.active {
+        width: 240px; /* Ancho expandido cuando está activa */
+        transform: translateX(0); /* Muestra la barra lateral */
+    }
+  }
+  .btn-secondary-action {
+    background: #d9534f; /* Rojo para resaltar la acción de eliminar */
+    color: white; /* Texto en blanco */
+    border: none;
+    padding: 0.8rem 1.5rem;
+    border-radius: 25px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+  }
+  
+  .btn-secondary-action:hover {
+    background: #c9302c; /* Rojo más oscuro al pasar el mouse */
+    transform: translateY(-2px);
+  }
+  
