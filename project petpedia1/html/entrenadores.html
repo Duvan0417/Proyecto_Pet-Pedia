@@ -1,0 +1,1391 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PawMasters - Entrenadores Profesionales</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800;900&display=swap');
+        
+        :root {
+            --primary: #5D48E5;
+            --primary-dark: #4836B3;
+            --secondary: #3FD0C9;
+            --secondary-dark: #2BBEB7;
+            --accent: #FF6B6B;
+            --light: #F8F9FD;
+            --dark: #2D3748;
+            --text-dark: #4A5568;
+            --text-light: #718096;
+            --success: #48BB78;
+            --warning: #F6AD55;
+            --gradient-1: linear-gradient(135deg, #5D48E5 0%, #8067F0 100%);
+            --gradient-2: linear-gradient(135deg, #3FD0C9 0%, #72E5DF 100%);
+            --shadow-sm: 0 2px 4px rgba(0, 0, 0, 0.05);
+            --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 15px 30px rgba(93, 72, 229, 0.15);
+            --radius-sm: 0.25rem;
+            --radius-md: 0.5rem;
+            --radius-lg: 1rem;
+            --radius-full: 9999px;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        .section-trainers {
+            padding: 80px 0;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .section-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.03;
+            z-index: -1;
+            background-image: url('/api/placeholder/1200/800');
+            background-size: cover;
+            background-position: center;
+        }
+        
+        .section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+        
+        .section-subtitle {
+            color: var(--primary);
+            text-transform: uppercase;
+            font-weight: 600;
+            font-size: 0.9rem;
+            letter-spacing: 2px;
+            margin-bottom: 1rem;
+            display: inline-block;
+            position: relative;
+        }
+        
+        .section-subtitle:before, 
+        .section-subtitle:after {
+            content: "";
+            position: absolute;
+            height: 2px;
+            width: 30px;
+            background: var(--primary);
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        .section-subtitle:before {
+            left: -40px;
+        }
+        
+        .section-subtitle:after {
+            right: -40px;
+        }
+        
+        .section-title {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 800;
+            color: var(--dark);
+            margin-bottom: 1rem;
+            position: relative;
+        }
+        
+        .section-title span {
+            color: var(--primary);
+        }
+        
+        .section-description {
+            max-width: 700px;
+            margin: 0 auto;
+            color: var(--text-light);
+            font-size: 1.05rem;
+        }
+        
+        .trainers-nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 2.5rem;
+            flex-wrap: wrap;
+            gap: 20px;
+        }
+        
+        .trainers-filter {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .filter-btn {
+            background: white;
+            border: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            padding: 0.6rem 1.2rem;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            color: var(--text-light);
+            transition: all 0.3s ease;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .filter-btn:hover {
+            color: var(--primary);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .filter-btn.active {
+            background: var(--gradient-1);
+            color: white;
+        }
+        
+        .trainers-search {
+            position: relative;
+            width: 300px;
+        }
+        
+        .trainers-search input {
+            width: 100%;
+            padding: 0.75rem 1rem 0.75rem 2.5rem;
+            border-radius: var(--radius-full);
+            border: none;
+            background: white;
+            font-size: 0.9rem;
+            color: var(--text-dark);
+            box-shadow: var(--shadow-sm);
+            transition: all 0.3s ease;
+        }
+        
+        .trainers-search input:focus {
+            outline: none;
+            box-shadow: 0 0 0 2px rgba(93, 72, 229, 0.3);
+        }
+        
+        .trainers-search i {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-light);
+        }
+        
+        .trainers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+            gap: 30px;
+        }
+        
+        .trainer-card {
+            background: white;
+            border-radius: var(--radius-lg);
+            overflow: hidden;
+            box-shadow: var(--shadow-lg);
+            transition: all 0.4s ease;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .trainer-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+        
+        .trainer-card:after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: var(--gradient-1);
+            opacity: 0;
+            z-index: -1;
+            transition: opacity 0.4s ease;
+        }
+        
+        .trainer-card:hover:after {
+            opacity: 0.05;
+        }
+        
+        .trainer-header {
+            position: relative;
+            height: 180px;
+            overflow: hidden;
+        }
+        
+        .trainer-cover {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        
+        .trainer-card:hover .trainer-cover {
+            transform: scale(1.05);
+        }
+        
+        .trainer-picture {
+            position: absolute;
+            bottom: -50px;
+            left: 30px;
+            width: 100px;
+            height: 100px;
+            border-radius: var(--radius-full);
+            border: 5px solid white;
+            box-shadow: var(--shadow-md);
+            z-index: 10;
+            overflow: hidden;
+        }
+        
+        .trainer-picture img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .trainer-featured {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .trainer-status {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(5px);
+            padding: 0.35rem 0.75rem;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            box-shadow: var(--shadow-sm);
+        }
+        
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: var(--success);
+        }
+        
+        .trainer-body {
+            position: relative;
+            padding: 65px 30px 30px;
+        }
+        
+        .trainer-name {
+            font-weight: 700;
+            font-size: 1.25rem;
+            color: var(--dark);
+            margin-bottom: 5px;
+        }
+        
+        .trainer-specialty {
+            color: var(--primary);
+            font-weight: 500;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+            display: block;
+        }
+        
+        .trainer-info {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.85rem;
+            color: var(--text-dark);
+        }
+        
+        .info-item i {
+            color: var(--primary);
+            font-size: 0.95rem;
+        }
+        
+        .trainer-rating {
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 2px;
+        }
+        
+        .rating-stars {
+            display: flex;
+            gap: 3px;
+            margin-right: 8px;
+        }
+        
+        .star {
+            color: var(--warning);
+            font-size: 0.85rem;
+        }
+        
+        .rating-count {
+            color: var(--text-light);
+            font-size: 0.85rem;
+        }
+        
+        .trainer-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            margin-bottom: 25px;
+            line-height: 1.7;
+        }
+        
+        .trainer-services {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 25px;
+        }
+        
+        .service-tag {
+            background: rgba(93, 72, 229, 0.08);
+            color: var(--primary);
+            padding: 0.3rem 0.8rem;
+            border-radius: var(--radius-full);
+            font-size: 0.8rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+        
+        .service-tag:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .trainer-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-top: 1px solid rgba(113, 128, 150, 0.1);
+            padding-top: 20px;
+        }
+        
+        .trainer-price {
+            display: flex;
+            flex-direction: column;
+        }
+        
+        .price-label {
+            font-size: 0.75rem;
+            color: var(--text-light);
+        }
+        
+        .price-value {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: var(--dark);
+        }
+        
+        .price-value span {
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: var(--text-light);
+        }
+        
+        .trainer-actions {
+            display: flex;
+            gap: 10px;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            padding: 0.6rem 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        
+        .btn-primary {
+            background: var(--gradient-1);
+            color: white;
+            box-shadow: 0 4px 10px rgba(93, 72, 229, 0.3);
+        }
+        
+        .btn-primary:hover {
+            box-shadow: 0 6px 15px rgba(93, 72, 229, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .btn-outline {
+            background: transparent;
+            color: var(--primary);
+            border: 2px solid var(--primary);
+        }
+        
+        .btn-outline:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-icon {
+            width: 42px;
+            height: 42px;
+            padding: 0;
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            color: var(--primary);
+            background: rgba(93, 72, 229, 0.1);
+            transition: all 0.3s ease;
+        }
+        
+        .btn-icon:hover {
+            background: var(--primary);
+            color: white;
+            transform: translateY(-2px);
+        }
+        
+        .badge {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            background: rgba(93, 72, 229, 0.9);
+            color: white;
+            font-size: 0.75rem;
+            font-weight: 600;
+            padding: 0.25rem 0.75rem;
+            border-radius: var(--radius-full);
+            z-index: 10;
+        }
+        
+        .badge-success {
+            background: rgba(72, 187, 120, 0.9);
+        }
+        
+        .badge-warning {
+            background: rgba(246, 173, 85, 0.9);
+        }
+        
+        .badge-accent {
+            background: rgba(255, 107, 107, 0.9);
+        }
+        
+        .trainer-availability {
+            display: flex;
+            gap: 5px;
+            margin-bottom: 20px;
+        }
+        
+        .availability-day {
+            width: 28px;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            border-radius: 50%;
+            background: rgba(93, 72, 229, 0.08);
+            color: var(--primary);
+            font-weight: 500;
+        }
+        
+        .availability-day.available {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .trainer-languages {
+            display: flex;
+            gap: 8px;
+            margin-bottom: 20px;
+        }
+        
+        .language-badge {
+            padding: 0.25rem 0.5rem;
+            background: rgba(63, 208, 201, 0.1);
+            color: var(--secondary-dark);
+            border-radius: var(--radius-sm);
+            font-size: 0.75rem;
+            font-weight: 500;
+        }
+        
+        .section-cta {
+            text-align: center;
+            margin-top: 50px;
+        }
+        
+        .cta-text {
+            font-size: 1.1rem;
+            color: var(--text-light);
+            margin-bottom: 20px;
+        }
+        
+        .navbar {
+            background: white;
+            padding: 15px 0;
+            box-shadow: var(--shadow-md);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
+        
+        .navbar-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .navbar-logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-family: 'Montserrat', sans-serif;
+            font-weight: 800;
+            font-size: 1.5rem;
+            color: var(--dark);
+            text-decoration: none;
+        }
+        
+        .logo-highlight {
+            color: var(--primary);
+        }
+        
+        .navbar-menu {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .menu-item a {
+            color: var(--text-dark);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+            position: relative;
+        }
+        
+        .menu-item a:hover {
+            color: var(--primary);
+        }
+        
+        .menu-item a:after {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary);
+            transition: width 0.3s ease;
+        }
+        
+        .menu-item a:hover:after {
+            width: 100%;
+        }
+        
+        .menu-item.active a {
+            color: var(--primary);
+            font-weight: 600;
+        }
+        
+        .menu-item.active a:after {
+            width: 100%;
+        }
+        
+        .navbar-auth {
+            display: flex;
+            gap: 15px;
+        }
+        
+        .auth-btn {
+            padding: 0.6rem 1.4rem;
+            font-size: 0.9rem;
+            font-weight: 600;
+            border-radius: var(--radius-full);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .login-btn {
+            color: var(--primary);
+            background: transparent;
+            border: 2px solid var(--primary);
+        }
+        
+        .login-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .signup-btn {
+            background: var(--gradient-1);
+            color: white;
+            border: none;
+            box-shadow: 0 4px 10px rgba(93, 72, 229, 0.3);
+        }
+        
+        .signup-btn:hover {
+            box-shadow: 0 6px 15px rgba(93, 72, 229, 0.4);
+            transform: translateY(-2px);
+        }
+        
+        .navbar-mobile-toggle {
+            display: none;
+            background: transparent;
+            border: none;
+            font-size: 1.5rem;
+            color: var(--dark);
+            cursor: pointer;
+        }
+        
+        /* Decorative elements */
+        .deco-circle {
+            position: absolute;
+            border-radius: 50%;
+            opacity: 0.5;
+            z-index: -1;
+        }
+        
+        .deco-circle-1 {
+            top: -100px;
+            right: -100px;
+            width: 300px;
+            height: 300px;
+            background: rgba(93, 72, 229, 0.1);
+        }
+        
+        .deco-circle-2 {
+            bottom: -150px;
+            left: -150px;
+            width: 400px;
+            height: 400px;
+            background: rgba(63, 208, 201, 0.1);
+        }
+        
+        @media (max-width: 1024px) {
+            .trainers-grid {
+                grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .navbar-menu, .navbar-auth {
+                display: none;
+            }
+            
+            .navbar-mobile-toggle {
+                display: block;
+            }
+            
+            .trainers-nav {
+                flex-direction: column;
+                align-items: stretch;
+            }
+            
+            .trainers-search {
+                width: 100%;
+                order: -1;
+            }
+            
+            .trainers-filter {
+                justify-content: center;
+            }
+            
+            .section-title {
+                font-size: 2rem;
+            }
+            
+            .section-subtitle:before, 
+            .section-subtitle:after {
+                width: 20px;
+            }
+            
+            .section-subtitle:before {
+                left: -30px;
+            }
+            
+            .section-subtitle:after {
+                right: -30px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .trainers-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .trainer-actions {
+                flex-direction: column;
+                width: 100%;
+            }
+            
+            .btn {
+                width: 100%;
+            }
+            
+            .section-title {
+                font-size: 1.8rem;
+            }
+            
+            .section-subtitle {
+                font-size: 0.8rem;
+            }
+            
+            .section-trainers {
+                padding: 60px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container navbar-container">
+            <a href="#" class="navbar-logo">
+                <img src="/api/placeholder/40/40" alt="PawMasters Logo" width="40" height="40">
+                <span>Paw<span class="logo-highlight">Masters</span></span>
+            </a>
+            
+            <ul class="navbar-menu">
+                <li class="menu-item"><a href="#">Inicio</a></li>
+                <li class="menu-item active"><a href="#">Entrenadores</a></li>
+                <li class="menu-item"><a href="#">Servicios</a></li>
+                <li class="menu-item"><a href="#">Testimonios</a></li>
+                <li class="menu-item"><a href="#">Blog</a></li>
+                <li class="menu-item"><a href="#">Contacto</a></li>
+            </ul>
+            
+            <div class="navbar-auth">
+                <button class="auth-btn login-btn">Iniciar Sesión</button>
+                <button class="auth-btn signup-btn">Registrarse</button>
+            </div>
+            
+            <button class="navbar-mobile-toggle">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+    
+    <!-- Trainers Section -->
+    <section class="section-trainers">
+        <div class="section-bg"></div>
+        <div class="deco-circle deco-circle-1"></div>
+        <div class="deco-circle deco-circle-2"></div>
+        
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Expertos en entrenamiento</span>
+                <h2 class="section-title">Nuestros <span>Entrenadores</span> Profesionales</h2>
+                <p class="section-description">Descubre a nuestros entrenadores profesionales certificados que te ayudarán a transformar el comportamiento de tu mascota con métodos positivos y efectivos.</p>
+            </div>
+            
+            <div class="trainers-nav">
+                <div class="trainers-filter">
+                    <button class="filter-btn active">Todos</button>
+                    <button class="filter-btn">Obediencia</button>
+                    <button class="filter-btn">Comportamiento</button>
+                    <button class="filter-btn">Cachorros</button>
+                    <button class="filter-btn">Agility</button>
+                    <button class="filter-btn">Rehabilitación</button>
+                </div>
+                
+                <div class="trainers-search">
+                    <i class="fas fa-search"></i>
+                    <input type="text" placeholder="Buscar entrenador...">
+                </div>
+            </div>
+            
+            <div class="trainers-grid">
+                <!-- Trainer Card 1 -->
+                <div class="trainer-card">
+                    <div class="trainer-header">
+                        <img src="/api/placeholder/500/300" alt="Background" class="trainer-cover">
+                        <div class="trainer-picture">
+                            <img src="/api/placeholder/100/100" alt="Carlos Martínez">
+                        </div>
+                        <span class="badge badge-accent">TOP TRAINER</span>
+                        <div class="trainer-status">
+                            <span class="status-dot"></span>
+                            <span>Disponible viernes</span>
+                        </div>
+                    </div>
+                    
+                    <div class="trainer-body">
+                        <h3 class="trainer-name">Sofía Castro</h3>
+                        <span class="trainer-specialty">Especialista en trucos y obediencia avanzada</span>
+                        
+                        <div class="trainer-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Málaga, España</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>6 años de experiencia</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-video"></i>
+                                <span>Canal YouTube +100K</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Técnico K9</span>
+                            </div>
+                        </div>
+                        
+                        <div class="trainer-rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="far fa-star star"></i>
+                            </div>
+                            <span class="rating-count">(16 reseñas)</span>
+                        </div>
+                        
+                        <p class="trainer-desc">Especializada en enseñar trucos avanzados y obediencia de precisión. Ideal para perros inteligentes y activos que necesitan estimulación mental.</p>
+                        
+                        <div class="trainer-availability">
+                            <div class="availability-day">L</div>
+                            <div class="availability-day">M</div>
+                            <div class="availability-day available">X</div>
+                            <div class="availability-day">J</div>
+                            <div class="availability-day available">V</div>
+                            <div class="availability-day available">S</div>
+                            <div class="availability-day">D</div>
+                        </div>
+                        
+                        <div class="trainer-services">
+                            <span class="service-tag">Trucos caninos</span>
+                            <span class="service-tag">Obediencia avanzada</span>
+                            <span class="service-tag">Dog Dancing</span>
+                            <span class="service-tag">Shows caninos</span>
+                        </div>
+                        
+                        <div class="trainer-languages">
+                            <span class="language-badge">Español</span>
+                            <span class="language-badge">Inglés</span>
+                        </div>
+                        
+                        <div class="trainer-footer">
+                            <div class="trainer-price">
+                                <span class="price-label">Precio por sesión</span>
+                                <div class="price-value">40€ <span>/hora</span></div>
+                            </div>
+                            
+                            <div class="trainer-actions">
+                                <button class="btn btn-outline">Ver perfil</button>
+                                <button class="btn btn-primary">
+                                    <i class="far fa-calendar-check"></i>
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="section-cta">
+                <p class="cta-text">¿No encuentras lo que buscas? Tenemos más entrenadores disponibles</p>
+                <button class="btn btn-primary">Ver todos los entrenadores</button>
+            </div>
+        </div>
+    </section>
+</body>
+</html>dot"></span>
+                            <span>Disponible ahora</span>
+                        </div>
+                    </div>
+                    
+                    <div class="trainer-body">
+                        <h3 class="trainer-name">Pedro López</h3>
+                        <span class="trainer-specialty">Especialista en perros de rescate</span>
+                        
+                        <div class="trainer-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Bilbao, España</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>12 años de experiencia</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-paw"></i>
+                                <span>Voluntario Protectora</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Certificado ASPCAE</span>
+                            </div>
+                        </div>
+                        
+                        <div class="trainer-rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                            </div>
+                            <span class="rating-count">(27 reseñas)</span>
+                        </div>
+                        
+                        <p class="trainer-desc">Especializado en rehabilitación de perros rescatados con traumas y miedos profundos. Experiencia con casos complejos de abandono y maltrato.</p>
+                        
+                        <div class="trainer-availability">
+                            <div class="availability-day available">L</div>
+                            <div class="availability-day">M</div>
+                            <div class="availability-day available">X</div>
+                            <div class="availability-day">J</div>
+                            <div class="availability-day available">V</div>
+                            <div class="availability-day">S</div>
+                            <div class="availability-day">D</div>
+                        </div>
+                        
+                        <div class="trainer-services">
+                            <span class="service-tag">Rehabilitación</span>
+                            <span class="service-tag">Perros rescatados</span>
+                            <span class="service-tag">Traumas</span>
+                            <span class="service-tag">Consulta online</span>
+                        </div>
+                        
+                        <div class="trainer-languages">
+                            <span class="language-badge">Español</span>
+                            <span class="language-badge">Euskera</span>
+                        </div>
+                        
+                        <div class="trainer-footer">
+                            <div class="trainer-price">
+                                <span class="price-label">Precio por sesión</span>
+                                <div class="price-value">45€ <span>/hora</span></div>
+                            </div>
+                            
+                            <div class="trainer-actions">
+                                <button class="btn btn-outline">Ver perfil</button>
+                                <button class="btn btn-primary">
+                                    <i class="far fa-calendar-check"></i>
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trainer Card 6 -->
+                <div class="trainer-card">
+                    <div class="trainer-header">
+                        <img src="/api/placeholder/500/300" alt="Background" class="trainer-cover">
+                        <div class="trainer-picture">
+                            <img src="/api/placeholder/100/100" alt="Sofía Castro">
+                        </div>
+                        <div class="trainer-status">
+                            <span class="status-dot"></span>
+                            <span>Disponible sábado</span>
+                        </div>
+                    </div>
+                    
+                    <div class="trainer-body">
+                        <h3 class="trainer-name">Ana Rodríguez</h3>
+                        <span class="trainer-specialty">Especialista en comportamiento</span>
+                        
+                        <div class="trainer-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Sevilla, España</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>7 años de experiencia</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-graduation-cap"></i>
+                                <span>Etóloga canina</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Máster en Etología</span>
+                            </div>
+                        </div>
+                        
+                        <div class="trainer-rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="far fa-star star"></i>
+                            </div>
+                            <span class="rating-count">(21 reseñas)</span>
+                        </div>
+                        
+                        <p class="trainer-desc">Etóloga canina especializada en problemas de ansiedad, miedos y fobias en perros. Experta en terapias de modificación de conducta basadas en evidencia científica.</p>
+                        
+                        <div class="trainer-availability">
+                            <div class="availability-day">L</div>
+                            <div class="availability-day">M</div>
+                            <div class="availability-day available">X</div>
+                            <div class="availability-day available">J</div>
+                            <div class="availability-day">V</div>
+                            <div class="availability-day available">S</div>
+                            <div class="availability-day">D</div>
+                        </div>
+                        
+                        <div class="trainer-services">
+                            <span class="service-tag">Miedos</span>
+                            <span class="service-tag">Ansiedad</span>
+                            <span class="service-tag">Comportamiento</span>
+                            <span class="service-tag">Estrés</span>
+                        </div>
+                        
+                        <div class="trainer-languages">
+                            <span class="language-badge">Español</span>
+                        </div>
+                        
+                        <div class="trainer-footer">
+                            <div class="trainer-price">
+                                <span class="price-label">Precio por sesión</span>
+                                <div class="price-value">55€ <span>/hora</span></div>
+                            </div>
+                            
+                            <div class="trainer-actions">
+                                <button class="btn btn-outline">Ver perfil</button>
+                                <button class="btn btn-primary">
+                                    <i class="far fa-calendar-check"></i>
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trainer Card 5 -->
+                <div class="trainer-card">
+                    <div class="trainer-header">
+                        <img src="/api/placeholder/500/300" alt="Background" class="trainer-cover">
+                        <div class="trainer-picture">
+                            <img src="/api/placeholder/100/100" alt="Pedro López">
+                        </div>
+                        <span class="badge">ONLINE</span>
+                        <div class="trainer-status">
+                            <span class="status-dot"></span>
+                            <span>Disponible ahora</span>
+                        </div>
+                    </div>
+                    
+                    <div class="trainer-body">
+                        <h3 class="trainer-name">Carlos Martínez</h3>
+                        <span class="trainer-specialty">Especialista en obediencia canina</span>
+                        
+                        <div class="trainer-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Madrid, España</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>8 años de experiencia</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-dog"></i>
+                                <span>+200 perros entrenados</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Certificado ADIESTCAN</span>
+                            </div>
+                        </div>
+                        
+                        <div class="trainer-rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                            </div>
+                            <span class="rating-count">(24 reseñas)</span>
+                        </div>
+                        
+                        <p class="trainer-desc">Experto en modificación de conducta y entrenamiento de obediencia. Especializado en perros con problemas de comportamiento utilizando métodos positivos.</p>
+                        
+                        <div class="trainer-availability">
+                            <div class="availability-day">L</div>
+                            <div class="availability-day available">M</div>
+                            <div class="availability-day available">X</div>
+                            <div class="availability-day available">J</div>
+                            <div class="availability-day">V</div>
+                            <div class="availability-day available">S</div>
+                            <div class="availability-day">D</div>
+                        </div>
+                        
+                        <div class="trainer-services">
+                            <span class="service-tag">Obediencia básica</span>
+                            <span class="service-tag">Modificación conducta</span>
+                            <span class="service-tag">Perros agresivos</span>
+                            <span class="service-tag">Problemas ansiedad</span>
+                        </div>
+                        
+                        <div class="trainer-languages">
+                            <span class="language-badge">Español</span>
+                            <span class="language-badge">Inglés</span>
+                        </div>
+                        
+                        <div class="trainer-footer">
+                            <div class="trainer-price">
+                                <span class="price-label">Precio por sesión</span>
+                                <div class="price-value">45€ <span>/hora</span></div>
+                            </div>
+                            
+                            <div class="trainer-actions">
+                                <button class="btn btn-outline">Ver perfil</button>
+                                <button class="btn btn-primary">
+                                    <i class="far fa-calendar-check"></i>
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trainer Card 2 -->
+                <div class="trainer-card">
+                    <div class="trainer-header">
+                        <img src="/api/placeholder/500/300" alt="Background" class="trainer-cover">
+                        <div class="trainer-picture">
+                            <img src="/api/placeholder/100/100" alt="Laura Gómez">
+                        </div>
+                        <span class="badge badge-success">NUEVO</span>
+                        <div class="trainer-status">
+                            <span class="status-dot"></span>
+                            <span>Disponible hoy</span>
+                        </div>
+                    </div>
+                    
+                    <div class="trainer-body">
+                        <h3 class="trainer-name">Laura Gómez</h3>
+                        <span class="trainer-specialty">Especialista en cachorros</span>
+                        
+                        <div class="trainer-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Barcelona, España</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>5 años de experiencia</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-dog"></i>
+                                <span>+150 perros entrenados</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Certificado AEPE</span>
+                            </div>
+                        </div>
+                        
+                        <div class="trainer-rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="far fa-star star"></i>
+                            </div>
+                            <span class="rating-count">(18 reseñas)</span>
+                        </div>
+                        
+                        <p class="trainer-desc">Especializada en educación de cachorros y socialización temprana. Enfoque positivo y amigable para los nuevos miembros de la familia.</p>
+                        
+                        <div class="trainer-availability">
+                            <div class="availability-day available">L</div>
+                            <div class="availability-day available">M</div>
+                            <div class="availability-day">X</div>
+                            <div class="availability-day">J</div>
+                            <div class="availability-day available">V</div>
+                            <div class="availability-day available">S</div>
+                            <div class="availability-day">D</div>
+                        </div>
+                        
+                        <div class="trainer-services">
+                            <span class="service-tag">Cachorros</span>
+                            <span class="service-tag">Socialización</span>
+                            <span class="service-tag">Entrenamiento básico</span>
+                            <span class="service-tag">Juegos educativos</span>
+                        </div>
+                        
+                        <div class="trainer-languages">
+                            <span class="language-badge">Español</span>
+                            <span class="language-badge">Catalán</span>
+                        </div>
+                        
+                        <div class="trainer-footer">
+                            <div class="trainer-price">
+                                <span class="price-label">Precio por sesión</span>
+                                <div class="price-value">40€ <span>/hora</span></div>
+                            </div>
+                            
+                            <div class="trainer-actions">
+                                <button class="btn btn-outline">Ver perfil</button>
+                                <button class="btn btn-primary">
+                                    <i class="far fa-calendar-check"></i>
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trainer Card 3 -->
+                <div class="trainer-card">
+                    <div class="trainer-header">
+                        <img src="/api/placeholder/500/300" alt="Background" class="trainer-cover">
+                        <div class="trainer-picture">
+                            <img src="/api/placeholder/100/100" alt="Miguel Sánchez">
+                        </div>
+                        <span class="badge badge-warning">DESTACADO</span>
+                        <div class="trainer-status">
+                            <span class="status-dot"></span>
+                            <span>Disponible mañana</span>
+                        </div>
+                    </div>
+                    
+                    <div class="trainer-body">
+                        <h3 class="trainer-name">Miguel Sánchez</h3>
+                        <span class="trainer-specialty">Especialista en Agility</span>
+                        
+                        <div class="trainer-info">
+                            <div class="info-item">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <span>Valencia, España</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-clock"></i>
+                                <span>10 años de experiencia</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-trophy"></i>
+                                <span>3 veces campeón nacional</span>
+                            </div>
+                            <div class="info-item">
+                                <i class="fas fa-certificate"></i>
+                                <span>Certificado RSCE</span>
+                            </div>
+                        </div>
+                        
+                        <div class="trainer-rating">
+                            <div class="rating-stars">
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star star"></i>
+                                <i class="fas fa-star-half-alt star"></i>
+                            </div>
+                            <span class="rating-count">(32 reseñas)</span>
+                        </div>
+                        
+                        <p class="trainer-desc">Campeón nacional de Agility. Entrenamiento profesional para competición y actividad física canina. Especializado en perros activos y deportistas.</p>
+                        
+                        <div class="trainer-availability">
+                            <div class="availability-day">L</div>
+                            <div class="availability-day available">M</div>
+                            <div class="availability-day available">X</div>
+                            <div class="availability-day">J</div>
+                            <div class="availability-day available">V</div>
+                            <div class="availability-day available">S</div>
+                            <div class="availability-day available">D</div>
+                        </div>
+                        
+                        <div class="trainer-services">
+                            <span class="service-tag">Agility</span>
+                            <span class="service-tag">Deporte canino</span>
+                            <span class="service-tag">Competición</span>
+                            <span class="service-tag">Flyball</span>
+                        </div>
+                        
+                        <div class="trainer-languages">
+                            <span class="language-badge">Español</span>
+                            <span class="language-badge">Inglés</span>
+                            <span class="language-badge">Valenciano</span>
+                        </div>
+                        
+                        <div class="trainer-footer">
+                            <div class="trainer-price">
+                                <span class="price-label">Precio por sesión</span>
+                                <div class="price-value">50€ <span>/hora</span></div>
+                            </div>
+                            
+                            <div class="trainer-actions">
+                                <button class="btn btn-outline">Ver perfil</button>
+                                <button class="btn btn-primary">
+                                    <i class="far fa-calendar-check"></i>
+                                    Reservar
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Trainer Card 4 -->
+                <div class="trainer-card">
+                    <div class="trainer-header">
+                        <img src="/api/placeholder/500/300" alt="Background" class="trainer-cover">
+                        <div class="trainer-picture">
+                            <img src="/api/placeholder/100/100" alt="Ana Rodríguez">
+                        </div>
+                        <div class="trainer-status">
+                            <span class="status-

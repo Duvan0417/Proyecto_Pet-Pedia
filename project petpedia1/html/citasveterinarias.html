@@ -4,94 +4,781 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
     <link rel="stylesheet" href="/project petpedia1/css/citasveterinarias.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>Gestión de Citas Veterinarias</title>
+    <title>PetPedia - Gestión de Citas Veterinarias</title>
+    <style>
+
+    </style>
 </head>
 <body>
-  <div class="sidebar"> <!-- Contenedor de la barra lateral de navegación -->
-    <a href="inicio.html"> <!-- Enlace a la página de inicio -->
-      <i class="fas fa-home"></i> <!-- Icono de casa de Font Awesome -->
-      <span>Inicio</span> <!-- Texto del enlace -->
-    </a>
-    <a href="compra.html"> <!-- Enlace a la página de compras -->
-      <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito de compras -->
-      <span>Compra</span> <!-- Texto del enlace -->
-    </a>
-    <a href="veterinaria.html"> <!-- Enlace a la página de veterinaria -->
-      <i class="fas fa-clinic-medical"></i> <!-- Icono de clínica médica -->
-      <span>Veterinaria</span> <!-- Texto del enlace -->
-    </a>
-    <a href="adopcion.html"> <!-- Enlace a la página de adopciones -->
-      <i class="fas fa-paw"></i> <!-- Icono de pata de animal -->
-      <span>Adopciones</span> <!-- Texto del enlace -->
-    </a>
-    <a href="foro.html"> <!-- Enlace al foro (sin destino definido) -->
-      <i class="fas fa-comments"></i> <!-- Icono de comentarios -->
-      <span>Foro</span> <!-- Texto del enlace -->
-    </a>
-    <a href="#"> <!-- Enlace al perfil (sin destino definido) -->
-      <i class="fas fa-user"></i> <!-- Icono de usuario -->
-      <span>Perfil</span> <!-- Texto del enlace -->
-    </a>
-    <a href="ajustes.html"> <!-- Enlace a configuración (sin destino definido) -->
-      <i class="fas fa-cog"></i> <!-- Icono de engranaje -->
-      <span>Configuración</span> <!-- Texto del enlace -->
-    </a>
+    <!-- Barra lateral -->
+    <div class="sidebar">
+      <div class="sidebar-header">
+          <img src="/api/placeholder/80/80" alt="Logo" class="logo">
+          <span class="logo-text">PetPedia</span>
+      </div>
+      <div class="sidebar-menu">
+          <a href="inicio.html" class="menu-item">
+              <i class="fas fa-home"></i>
+              <span>Inicio</span>
+          </a>
+          <a href="compra.html" class="menu-item">
+              <i class="fas fa-shopping-cart"></i>
+              <span>Compra</span>
+          </a>
+          <a href="veterinaria.html" class="menu-item">
+              <i class="fas fa-clinic-medical"></i>
+              <span>Veterinaria</span>
+          </a>
+          <a href="adopcion.html" class="menu-item">
+              <i class="fas fa-paw"></i>
+              <span>Adopciones</span>
+          </a>
+          <a href="foro.html" class="menu-item active">
+              <i class="fas fa-comments"></i>
+              <span>Foro</span>
+          </a>
+          <a href="#" class="menu-item">
+              <i class="fas fa-user"></i>
+              <span>Perfil</span>
+          </a>
+          <a href="ajustes.html" class="menu-item">
+              <i class="fas fa-cog"></i>
+              <span>Configuración</span>
+          </a>
+      </div>
   </div>
 
-    <div class="container mt-5">
-        <h2 class="text-center">Citas Veterinarias</h2>
+    <!-- Header superior -->
+    <header class="main-header">
+        <div class="header-title">
+            <i class="fas fa-calendar-check"></i>
+            <h2 class="mb-0">Gestión de Citas</h2>
+        </div>
+        <div class="user-profile">
+            <div class="notifications">
+                <i class="fas fa-bell"></i>
+                <div class="notification-badge">3</div>
+            </div>
+            <div class="user-avatar">
+                M
+            </div>
+            <div class="user-info">
+                <h6 class="mb-0">María García</h6>
+                <small>Propietario</small>
+            </div>
+        </div>
+    </header>
+
+    <!-- Contenido principal -->
+    <main class="main-content">
+        <div class="page-title">
+            <h3>Mis Citas Veterinarias</h3>
+            <div class="action-buttons">
+                <button class="btn btn-outline" data-toggle="modal" data-target="#historialModal">
+                    <i class="fas fa-history"></i> Historial
+                </button>
+                <button class="btn btn-action" data-toggle="modal" data-target="#nuevaCitaModal">
+                    <i class="fas fa-plus"></i> Nueva Cita
+                </button>
+            </div>
+        </div>
+
+        <!-- Filtros y buscador -->
+        <div class="filter-section">
+            <div class="search-bar">
+                <i class="fas fa-search"></i>
+                <input type="text" placeholder="Buscar citas, mascotas o veterinarios...">
+            </div>
+            <div class="filters">
+                <button class="filter-btn active">Todas</button>
+                <button class="filter-btn">Próximas</button>
+                <button class="filter-btn">Pendientes</button>
+                <button class="filter-btn">Confirmadas</button>
+                <button class="filter-btn">Urgentes</button>
+                <div class="date-filter">
+                    <label>Filtrar por fecha:</label>
+                    <input type="date" class="form-control-sm">
+                </div>
+            </div>
+        </div>
+
+        <!-- Grid de citas -->
+        <div class="citas-grid">
+            <!-- Cita 1 -->
+            <div class="cita">
+                <div class="cita-header">
+                    <h5 class="mb-0">Cita Regular</h5>
+                    <span class="cita-status">Confirmada</span>
+                </div>
+                <div class="tag">Próxima</div>
+                <div class="cita-body animate__animated animate__fadeIn">
+                    <div class="pet-profile">
+                        <div class="pet-image">
+                            <img src="/api/placeholder/60/60" alt="Perro Firulais">
+                        </div>
+                        <div class="pet-info">
+                            <h5>Firulais</h5>
+                            <p>Perro · Labrador · 3 años</p>
+                        </div>
+                    </div>
+                    <div class="appointment-details">
+                        <div class="detail-item">
+                            <i class="fas fa-user-md"></i>
+                            <span class="detail-label">Veterinario:</span>
+                            <span class="detail-value">Dr. Pérez</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            <span class="detail-label">Fecha:</span>
+                            <span class="detail-value">10/04/2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span class="detail-label">Hora:</span>
+                            <span class="detail-value">10:00 AM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-stethoscope"></i>
+                            <span class="detail-label">Motivo:</span>
+                            <span class="detail-value">Vacunación anual</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cita-footer">
+                    <button class="btn btn-outline-primary btn-sm" data-toggle="modal" data-target="#editarCitaModal">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn btn-outline-danger btn-sm">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Cita 2 -->
+            <div class="cita">
+                <div class="cita-header" style="background-color: var(--danger-color);">
+                    <h5 class="mb-0">Cita Urgente</h5>
+                    <span class="cita-status">Confirmada</span>
+                </div>
+                <div class="tag urgent">Urgente</div>
+                <div class="cita-body">
+                    <div class="pet-profile">
+                        <div class="pet-image">
+                            <img src="/api/placeholder/60/60" alt="Gato Tigrado">
+                        </div>
+                        <div class="pet-info">
+                            <h5>Gato Tigrado</h5>
+                            <p>Gato · Europeo · 2 años</p>
+                        </div>
+                    </div>
+                    <div class="appointment-details">
+                        <div class="detail-item">
+                            <i class="fas fa-user-md"></i>
+                            <span class="detail-label">Veterinario:</span>
+                            <span class="detail-value">Dr. López</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            <span class="detail-label">Fecha:</span>
+                            <span class="detail-value">11/04/2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span class="detail-label">Hora:</span>
+                            <span class="detail-value">11:30 AM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-stethoscope"></i>
+                            <span class="detail-label">Motivo:</span>
+                            <span class="detail-value">Problemas digestivos</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cita-footer">
+                    <button class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn btn-outline-danger btn-sm">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Cita 3 -->
+            <div class="cita">
+                <div class="cita-header" style="background-color: var(--secondary-color);">
+                    <h5 class="mb-0">Cita Pendiente</h5>
+                    <span class="cita-status">Pendiente</span>
+                </div>
+                <div class="cita-body">
+                    <div class="pet-profile">
+                        <div class="pet-image">
+                            <img src="/api/placeholder/60/60" alt="Rocky">
+                        </div>
+                        <div class="pet-info">
+                            <h5>Rocky</h5>
+                            <p>Perro · Bull Terrier · 5 años</p>
+                        </div>
+                    </div>
+                    <div class="appointment-details">
+                        <div class="detail-item">
+                            <i class="fas fa-user-md"></i>
+                            <span class="detail-label">Veterinario:</span>
+                            <span class="detail-value">Dr. García</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            <span class="detail-label">Fecha:</span>
+                            <span class="detail-value">12/04/2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span class="detail-label">Hora:</span>
+                            <span class="detail-value">2:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-stethoscope"></i>
+                            <span class="detail-label">Motivo:</span>
+                            <span class="detail-value">Revisión post-operatoria</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cita-footer">
+                    <button class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn btn-outline-danger btn-sm">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Cita 4 -->
+            <div class="cita">
+                <div class="cita-header">
+                    <h5 class="mb-0">Cita Regular</h5>
+                    <span class="cita-status">Confirmada</span>
+                </div>
+                <div class="cita-body">
+                    <div class="pet-profile">
+                        <div class="pet-image">
+                            <img src="/api/placeholder/60/60" alt="Luna">
+                        </div>
+                        <div class="pet-info">
+                            <h5>Luna</h5>
+                            <p>Gato · Persa · 1 año</p>
+                        </div>
+                    </div>
+                    <div class="appointment-details">
+                        <div class="detail-item">
+                            <i class="fas fa-user-md"></i>
+                            <span class="detail-label">Veterinario:</span>
+                            <span class="detail-value">Dr. Martínez</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            <span class="detail-label">Fecha:</span>
+                            <span class="detail-value">13/04/2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span class="detail-label">Hora:</span>
+                            <span class="detail-value">3:30 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-stethoscope"></i>
+                            <span class="detail-label">Motivo:</span>
+                            <span class="detail-value">Control de peso</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cita-footer">
+                    <button class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn btn-outline-danger btn-sm">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Cita 5 -->
+            <div class="cita">
+                <div class="cita-header" style="background-color: #6c757d;">
+                    <h5 class="mb-0">Cita Regular</h5>
+                    <span class="cita-status">Por confirmar</span>
+                </div>
+                <div class="cita-body">
+                    <div class="pet-profile">
+                        <div class="pet-image">
+                            <img src="/api/placeholder/60/60" alt="Max">
+                        </div>
+                        <div class="pet-info">
+                            <h5>Max</h5>
+                            <p>Perro · Golden Retriever · 4 años</p>
+                        </div>
+                    </div>
+                    <div class="appointment-details">
+                        <div class="detail-item">
+                            <i class="fas fa-user-md"></i>
+                            <span class="detail-label">Veterinario:</span>
+                            <span class="detail-value">Dr. Torres</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            <span class="detail-label">Fecha:</span>
+                            <span class="detail-value">14/04/2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span class="detail-label">Hora:</span>
+                            <span class="detail-value">1:00 PM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-stethoscope"></i>
+                            <span class="detail-label">Motivo:</span>
+                            <span class="detail-value">Revisión dental</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cita-footer">
+                    <button class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn btn-outline-danger btn-sm">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Cita 6 -->
+            <div class="cita">
+                <div class="cita-header" style="background-color: var(--success-color);">
+                    <h5 class="mb-0">Cita Especial</h5>
+                    <span class="cita-status">Confirmada</span>
+                </div>
+                <div class="tag" style="background-color: var(--success-color);">Especial</div>
+                <div class="cita-body">
+                    <div class="pet-profile">
+                        <div class="pet-image">
+                            <img src="/api/placeholder/60/60" alt="Nina">
+                        </div>
+                        <div class="pet-info">
+                            <h5>Nina</h5>
+                            <p>Perro · Yorkshire · 6 años</p>
+                        </div>
+                    </div>
+                    <div class="appointment-details">
+                        <div class="detail-item">
+                            <i class="fas fa-user-md"></i>
+                            <span class="detail-label">Veterinario:</span>
+                            <span class="detail-value">Dra. Sánchez</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-calendar"></i>
+                            <span class="detail-label">Fecha:</span>
+                            <span class="detail-value">16/04/2025</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-clock"></i>
+                            <span class="detail-label">Hora:</span>
+                            <span class="detail-value">9:15 AM</span>
+                        </div>
+                        <div class="detail-item">
+                            <i class="fas fa-stethoscope"></i>
+                            <span class="detail-label">Motivo:</span>
+                            <span class="detail-value">Peluquería y spa</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="cita-footer">
+                    <button class="btn btn-outline-primary btn-sm">
+                        <i class="fas fa-edit"></i> Editar
+                    </button>
+                    <button class="btn btn-outline-danger btn-sm">
+                        <i class="fas fa-times"></i> Cancelar
+                    </button>
+                </div>
+            </div>
+        </div>
         
-        <div class="row">
-            <div class="col-md-12">
-                <div class="citas-grid">
-                    <div class="cita">
-                        <h5>Cita con Dr. Pérez</h5>
-                        <p>Fecha: 10/04/2025</p>
-                        <p>Hora: 10:00 AM</p>
-                        <p>Paciente: Firulais</p>
-                        <button class="btn btn-danger btn-sm">Cancelar Cita</button>
-                    </div>
+        <!-- Calendario de citas -->
+        <div class="calendar-container">
+            <div class="calendar-header">
+                <div class="calendar-title">
+                    <i class="fas fa-calendar-alt mr-2"></i> Calendario de Citas - Mayo 2025
+                </div>
+                <div class="calendar-nav">
+                    <button><i class="fas fa-chevron-left"></i></button>
+                    <button><i class="fas fa-chevron-right"></i></button>
+                </div>
+            </div>
+            <div class="calendar-days">
+                <div class="day-name">Lun</div>
+                <div class="day-name">Mar</div>
+                <div class="day-name">Mié</div>
+                <div class="day-name">Jue</div>
+                <div class="day-name">Vie</div>
+                <div class="day-name">Sáb</div>
+                <div class="day-name">Dom</div>
+                
+                <div class="day disabled">29</div>
+                <div class="day disabled">30</div>
+                <div class="day disabled">31</div>
+                <div class="day">1</div>
+                <div class="day">2</div>
+                <div class="day">3</div>
+                <div class="day">4</div>
+                
+                <div class="day">5</div>
+                <div class="day">6</div>
+                <div class="day">7</div>
+                <div class="day today">8</div>
+                <div class="day has-appointments">9</div>
+                <div class="day has-appointments">10</div>
+                <div class="day">11</div>
+                
+                <div class="day has-appointments">12</div>
+                <div class="day has-appointments">13</div>
+                <div class="day">14</div>
+                <div class="day">15</div>
+                <div class="day has-appointments">16</div>
+                <div class="day">17</div>
+                <div class="day">18</div>
+                
+                <div class="day">19</div>
+                <div class="day has-appointments">20</div>
+                <div class="day">21</div>
+                <div class="day">22</div>
+                <div class="day">23</div>
+                <div class="day">24</div>
+                <div class="day">25</div>
+                
+                <div class="day">26</div>
+                <div class="day">27</div>
+                <div class="day has-appointments">28</div>
+                <div class="day">29</div>
+                <div class="day">30</div>
+                <div class="day">31</div>
+                <div class="day disabled">1</div>
+            </div>
+        </div>
+    </main>
 
-                    <div class="cita">
-                        <h5>Cita con Dr. López</h5>
-                        <p>Fecha: 11/04/2025</p>
-                        <p>Hora: 11:30 AM</p>
-                        <p>Paciente: Gato Tigrado</p>
-                        <button class="btn btn-danger btn-sm">Cancelar Cita</button>
-                    </div>
-
-                    <div class="cita">
-                        <h5>Cita con Dr. García</h5>
-                        <p>Fecha: 12/04/2025</p>
-                        <p>Hora: 2:00 PM</p>
-                        <p>Paciente: Rocky</p>
-                        <button class="btn btn-danger btn-sm">Cancelar Cita</button>
-                    </div>
-
-                    <div class="cita">
-                        <h5>Cita con Dr. Martínez</h5>
-                        <p>Fecha: 13/04/2025</p>
-                        <p>Hora: 3:30 PM</p>
-                        <p>Paciente: Luna</p>
-                        <button class="btn btn-danger btn-sm">Cancelar Cita</button>
-                    </div>
-
-                    <div class="cita">
-                        <h5>Cita con Dr. Torres</h5>
-                        <p>Fecha: 14/04/2025</p>
-                        <p>Hora: 1:00 PM</p>
-                        <p>Paciente: Max</p>
-                        <button class="btn btn-danger btn-sm">Cancelar Cita</button>
-                    </div>
+    <!-- Modal Nueva Cita -->
+    <div class="modal fade" id="nuevaCitaModal" tabindex="-1" role="dialog" aria-labelledby="nuevaCitaModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="nuevaCitaModalLabel">Programar Nueva Cita</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="mascota">Seleccionar mascota</label>
+                            <select class="form-control" id="mascota">
+                                <option>Firulais (Labrador)</option>
+                                <option>Gato Tigrado (Europeo)</option>
+                                <option>Rocky (Bull Terrier)</option>
+                                <option>Luna (Persa)</option>
+                                <option>Max (Golden Retriever)</option>
+                                <option>+ Agregar nueva mascota</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="tipoVisita">Tipo de visita</label>
+                            <select class="form-control" id="tipoVisita">
+                                <option>Regular - Consulta general</option>
+                                <option>Vacunación</option>
+                                <option>Emergencia</option>
+                                <option>Seguimiento</option>
+                                <option>Cirugía</option>
+                                <option>Peluquería y spa</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="veterinario">Veterinario</label>
+                            <select class="form-control" id="veterinario">
+                                <option>Dr. Pérez - Medicina General</option>
+                                <option>Dr. López - Cirugía</option>
+                                <option>Dr. García - Dermatología</option>
+                                <option>Dra. Martínez - Nutrición</option>
+                                <option>Dr. Torres - Odontología</option>
+                                <option>Sin preferencia</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="fecha">Fecha</label>
+                                    <input type="date" class="form-control" id="fecha">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="hora">Hora</label>
+                                    <input type="time" class="form-control" id="hora">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="motivo">Motivo de la visita</label>
+                            <textarea class="form-control" id="motivo" rows="3" placeholder="Describe brevemente el motivo de la consulta..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="urgente">
+                                <label class="custom-control-label" for="urgente">Esta es una cita urgente</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-action">Programar Cita</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Modal Editar Cita -->
+    <div class="modal fade" id="editarCitaModal" tabindex="-1" role="dialog" aria-labelledby="editarCitaModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="editarCitaModalLabel">Editar Cita</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="editMascota">Mascota</label>
+                            <input type="text" class="form-control" id="editMascota" value="Firulais" readonly>
+                        </div>
+                        <div class="form-group">
+                            <label for="editTipoVisita">Tipo de visita</label>
+                            <select class="form-control" id="editTipoVisita">
+                                <option selected>Regular - Consulta general</option>
+                                <option>Vacunación</option>
+                                <option>Emergencia</option>
+                                <option>Seguimiento</option>
+                                <option>Cirugía</option>
+                                <option>Peluquería y spa</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="editVeterinario">Veterinario</label>
+                            <select class="form-control" id="editVeterinario">
+                                <option selected>Dr. Pérez - Medicina General</option>
+                                <option>Dr. López - Cirugía</option>
+                                <option>Dr. García - Dermatología</option>
+                                <option>Dra. Martínez - Nutrición</option>
+                                <option>Dr. Torres - Odontología</option>
+                                <option>Sin preferencia</option>
+                            </select>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editFecha">Fecha</label>
+                                    <input type="date" class="form-control" id="editFecha" value="2025-04-10">
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <label for="editHora">Hora</label>
+                                    <input type="time" class="form-control" id="editHora" value="10:00">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="editMotivo">Motivo de la visita</label>
+                            <textarea class="form-control" id="editMotivo" rows="3">Vacunación anual</textarea>
+                        </div>
+                        <div class="form-group">
+                            <div class="custom-control custom-checkbox">
+                                <input type="checkbox" class="custom-control-input" id="editUrgente">
+                                <label class="custom-control-label" for="editUrgente">Esta es una cita urgente</label>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-action">Guardar Cambios</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal Historial de Citas -->
+    <div class="modal fade" id="historialModal" tabindex="-1" role="dialog" aria-labelledby="historialModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="historialModalLabel">Historial de Citas</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover">
+                            <thead>
+                                <tr>
+                                    <th>Fecha</th>
+                                    <th>Mascota</th>
+                                    <th>Veterinario</th>
+                                    <th>Motivo</th>
+                                    <th>Estado</th>
+                                    <th>Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>05/03/2025</td>
+                                    <td>Firulais</td>
+                                    <td>Dr. Pérez</td>
+                                    <td>Control general</td>
+                                    <td><span class="badge badge-success">Completada</span></td>
+                                    <td><button class="btn btn-sm btn-outline-primary">Ver detalles</button></td>
+                                </tr>
+                                <tr>
+                                    <td>20/02/2025</td>
+                                    <td>Luna</td>
+                                    <td>Dra. Martínez</td>
+                                    <td>Desparasitación</td>
+                                    <td><span class="badge badge-success">Completada</span></td>
+                                    <td><button class="btn btn-sm btn-outline-primary">Ver detalles</button></td>
+                                </tr>
+                                <tr>
+                                    <td>15/02/2025</td>
+                                    <td>Max</td>
+                                    <td>Dr. García</td>
+                                    <td>Problema dermatológico</td>
+                                    <td><span class="badge badge-success">Completada</span></td>
+                                    <td><button class="btn btn-sm btn-outline-primary">Ver detalles</button></td>
+                                </tr>
+                                <tr>
+                                    <td>01/02/2025</td>
+                                    <td>Rocky</td>
+                                    <td>Dr. Torres</td>
+                                    <td>Limpieza dental</td>
+                                    <td><span class="badge badge-success">Completada</span></td>
+                                    <td><button class="btn btn-sm btn-outline-primary">Ver detalles</button></td>
+                                </tr>
+                                <tr>
+                                    <td>15/01/2025</td>
+                                    <td>Gato Tigrado</td>
+                                    <td>Dr. López</td>
+                                    <td>Vacunación</td>
+                                    <td><span class="badge badge-success">Completada</span></td>
+                                    <td><button class="btn btn-sm btn-outline-primary">Ver detalles</button></td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary">Exportar historial</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h5>PetPedia</h5>
+            <p>Tu plataforma integral para el cuidado y bienestar de tus mascotas.</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h5>Explorar</h5>
+            <ul class="footer-links">
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Tienda</a></li>
+              <li><a href="#">Veterinaria</a></li>
+              <li><a href="#">Adopciones</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <h5>Soporte</h5>
+            <ul class="footer-links">
+              <li><a href="#">Centro de ayuda</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5>Suscríbete a nuestro boletín</h5>
+            <p>Mantente al día con las últimas noticias y consejos para tus mascotas.</p>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Tu email">
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 PetPedia. Todos los derechos reservados.</p>
+          <ul class="policy-links">
+            <li><a href="#">Términos de uso</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        // JavaScript para manejar la interactividad
+        document.addEventListener('DOMContentLoaded', function() {
+            // Manejo de filtros
+            const filterButtons = document.querySelectorAll('.filter-btn');
+            filterButtons.forEach(button => {
+                button.addEventListener('click', function() {
+                    filterButtons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Manejo del calendario
+            const days = document.querySelectorAll('.day:not(.disabled)');
+            days.forEach(day => {
+                day.addEventListener('click', function() {
+                    days.forEach(d => d.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
+            
+            // Animación de entrada para las tarjetas de citas
+            const citas = document.querySelectorAll('.cita');
+            citas.forEach((cita, index) => {
+                setTimeout(() => {
+                    cita.classList.add('animate__animated', 'animate__fadeInUp');
+                }, index * 100);
+            });
+        });
+    </script>
 </body>
 </html>

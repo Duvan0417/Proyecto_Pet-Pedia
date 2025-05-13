@@ -1,240 +1,800 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Petpedia</title> <!-- Título que aparece en la pestaña del navegador -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Enlace a la hoja de estilos de Bootstrap -->
-  <link rel="stylesheet" href="/project petpedia1/css/adopcion.css"> <!-- Enlace a la hoja de estilos personalizada -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Enlace a Font Awesome para iconos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petpedia - Adopciones</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/project petpedia1/css/adopcion.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <style>
+    /* Estilos mejorados para el navbar */
+    .navbar {
+      background: white;
+      padding: 0.8rem 2rem;
+      margin-left: 70px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      transition: all 0.3s ease;
+    }
+    
+    .navbar.scrolled {
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+      padding: 0.5rem 2rem;
+    }
+    
+    .navbar-brand img {
+      height: 40px;
+      transition: all 0.3s ease;
+    }
+    
+    .search-container {
+      display: flex;
+      align-items: center;
+      background: #f8f9fa;
+      border-radius: 30px;
+      padding: 0.3rem 1rem;
+      transition: all 0.3s ease;
+      border: 1px solid #e9ecef;
+    }
+    
+    .search-container:focus-within {
+      background: white;
+      box-shadow: 0 0 0 3px rgba(238, 108, 77, 0.2);
+      border-color: var(--accent-color);
+    }
+    
+    .search-input {
+      border: none;
+      background: transparent;
+      padding: 0.5rem;
+      width: 200px;
+      transition: width 0.3s ease;
+    }
+    
+    .search-input:focus {
+      outline: none;
+      width: 250px;
+    }
+    
+    .search-btn {
+      background: transparent;
+      border: none;
+      color: var(--primary-color);
+      cursor: pointer;
+    }
+    
+    .filter-btn {
+      background: white;
+      color: var(--primary-color);
+      border: 1px solid var(--primary-color);
+      border-radius: 20px;
+      padding: 0.5rem 1.2rem;
+      margin-left: 1rem;
+      transition: all 0.3s ease;
+      font-weight: 500;
+    }
+    
+    .filter-btn:hover {
+      background: var(--primary-color);
+      color: white;
+    }
+    
+    .filter-btn i {
+      margin-right: 5px;
+    }
+    
+    .user-actions {
+      display: flex;
+      align-items: center;
+      margin-left: 1.5rem;
+    }
+    
+    .nav-icon {
+      color: var(--dark-color);
+      font-size: 1.2rem;
+      margin-left: 1.2rem;
+      position: relative;
+      transition: all 0.3s ease;
+    }
+    
+    .nav-icon:hover {
+      color: var(--accent-color);
+    }
+    
+    .notification-badge {
+      position: absolute;
+      top: -5px;
+      right: -5px;
+      background: var(--accent-color);
+      color: white;
+      border-radius: 50%;
+      width: 18px;
+      height: 18px;
+      font-size: 0.7rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    
+    .user-profile {
+      display: flex;
+      align-items: center;
+      margin-left: 1.5rem;
+    }
+    
+    .user-avatar {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid var(--secondary-color);
+      transition: all 0.3s ease;
+    }
+    
+    .user-avatar:hover {
+      border-color: var(--accent-color);
+    }
+    
+    /* Dropdown de filtros */
+    .filter-dropdown {
+      position: absolute;
+      right: 0;
+      top: 100%;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+      padding: 1.5rem;
+      min-width: 300px;
+      z-index: 100;
+      opacity: 0;
+      visibility: hidden;
+      transition: all 0.3s ease;
+      transform: translateY(10px);
+    }
+    
+    .filter-dropdown.show {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+    
+    .filter-group {
+      margin-bottom: 1rem;
+    }
+    
+    .filter-group h5 {
+      color: var(--dark-color);
+      font-size: 0.9rem;
+      margin-bottom: 0.7rem;
+      font-weight: 600;
+    }
+    
+    .filter-options {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+    }
+    
+    .filter-option {
+      background: #f8f9fa;
+      border: 1px solid #e9ecef;
+      border-radius: 20px;
+      padding: 0.3rem 0.8rem;
+      font-size: 0.8rem;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+    
+    .filter-option:hover, .filter-option.active {
+      background: var(--primary-color);
+      color: white;
+      border-color: var(--primary-color);
+    }
+    
+    .apply-filters {
+      background: var(--accent-color);
+      color: white;
+      border: none;
+      border-radius: 30px;
+      padding: 0.5rem 1.5rem;
+      font-weight: 500;
+      margin-top: 1rem;
+      width: 100%;
+      transition: all 0.3s ease;
+    }
+    
+    .apply-filters:hover {
+      background: #dd5c3d;
+    }
+    
+    /* Responsive */
+    @media (max-width: 992px) {
+      .navbar {
+        margin-left: 0;
+        padding: 0.8rem 1rem;
+      }
+      
+      .search-container {
+        order: 1;
+        width: 100%;
+        margin-top: 1rem;
+      }
+      
+      .search-input {
+        width: 100%;
+      }
+      
+      .filter-btn {
+        margin-left: 0;
+        margin-right: 1rem;
+      }
+    }
+    /* Sección de mascotas destacadas */
+.featured-pets {
+  padding: 80px 0;
+  background-color: var(--light-color);
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 60px;
+}
+
+.section-title h2 {
+  font-size: 2.5rem;
+  color: var(--dark-color);
+  font-weight: 800;
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
+}
+
+.section-title h2:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 80px;
+  height: 4px;
+  background: var(--accent-color);
+  transform: translateX(-50%);
+  border-radius: 2px;
+}
+
+.section-title p {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.pet-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 30px;
+}
+
+.pet-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.pet-card-img {
+  position: relative;
+  height: 250px;
+  overflow: hidden;
+}
+
+.pet-card-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.5s ease;
+}
+
+.pet-card:hover .pet-card-img img {
+  transform: scale(1.1);
+}
+
+.pet-tag {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: var(--accent-color);
+  color: white;
+  padding: 8px 15px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.pet-card-content {
+  padding: 30px;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.pet-name {
+  font-size: 1.8rem;
+  color: var(--dark-color);
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.pet-details {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.pet-details span {
+  display: flex;
+  align-items: center;
+}
+
+.pet-details i {
+  margin-right: 5px;
+  color: var(--secondary-color);
+}
+
+.pet-description {
+  color: #666;
+  margin-bottom: 25px;
+  flex-grow: 1;
+  line-height: 1.6;
+}
+
+.pet-actions {
+  display: flex;
+  justify-content: space-between;
+  margin-top: auto;
+}
+
+.btn-pet {
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex: 1;
+  text-align: center;
+  margin: 0 5px;
+}
+
+.btn-adopt {
+  background: var(--accent-color);
+  color: white;
+  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+}
+
+.btn-adopt:hover {
+  background: #ff5252;
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.5);
+}
+
+.btn-info {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-info:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+}
+  </style>
 </head>
 <body>
-  <div class="sidebar"> <!-- Contenedor de la barra lateral de navegación -->
-    <a href="inicio.html"> <!-- Enlace a la página de inicio -->
-      <i class="fas fa-home"></i> <!-- Icono de casa de Font Awesome -->
-      <span>Inicio</span> <!-- Texto del enlace -->
-    </a>
-    <a href="compra.html"> <!-- Enlace a la página de compras -->
-      <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito de compras -->
-      <span>Compra</span> <!-- Texto del enlace -->
-    </a>
-    <a href="veterinaria.html"> <!-- Enlace a la página de veterinaria -->
-      <i class="fas fa-clinic-medical"></i> <!-- Icono de clínica médica -->
-      <span>Veterinaria</span> <!-- Texto del enlace -->
-    </a>
-    <a href="adopcion.html"> <!-- Enlace a la página de adopciones -->
-      <i class="fas fa-paw"></i> <!-- Icono de pata de animal -->
-      <span>Adopciones</span> <!-- Texto del enlace -->
-    </a>
-    <a href="foro.html"> <!-- Enlace al foro (sin destino definido) -->
-      <i class="fas fa-comments"></i> <!-- Icono de comentarios -->
-      <span>Foro</span> <!-- Texto del enlace -->
-    </a>
-    <a href="#"> <!-- Enlace al perfil (sin destino definido) -->
-      <i class="fas fa-user"></i> <!-- Icono de usuario -->
-      <span>Perfil</span> <!-- Texto del enlace -->
-    </a>
-    <a href="ajustes.html"> <!-- Enlace a configuración (sin destino definido) -->
-      <i class="fas fa-cog"></i> <!-- Icono de engranaje -->
-      <span>Configuración</span> <!-- Texto del enlace -->
-    </a>
-  </div>
+  <div class="sidebar">
+    <div class="sidebar-header">
+        <img src="/api/placeholder/80/80" alt="Logo" class="logo">
+        <span class="logo-text">PetPedia</span>
+    </div>
+    <div class="sidebar-menu">
+        <a href="inicio.html" class="menu-item">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="compra.html" class="menu-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Compra</span>
+        </a>
+        <a href="veterinaria.html" class="menu-item">
+            <i class="fas fa-clinic-medical"></i>
+            <span>Veterinaria</span>
+        </a>
+        <a href="adopcion.html" class="menu-item">
+            <i class="fas fa-paw"></i>
+            <span>Adopciones</span>
+        </a>
+        <a href="foro.html" class="menu-item active">
+            <i class="fas fa-comments"></i>
+            <span>Foro</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-user"></i>
+            <span>Perfil</span>
+        </a>
+        <a href="ajustes.html" class="menu-item">
+            <i class="fas fa-cog"></i>
+            <span>Configuración</span>
+        </a>
+    </div>
+</div>
 
-  <div class="main-content"> <!-- Contenedor principal del contenido -->
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-light"> <!-- Barra de navegación usando Bootstrap -->
-      <a class="navbar-brand" href="#"> <!-- Marca de navegación -->
-        <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo"> <!-- Imagen de logo -->
-      </a>
-      <form class="form-inline ml-auto"> <!-- Formulario de búsqueda alineado a la derecha -->
+  <div class="main-content">
+    <!-- Navbar  -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="inicio.html">
+          <img src="/project petpedia1/imagenes/logo.png" alt="Logo">
+        </a>
         
-        <div class="search-filters"> <!-- Contenedor de filtros de búsqueda -->
-          <div class="btn-group"> <!-- Grupo de botones para seleccionar tipo de mascota -->
-            <button class="btn-toggle active"><i class="fas fa-dog"></i> Perros</button> <!-- Botón para perros -->
-            <button class="btn-toggle"><i class="fas fa-cat"></i> Gatos</button> <!-- Botón para gatos -->
+        <div class="d-flex align-items-center ml-auto">
+          <div class="search-container">
+            <button class="search-btn">
+              <i class="fas fa-search"></i>
+            </button>
+            <input type="text" class="search-input" placeholder="Buscar mascotas...">
           </div>
-        
-          <select class="form-control mx-2" id="size"> <!-- Selector para tamaño de mascota -->
-            <option value="">Tamaño</option> <!-- Opción por defecto -->
-            <option value="pequeño">Pequeño</option> <!-- Opción de tamaño pequeño -->
-            <option value="mediano">Mediano</option> <!-- Opción de tamaño mediano -->
-            <option value="grande">Grande</option> <!-- Opción de tamaño grande -->
-          </select>
-
-          <select class="form-control mx-2" id="breed"> <!-- Selector para raza de mascota -->
-            <option value="">Raza</option> <!-- Opción por defecto -->
-            <option value="labrador">Labrador</option> <!-- Opción de raza Labrador -->
-            <option value="pastor_aleman">Pastor Alemán</option> <!-- Opción de raza Pastor Alemán -->
-            <option value="siames">Siamés</option> <!-- Opción de raza Siamés -->
-            <option value="persa">Persa</option> <!-- Opción de raza Persa -->
-          </select>
-
-          <select class="form-control mx-2" id="gender"> <!-- Selector para género de mascota -->
-            <option value="">Género</option> <!-- Opción por defecto -->
-            <option value="macho">Macho</option> <!-- Opción de género macho -->
-            <option value="hembra">Hembra</option> <!-- Opción de género hembra -->
-          </select>
-
-          <input type="text" class="form-control mx-2" id="city" placeholder="Ciudad"> <!-- Campo de texto para ciudad -->
-
-          <button class="btn-actions">Buscar</button> <!-- Botón para ejecutar la búsqueda -->
-        </form>
+          
+          <div class="position-relative">
+            <button class="filter-btn" id="filterToggle">
+              <i class="fas fa-filter"></i> Filtros
+            </button>
+            
+            <div class="filter-dropdown" id="filterDropdown">
+              <div class="filter-group">
+                <h5>Tipo de mascota</h5>
+                <div class="filter-options">
+                  <div class="filter-option active">Todos</div>
+                  <div class="filter-option"><i class="fas fa-dog"></i> Perros</div>
+                  <div class="filter-option"><i class="fas fa-cat"></i> Gatos</div>
+                  <div class="filter-option"><i class="fas fa-dove"></i> Aves</div>
+                  <div class="filter-option"><i class="fas fa-otter"></i> Otros</div>
+                </div>
+              </div>
+              
+              <div class="filter-group">
+                <h5>Tamaño</h5>
+                <div class="filter-options">
+                  <div class="filter-option active">Todos</div>
+                  <div class="filter-option">Pequeño</div>
+                  <div class="filter-option">Mediano</div>
+                  <div class="filter-option">Grande</div>
+                </div>
+              </div>
+              
+              <div class="filter-group">
+                <h5>Edad</h5>
+                <div class="filter-options">
+                  <div class="filter-option active">Todas</div>
+                  <div class="filter-option">Cachorro</div>
+                  <div class="filter-option">Joven</div>
+                  <div class="filter-option">Adulto</div>
+                  <div class="filter-option">Senior</div>
+                </div>
+              </div>
+              
+              <button class="apply-filters">
+                Aplicar Filtros
+              </button>
+            </div>
+          </div>
+          
+          <div class="user-actions">
+            <a href="#" class="nav-icon">
+              <i class="fas fa-paw"></i>
+              <span class="notification-badge">3</span>
+            </a>
+            <a href="#" class="nav-icon">
+              <i class="fas fa-bell"></i>
+              <span class="notification-badge">5</span>
+            </a>
+            <a href="#" class="nav-icon">
+              <i class="fas fa-envelope"></i>
+              <span class="notification-badge">2</span>
+            </a>
+            
+            <div class="user-profile">
+              <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Usuario" class="user-avatar">
+            </div>
+          </div>
+        </div>
       </div>
     </nav>
     
-    <div class="container-fluid py-5"> <!-- Contenedor fluido con margen superior e inferior -->
-      <div class="row"> <!-- Fila para organizar las tarjetas de mascotas -->
-        <div class="col-md-4 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para la tarjeta de mascota -->
-          <div class="pet-card"> <!-- Contenedor para la tarjeta de mascota -->
-            <img src="https://th.bing.com/th/id/R.28862ab2171d1f8a655a5df7e94ee2bc?rik=%2b5q%2bIkmJ3juu7Q&pid=ImgRaw&r=0" alt="Pet Image" class="pet-image"> <!-- Imagen de la mascota -->
-            <div class="pet-info"> <!-- Contenedor para la información de la mascota -->
-              <h3 class="pet-name">Buddy</h3> <!-- Nombre de la mascota -->
-              <div class="pet-tags"> <!-- Contenedor para las etiquetas de la mascota -->
-                <span class="pet-tag">2 años</span> <!-- Edad de la mascota -->
-                <span class="pet-tag">Labrador</span> <!-- Raza de la mascota -->
-                <span class="pet-tag">Macho</span> <!-- Género de la mascota -->
-              </div>
-              <p class="pet-description">Perro amigable y cariñoso, listo para adoptar.</p> <!-- Descripción de la mascota -->
-              <div class="d-flex"> <!-- Contenedor flex para los botones de acción -->
-                <button class="btn-action flex-grow-1">Adoptar</button> <!-- Botón para adoptar la mascota -->
-                <button class="btn-action btn-secondary-action"> <!-- Botón para marcar como favorito -->
-                  <i class="fas fa-heart"></i> <!-- Icono de corazón -->
-                </button>
-              </div>
-            </div>
-          </div>
+    <!-- Resto del contenido (cards de adopción) -->
+    <section class="featured-pets">
+      <div class="container">
+        <div class="section-title">
+          <h2>Mascotas en Adopción</h2>
+          <p>Encuentra a tu compañero perfecto entre nuestras mascotas disponibles para adopción</p>
         </div>
         
-        <div class="col-md-4 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Segunda columna para otra mascota -->
-          <div class="pet-card"> <!-- Contenedor para la tarjeta de mascota -->
-            <img src="https://cdn.pixabay.com/photo/2021/09/05/00/58/gato-6598701_1280.jpg" alt="Cat Image" class="pet-image"> <!-- Imagen de la mascota -->
-            <div class="pet-info"> <!-- Contenedor para la información de la mascota -->
-              <h3 class="pet-name">Whiskers</h3> <!-- Nombre de la mascota -->
-              <div class="pet-tags"> <!-- Contenedor para las etiquetas -->
-                <span class="pet-tag">1 año</span> <!-- Edad de la mascota -->
-                <span class="pet-tag">Bengalí</span> <!-- Raza de la mascota -->
-                <span class="pet-tag">Macho</span> <!-- Género de la mascota -->
+        <div class="row">
+          <!-- Tarjeta 1 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="pet-card">
+              <div class="pet-card-img">
+                <img src="https://th.bing.com/th/id/R.28862ab2171d1f8a655a5df7e94ee2bc?rik=%2b5q%2bIkmJ3juu7Q&pid=ImgRaw&r=0" alt="Buddy">
+                <div class="pet-tag">Perro</div>
               </div>
-              <p class="pet-description">Gato juguetón y tranquilo, disponible para adopción.</p> <!-- Descripción de la mascota -->
-              <div class="d-flex"> <!-- Contenedor flex para los botones de acción -->
-                <button class="btn-action flex-grow-1">Adoptar</button> <!-- Botón para adoptar la mascota -->
-                <button class="btn-action btn-secondary-action"> <!-- Botón para marcar como favorito -->
-                  <i class="fas fa-heart"></i> <!-- Icono de corazón -->
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-        
-        <div class="col-md-4 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Tercera columna para otra mascota -->
-          <div class="pet-card"> <!-- Contenedor para la tarjeta de mascota -->
-            <img src="https://th.bing.com/th/id/R.df756a251a62d8fb09b9cf66711c1c09?rik=SKtoKItSIRDsqQ&riu=http%3a%2f%2fcms.softindustries.com%2fmultimedia%2f12%2f200808%2fBichon-maltes_1_2.jpg&ehk=Gd8ncrL%2ffQ5KRPk3D5iiXPywZz1Ih8YwBHfkzAM8z8E%3d&risl=&pid=ImgRaw&r=0" alt="Dog Image" class="pet-image"> <!-- Imagen de la mascota -->
-            <div class="pet-info"> <!-- Contenedor para la información de la mascota -->
-              <h3 class="pet-name">Max</h3> <!-- Nombre de la mascota -->
-              <div class="pet-tags"> <!-- Contenedor para las etiquetas -->
-                <span class="pet-tag">1 año</span> <!-- Edad de la mascota -->
-                <span class="pet-tag">Siamés</span> <!-- Raza de la mascota -->
-                <span class="pet-tag">Hembra</span> <!-- Género de la mascota -->
-              </div>
-              <p class="pet-description">Perro leal y protector, busca un hogar.</p> <!-- Descripción de la mascota -->
-              <div class="d-flex"> <!-- Contenedor flex para los botones de acción -->
-                <button class="btn-action flex-grow-1">Adoptar</button> <!-- Botón para adoptar la mascota -->
-                <button class="btn-action btn-secondary-action"> <!-- Botón para marcar como favorito -->
-                  <i class="fas fa-heart"></i> <!-- Icono de corazón -->
-                </button>
+              <div class="pet-card-content">
+                <h3 class="pet-name">Buddy</h3>
+                <div class="pet-details">
+                  <span><i class="fas fa-calendar-alt"></i> 2 años</span>
+                  <span><i class="fas fa-map-marker-alt"></i> Madrid</span>
+                  <span><i class="fas fa-venus-mars"></i> Macho</span>
+                </div>
+                <div class="pet-features">
+                  <span class="pet-feature"><i class="fas fa-shield-alt"></i> Vacunado</span>
+                  <span class="pet-feature"><i class="fas fa-stethoscope"></i> Esterilizado</span>
+                  <span class="pet-feature"><i class="fas fa-heart"></i> Cariñoso</span>
+                </div>
+                <p class="pet-description">Buddy es un labrador cariñoso y juguetón que adora a los niños. Está vacunado, desparasitado y listo para formar parte de una familia amorosa.</p>
+                <div class="pet-actions">
+                  <a href="#" class="btn btn-pet btn-adopt"><i class="fas fa-paw"></i> Adoptar</a>
+                  <a href="#" class="btn btn-pet btn-info">Más Info</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        <div class="col-md-4 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para la tarjeta de la mascota, se amplía al hacer clic -->
-          <div class="pet-card"> <!-- Contenedor para la tarjeta de la mascota -->
-            <img src="https://uploads-ssl.webflow.com/63634f4a7b868a399577cf37/63e10bf28752f848463155b3_razas%20de%20gatos.jpg" alt="Cat Image" class="pet-image"> <!-- Imagen de la mascota -->
-            <div class="pet-info"> <!-- Contenedor para la información de la mascota -->
-              <h3 class="pet-name">Luna</h3> <!-- Nombre de la mascota -->
-              <div class="pet-tags"> <!-- Contenedor para las etiquetas de la mascota -->
-                <span class="pet-tag">6 meses</span> <!-- Edad de la mascota -->
-                <span class="pet-tag">Persa</span> <!-- Raza de la mascota -->
-                <span class="pet-tag">Macho</span> <!-- Género de la mascota -->
+          
+          <!-- Tarjeta 2 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="pet-card">
+              <div class="pet-card-img">
+                <img src="https://cdn.pixabay.com/photo/2021/09/05/00/58/gato-6598701_1280.jpg" alt="Whiskers">
+                <div class="pet-tag">Gato</div>
               </div>
-              <p class="pet-description">gata dulce y cariñosa, perfecta para abrazos.</p> <!-- Descripción de la mascota -->
-              <div class="d-flex"> <!-- Contenedor flex para los botones de acción -->
-                <button class="btn-action flex-grow-1">Adoptar</button> <!-- Botón para adoptar la mascota -->
-                <button class="btn-action btn-secondary-action"> <!-- Botón para marcar como favorito -->
-                  <i class="fas fa-heart"></i> <!-- Icono de corazón -->
-                </button>
+              <div class="pet-card-content">
+                <h3 class="pet-name">Whiskers</h3>
+                <div class="pet-details">
+                  <span><i class="fas fa-calendar-alt"></i> 1 año</span>
+                  <span><i class="fas fa-map-marker-alt"></i> Barcelona</span>
+                  <span><i class="fas fa-venus-mars"></i> Macho</span>
+                </div>
+                <div class="pet-features">
+                  <span class="pet-feature"><i class="fas fa-shield-alt"></i> Vacunado</span>
+                  <span class="pet-feature"><i class="fas fa-stethoscope"></i> Esterilizado</span>
+                  <span class="pet-feature"><i class="fas fa-paw"></i> Juguetón</span>
+                </div>
+                <p class="pet-description">Whiskers es un gato bengalí juguetón y tranquilo. Es muy limpio, le encanta acurrucarse y será una compañera perfecta para un hogar tranquilo.</p>
+                <div class="pet-actions">
+                  <a href="#" class="btn btn-pet btn-adopt"><i class="fas fa-paw"></i> Adoptar</a>
+                  <a href="#" class="btn btn-pet btn-info">Más Info</a>
+                </div>
               </div>
             </div>
           </div>
-        </div>
-        
-        <div class="col-md-4 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Segunda columna para otra mascota -->
-          <div class="pet-card"> <!-- Contenedor para la tarjeta de la mascota -->
-            <img src="https://th.bing.com/th/id/R.b4a35952996b0363fb3b3823d171a8e8?rik=yPmvd9x3vMBR5Q&riu=http%3a%2f%2fc.files.bbci.co.uk%2f48DD%2fproduction%2f_107435681_perro1.jpg&ehk=LcxYxmKeK6CKzYChIUt5UGL2G3Zapsyy1nEJgOZAq3M%3d&risl=&pid=ImgRaw&r=0" alt="Dog Image" class="pet-image"> <!-- Imagen de la mascota -->
-            <div class="pet-info"> <!-- Contenedor para la información de la mascota -->
-              <h3 class="pet-name">Rocky</h3> <!-- Nombre de la mascota -->
-              <div class="pet-tags"> <!-- Contenedor para las etiquetas -->
-                <span class="pet-tag">3 años</span> <!-- Edad de la mascota -->
-                <span class="pet-tag">Pastor Alemán</span> <!-- Raza de la mascota -->
-                <span class="pet-tag">Macho</span> <!-- Género de la mascota -->
+          
+          <!-- Tarjeta 3 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="pet-card">
+              <div class="pet-card-img">
+                <img src="https://th.bing.com/th/id/R.df756a251a62d8fb09b9cf66711c1c09?rik=SKtoKItSIRDsqQ&riu=http%3a%2f%2fcms.softindustries.com%2fmultimedia%2f12%2f200808%2fBichon-maltes_1_2.jpg&ehk=Gd8ncrL%2ffQ5KRPk3D5iiXPywZz1Ih8YwBHfkzAM8z8E%3d&risl=&pid=ImgRaw&r=0" alt="Max">
+                <div class="pet-tag">Perro</div>
               </div>
-              <p class="pet-description">Perro energético y divertido, siempre listo para jugar.</p> <!-- Descripción de la mascota -->
-              <div class="d-flex justify-content-between"> <!-- Contenedor flex con justificación entre elementos -->
-                <div class="d-flex"> <!-- Contenedor flex para los botones de acción -->
-                  <button class="btn-action flex-grow-1">Adoptar</button> <!-- Botón para adoptar la mascota -->
-                  <button class="btn-action btn-secondary-action"> <!-- Botón para marcar como favorito -->
-                    <i class="fas fa-heart"></i> <!-- Icono de corazón -->
-                  </button>
+              <div class="pet-card-content">
+                <h3 class="pet-name">Max</h3>
+                <div class="pet-details">
+                  <span><i class="fas fa-calendar-alt"></i> 1 año</span>
+                  <span><i class="fas fa-map-marker-alt"></i> Valencia</span>
+                  <span><i class="fas fa-venus-mars"></i> Hembra</span>
+                </div>
+                <div class="pet-features">
+                  <span class="pet-feature"><i class="fas fa-shield-alt"></i> Vacunado</span>
+                  <span class="pet-feature"><i class="fas fa-home"></i> Adiestrado</span>
+                  <span class="pet-feature"><i class="fas fa-heart"></i> Leal</span>
+                </div>
+                <p class="pet-description">Max es un bichón maltés leal y protector. Está buscando un hogar donde pueda demostrar todo su amor y recibir muchos mimos a cambio.</p>
+                <div class="pet-actions">
+                  <a href="#" class="btn btn-pet btn-adopt"><i class="fas fa-paw"></i> Adoptar</a>
+                  <a href="#" class="btn btn-pet btn-info">Más Info</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tarjeta 4 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="pet-card">
+              <div class="pet-card-img">
+                <img src="https://uploads-ssl.webflow.com/63634f4a7b868a399577cf37/63e10bf28752f848463155b3_razas%20de%20gatos.jpg" alt="Luna">
+                <div class="pet-tag">Gato</div>
+              </div>
+              <div class="pet-card-content">
+                <h3 class="pet-name">Luna</h3>
+                <div class="pet-details">
+                  <span><i class="fas fa-calendar-alt"></i> 6 meses</span>
+                  <span><i class="fas fa-map-marker-alt"></i> Sevilla</span>
+                  <span><i class="fas fa-venus-mars"></i> Hembra</span>
+                </div>
+                <div class="pet-features">
+                  <span class="pet-feature"><i class="fas fa-shield-alt"></i> Vacunada</span>
+                  <span class="pet-feature"><i class="fas fa-heart"></i> Cariñosa</span>
+                  <span class="pet-feature"><i class="fas fa-couch"></i> Tranquila</span>
+                </div>
+                <p class="pet-description">Luna es una gatita dulce y cariñosa, perfecta para abrazos. Le encanta dormir en el regazo y recibir mimos suaves.</p>
+                <div class="pet-actions">
+                  <a href="#" class="btn btn-pet btn-adopt"><i class="fas fa-paw"></i> Adoptar</a>
+                  <a href="#" class="btn btn-pet btn-info">Más Info</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tarjeta 5 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="pet-card">
+              <div class="pet-card-img">
+                <img src="https://th.bing.com/th/id/R.b4a35952996b0363fb3b3823d171a8e8?rik=yPmvd9x3vMBR5Q&riu=http%3a%2f%2fc.files.bbci.co.uk%2f48DD%2fproduction%2f_107435681_perro1.jpg&ehk=LcxYxmKeK6CKzYChIUt5UGL2G3Zapsyy1nEJgOZAq3M%3d&risl=&pid=ImgRaw&r=0" alt="Rocky">
+                <div class="pet-tag">Perro</div>
+              </div>
+              <div class="pet-card-content">
+                <h3 class="pet-name">Rocky</h3>
+                <div class="pet-details">
+                  <span><i class="fas fa-calendar-alt"></i> 3 años</span>
+                  <span><i class="fas fa-map-marker-alt"></i> Bilbao</span>
+                  <span><i class="fas fa-venus-mars"></i> Macho</span>
+                </div>
+                <div class="pet-features">
+                  <span class="pet-feature"><i class="fas fa-shield-alt"></i> Vacunado</span>
+                  <span class="pet-feature"><i class="fas fa-running"></i> Activo</span>
+                  <span class="pet-feature"><i class="fas fa-child"></i> Bueno con niños</span>
+                </div>
+                <p class="pet-description">Rocky es un pastor alemán energético y divertido, siempre listo para jugar. Necesita una familia activa que le proporcione ejercicio diario.</p>
+                <div class="pet-actions">
+                  <a href="#" class="btn btn-pet btn-adopt"><i class="fas fa-paw"></i> Adoptar</a>
+                  <a href="#" class="btn btn-pet btn-info">Más Info</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <!-- Tarjeta 6 -->
+          <div class="col-lg-4 col-md-6">
+            <div class="pet-card">
+              <div class="pet-card-img">
+                <img src="https://th.bing.com/th/id/R.9a4d2589b4f182316546b5afefc67156?rik=fTcPvJZR6rkBNg&pid=ImgRaw&r=0" alt="Bella">
+                <div class="pet-tag">Gato</div>
+              </div>
+              <div class="pet-card-content">
+                <h3 class="pet-name">Bella</h3>
+                <div class="pet-details">
+                  <span><i class="fas fa-calendar-alt"></i> 3 años</span>
+                  <span><i class="fas fa-map-marker-alt"></i> Málaga</span>
+                  <span><i class="fas fa-venus-mars"></i> Hembra</span>
+                </div>
+                <div class="pet-features">
+                  <span class="pet-feature"><i class="fas fa-shield-alt"></i> Vacunada</span>
+                  <span class="pet-feature"><i class="fas fa-stethoscope"></i> Esterilizada</span>
+                  <span class="pet-feature"><i class="fas fa-search"></i> Curiosa</span>
+                </div>
+                <p class="pet-description">Bella es una gata maine coon curiosa y juguetona, lista para ser parte de tu familia. Le encanta explorar y jugar con juguetes interactivos.</p>
+                <div class="pet-actions">
+                  <a href="#" class="btn btn-pet btn-adopt"><i class="fas fa-paw"></i> Adoptar</a>
+                  <a href="#" class="btn btn-pet btn-info">Más Info</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        
-        <div class="col-md-4 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Tercera columna para otra mascota -->
-          <div class="pet-card"> <!-- Contenedor para la tarjeta de la mascota -->
-            <img src="https://th.bing.com/th/id/R.9a4d2589b4f182316546b5afefc67156?rik=fTcPvJZR6rkBNg&pid=ImgRaw&r=0" alt="Cat Image" class="pet-image"> <!-- Imagen de la mascota -->
-            <div class="pet-info"> <!-- Contenedor para la información de la mascota -->
-              <h3 class="pet-name">Bella</h3> <!-- Nombre de la mascota -->
-              <div class="pet-tags"> <!-- Contenedor para las etiquetas -->
-                <span class="pet-tag">3 años</span> <!-- Edad de la mascota -->
-                <span class="pet-tag">Maine Coon</span> <!-- Raza de la mascota -->
-                <span class="pet-tag">Hembra</span> <!-- Género de la mascota -->
+      </div>
+    </section>
+    
+    <footer>
+      <footer class="footer">
+        <div class="container">
+          <div class="row">
+            <div class="col-md-4">
+              <h5>PetPedia</h5>
+              <p>Tu plataforma integral para el cuidado y bienestar de tus mascotas.</p>
+              <div class="social-icons">
+                <a href="#"><i class="fab fa-facebook-f"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-youtube"></i></a>
               </div>
-              <p class="pet-description">Gato curiosa y juguetona, lista para ser parte de tu familia.</p> <!-- Descripción de la mascota -->
-              <div class="d-flex"> <!-- Contenedor flex para los botones de acción -->
-                <button class="btn-action flex-grow-1">Adoptar</button> <!-- Botón para adoptar la mascota -->
-                <button class="btn-action btn-secondary-action"> <!-- Botón para marcar como favorito -->
-                  <i class="fas fa-heart"></i> <!-- Icono de corazón -->
-                </button>
+            </div>
+            <div class="col-md-2">
+              <h5>Explorar</h5>
+              <ul class="footer-links">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Tienda</a></li>
+                <li><a href="#">Veterinaria</a></li>
+                <li><a href="#">Adopciones</a></li>
+              </ul>
+            </div>
+            <div class="col-md-2">
+              <h5>Soporte</h5>
+              <ul class="footer-links">
+                <li><a href="#">Centro de ayuda</a></li>
+                <li><a href="#">Contacto</a></li>
+                <li><a href="#">FAQ</a></li>
+                <li><a href="#">Blog</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h5>Suscríbete a nuestro boletín</h5>
+              <p>Mantente al día con las últimas noticias y consejos para tus mascotas.</p>
+              <div class="footer-newsletter">
+                <input type="email" placeholder="Tu email">
+                <button type="submit"><i class="fas fa-paper-plane"></i></button>
               </div>
             </div>
           </div>
-        </div>
-        </div>
-        </div>
-        
-        <footer> <!-- Sección de pie de página -->
-          <div class="container"> <!-- Contenedor para el pie de página -->
-            <div class="row justify-content-center"> <!-- Fila centrada en el pie de página -->
-              <div class="col-md-6 text-center"> <!-- Columna centrada con texto -->
-                <p>&copy; 2024 Petpedia. Todos los derechos reservados.</p> <!-- Mensaje de derechos de autor -->
-                <div> <!-- Contenedor para los iconos de redes sociales -->
-                  <a href="https://www.facebook.com" target="_blank" class="social-icon"> <!-- Enlace a Facebook -->
-                    <i class="fab fa-facebook-f"></i> <!-- Icono de Facebook -->
-                  </a>
-                  <a href="https://twitter.com" target="_blank" class="social-icon"> <!-- Enlace a Twitter -->
-                    <i class="fab fa-twitter"></i> <!-- Icono de Twitter -->
-                  </a>
-                  <a href="https://www.instagram.com" target="_blank" class="social-icon"> <!-- Enlace a Instagram -->
-                    <i class="fab fa-instagram"></i> <!-- Icono de Instagram -->
-                  </a>
-                  <a href="https://www.linkedin.com" target="_blank" class="social-icon"> <!-- Enlace a LinkedIn -->
-                    <i class="fab fa-linkedin-in"></i> <!-- Icono de LinkedIn -->
-                  </a>
-                </div>
-              </div>
-            </div>
+          <div class="copyright">
+            <p>&copy; 2025 PetPedia. Todos los derechos reservados.</p>
+            <ul class="policy-links">
+              <li><a href="#">Términos de uso</a></li>
+              <li><a href="#">Política de privacidad</a></li>
+              <li><a href="#">Cookies</a></li>
+            </ul>
           </div>
-        </footer>
+        </div>
+      </footer>
+    </footer>
+  </div>
+  
+  <script>
+    // Script para el navbar
+    window.addEventListener('scroll', function() {
+      const navbar = document.querySelector('.navbar');
+      if (window.scrollY > 10) {
+        navbar.classList.add('scrolled');
+      } else {
+        navbar.classList.remove('scrolled');
+      }
+    });
+    
+    // Script para el dropdown de filtros
+    const filterToggle = document.getElementById('filterToggle');
+    const filterDropdown = document.getElementById('filterDropdown');
+    
+    filterToggle.addEventListener('click', function(e) {
+      e.stopPropagation();
+      filterDropdown.classList.toggle('show');
+    });
+    
+    // Cerrar dropdown al hacer clic fuera
+    document.addEventListener('click', function() {
+      filterDropdown.classList.remove('show');
+    });
+    
+    // Activar/desactivar opciones de filtro
+    const filterOptions = document.querySelectorAll('.filter-option');
+    filterOptions.forEach(option => {
+      option.addEventListener('click', function() {
+        this.parentElement.querySelectorAll('.filter-option').forEach(opt => {
+          opt.classList.remove('active');
+        });
+        this.classList.add('active');
+      });
+    });
+  </script>
+  
   <script src="/project petpedia1/js/adopcion.js"></script>
-</body>       
+</body>
+</html>

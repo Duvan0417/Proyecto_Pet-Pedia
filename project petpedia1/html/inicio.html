@@ -1,192 +1,471 @@
 <!DOCTYPE html>
-<html lang="es"> 
+<html lang="es">
 <head>
-  <meta charset="UTF-8"> 
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Petpedia</title> <!-- Título que aparece en la pestaña del navegador -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Enlace a la hoja de estilos de Bootstrap -->
-  <link rel="stylesheet" href="/project petpedia1/css/inicio.css"> <!-- Enlace a la hoja de estilos personalizada -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Enlace a Font Awesome para iconos -->
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Petpedia - Tu portal de mascotas</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="/project petpedia1/css/inicio.css">
 </head>
 <body>
-  <div class="sidebar"> <!-- Contenedor de la barra lateral de navegación -->
-    <a href="inicio.html"> <!-- Enlace a la página de inicio -->
-      <i class="fas fa-home"></i> <!-- Icono de casa de Font Awesome -->
-      <span>Inicio</span> <!-- Texto del enlace -->
-    </a>
-    <a href="compra.html"> <!-- Enlace a la página de compras -->
-      <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito de compras -->
-      <span>Compra</span> <!-- Texto del enlace -->
-    </a>
-    <a href="veterinaria.html"> <!-- Enlace a la página de veterinaria -->
-      <i class="fas fa-clinic-medical"></i> <!-- Icono de clínica médica -->
-      <span>Veterinaria</span> <!-- Texto del enlace -->
-    </a>
-    <a href="adopcion.html"> <!-- Enlace a la página de adopciones -->
-      <i class="fas fa-paw"></i> <!-- Icono de pata de animal -->
-      <span>Adopciones</span> <!-- Texto del enlace -->
-    </a>
-    <a href="foro.html"> <!-- Enlace al foro (sin destino definido) -->
-      <i class="fas fa-comments"></i> <!-- Icono de comentarios -->
-      <span>Foro</span> <!-- Texto del enlace -->
-    </a>
-    <a href="#"> <!-- Enlace al perfil (sin destino definido) -->
-      <i class="fas fa-user"></i> <!-- Icono de usuario -->
-      <span>Perfil</span> <!-- Texto del enlace -->
-    </a>
-    <a href="ajustes.html"> <!-- Enlace a configuración (sin destino definido) -->
-      <i class="fas fa-cog"></i> <!-- Icono de engranaje -->
-      <span>Configuración</span> <!-- Texto del enlace -->
-    </a>
+
+  <!-- Sidebar mejorado -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+        <img src="/api/placeholder/80/80" alt="Logo" class="logo">
+        <span class="logo-text">PetPedia</span>
+    </div>
+    <div class="sidebar-menu">
+        <a href="inicio.html" class="menu-item">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="compra.html" class="menu-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Compra</span>
+        </a>
+        <a href="veterinaria.html" class="menu-item">
+            <i class="fas fa-clinic-medical"></i>
+            <span>Veterinaria</span>
+        </a>
+        <a href="adopcion.html" class="menu-item">
+            <i class="fas fa-paw"></i>
+            <span>Adopciones</span>
+        </a>
+        <a href="foro.html" class="menu-item active">
+            <i class="fas fa-comments"></i>
+            <span>Foro</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-user"></i>
+            <span>Perfil</span>
+        </a>
+        <a href="ajustes.html" class="menu-item">
+            <i class="fas fa-cog"></i>
+            <span>Configuración</span>
+        </a>
+    </div>
+</div>
+
+  <!-- Botón de menú para móviles -->
+  <div class="menu-toggle">
+    <i class="fas fa-bars"></i>
   </div>
-  <div class="main-content"> <!-- Contenedor principal del contenido -->
-    <nav class="navbar navbar-expand-lg navbar-light"> <!-- Barra de navegación usando Bootstrap -->
-      <a class="navbar-brand" href="#"> <!-- Marca de navegación -->
-          <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo"> <!-- Imagen de logo -->
-      </a>
-      <div class="search-filters"> <!-- Contenedor para los filtros de búsqueda -->
-        <div class="btn-group"> <!-- Grupo de botones para seleccionar tipo de mascota -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <!-- Botón para colapsar la navegación en pantallas pequeñas -->
-          <span class="navbar-toggler-icon"></span> <!-- Icono del botón de colapso -->
-      </button>
-      
-      <div class="collapse navbar-collapse" id="navbarNav"> <!-- Contenedor colapsable para la navegación -->
-          <ul class="navbar-nav ml-auto"> <!-- Lista de navegación alineada a la derecha -->
-              <li class="nav-item"> <!-- Elemento de navegación -->
-                  <a class="nav-link" href="#">Ofertas del Día</a> <!-- Enlace a ofertas del día -->
-              </li>
-              <li class="nav-item"> <!-- Elemento de navegación -->
-                  <a class="nav-link" href="#">Historial de Citas</a> <!-- Enlace a historial de citas -->
-              </li>
-              <li class="nav-item"> <!-- Elemento de navegación -->
-                  <div class="input-group"> <!-- Contenedor para el grupo de entrada -->
-                      <input type="text" class="form-control search-input" placeholder="Buscar..."> <!-- Campo de texto para búsqueda -->
-                      <div class="input-group-append"> <!-- Contenedor para el botón de búsqueda -->
-                        <button class="btn-actions">Buscar</button> <!-- Botón para ejecutar la búsqueda -->
-                      </div>
-                  </div>
-              </li>
+
+  <!-- Contenido principal -->
+  <div class="main-header">
+    <!-- Banner principal -->
+    <div class="banner">
+      <div class="banner-overlay"></div>
+      <div class="banner-content">
+        <h1>Bienvenido a Petpedia</h1>
+        <p>Tu portal completo para todo lo relacionado con mascotas. Adopta, compra productos, encuentra veterinarios y conecta con otros amantes de los animales.</p>
+        <a href="#" class="btn btn-banner">Descubrir Ahora</a>
+      </div>
+    </div>
+
+    <!-- Sección de características -->
+    <section class="features-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Nuestros Servicios</h2>
+          <p>Descubre todo lo que Petpedia puede ofrecerte a ti y a tu mascota</p>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-paw"></i>
+              </div>
+              <h3>Adopciones</h3>
+              <p>Encuentra tu compañero perfecto entre cientos de mascotas que buscan un hogar amoroso. Proceso de adopción simplificado y responsable.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-shopping-cart"></i>
+              </div>
+              <h3>Tienda</h3>
+              <p>Productos de calidad para el cuidado y bienestar de tu mascota. Alimentos, accesorios, juguetes y mucho más con entrega a domicilio.</p>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="feature-card">
+              <div class="feature-icon">
+                <i class="fas fa-clinic-medical"></i>
+              </div>
+              <h3>Veterinaria</h3>
+              <p>Conecta con los mejores veterinarios de tu zona. Consultas online, reserva de citas y consejos de salud para tu mascota.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Mascotas destacadas -->
+    <section class="featured-pets">
+      <div class="container">
+        <div class="section-title">
+          <h2>Mascotas en Adopción</h2>
+          <p>Estas adorables mascotas están esperando encontrar un hogar. ¡Conoce a nuestros amigos destacados!</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="pet-card">
+              <div class="pet-card-img">
+                <img src="/api/placeholder/400/250" alt="Perro en adopción">
+                <div class="pet-tag">Perro</div>
+              </div>
+              <div class="pet-card-content">
+                <h3 class="pet-name">Max</h3>
+                <div class="pet-details">
+                  <span><i class="fas fa-calendar-alt"></i> 2 años</span>
+                  <span><i class="fas fa-map-marker-alt"></i> Madrid</span>
+                  <span><i class="fas fa-venus-mars"></i> Macho</span>
+                </div>
+                <p class="pet-description">Max es un labrador cariñoso y juguetón que adora a los niños. Está vacunado, desparasitado y listo para formar parte de una familia amorosa.</p>
+                <div class="pet-actions">
+                  <a href="#" class="btn btn-pet btn-adopt">Adoptar</a>
+                  <a href="#" class="btn btn-pet btn-info">Más Info</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="pet-card">
+              <div class="pet-card-img">
+                <img src="/api/placeholder/400/250" alt="Gato en adopción">
+                <div class="pet-tag">Gato</div>
+              </div>
+              <div class="pet-card-content">
+                <h3 class="pet-name">Luna</h3>
+                <div class="pet-details">
+                  <span><i class="fas fa-calendar-alt"></i> 1 año</span>
+                  <span><i class="fas fa-map-marker-alt"></i> Barcelona</span>
+                  <span><i class="fas fa-venus-mars"></i> Hembra</span>
+                </div>
+                <p class="pet-description">Luna es una gatita siamesa tranquila y cariñosa. Es muy limpia, le encanta acurrucarse y será una compañera perfecta para un hogar tranquilo.</p>
+                <div class="pet-actions">
+                  <a href="#" class="btn btn-pet btn-adopt">Adoptar</a>
+                  <a href="#" class="btn btn-pet btn-info">Más Info</a>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="pet-card">
+              <div class="pet-card-img">
+                <img src="/api/placeholder/400/250" alt="Conejo en adopción">
+                <div class="pet-tag">Conejo</div>
+              </div>
+              <div class="pet-card-content">
+                <h3 class="pet-name">Coco</h3>
+                <div class="pet-details">
+                  <span><i class="fas fa-calendar-alt"></i> 8 meses</span>
+                  <span><i class="fas fa-map-marker-alt"></i> Valencia</span>
+                  <span><i class="fas fa-venus-mars"></i> Macho</span>
+                </div>
+                <p class="pet-description">Coco es un conejo enano muy activo y curioso. Es ideal para personas que quieran una mascota pequeña pero con mucha personalidad.</p>
+                <div class="pet-actions">
+                  <a href="#" class="btn btn-pet btn-adopt">Adoptar</a>
+                  <a href="#" class="btn btn-pet btn-info">Más Info</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          <a href="adopcion.html" class="btn btn-banner">Ver todas las mascotas</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Contador de estadísticas -->
+    <section class="stats-section">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-3 col-6">
+            <div class="stat-item">
+              <div class="stat-icon">
+                <i class="fas fa-paw"></i>
+              </div>
+              <div class="stat-count">2,580+</div>
+              <div class="stat-title">Adopciones</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="stat-item">
+              <div class="stat-icon">
+                <i class="fas fa-users"></i>
+              </div>
+              <div class="stat-count">15,000+</div>
+              <div class="stat-title">Usuarios</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="stat-item">
+              <div class="stat-icon">
+                <i class="fas fa-clinic-medical"></i>
+              </div>
+              <div class="stat-count">350+</div>
+              <div class="stat-title">Veterinarios</div>
+            </div>
+          </div>
+          <div class="col-md-3 col-6">
+            <div class="stat-item">
+              <div class="stat-icon">
+                <i class="fas fa-globe"></i>
+              </div>
+              <div class="stat-count">35+</div>
+              <div class="stat-title">Ciudades</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de testimonios -->
+    <section class="testimonials">
+      <div class="container">
+        <div class="section-title">
+          <h2>Testimonios</h2>
+          <p>Lo que dicen nuestros usuarios sobre su experiencia con Petpedia</p>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="testimonial-quote">
+                <i class="fas fa-quote-right"></i>
+              </div>
+              <p class="testimonial-text">Gracias a Petpedia encontré a mi compañero perfecto. El proceso de adopción fue sencillo y me apoyaron en todo momento. Ahora Toby y yo somos inseparables.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-author-img">
+                  <img src="/api/placeholder/60/60" alt="Usuario">
+                </div>
+                <div class="testimonial-author-info">
+                  <h4>Carlos Martínez</h4>
+                  <p>Madrid</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="testimonial-quote">
+                <i class="fas fa-quote-right"></i>
+              </div>
+              <p class="testimonial-text">La tienda online tiene todo lo que mi gata necesita. Precios competitivos y envíos rápidos. El servicio al cliente es excelente, siempre resuelven mis dudas.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-author-img">
+                  <img src="/api/placeholder/60/60" alt="Usuario">
+                </div>
+                <div class="testimonial-author-info">
+                  <h4>Ana López</h4>
+                  <p>Barcelona</p>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="testimonial-card">
+              <div class="testimonial-quote">
+                <i class="fas fa-quote-right"></i>
+              </div>
+              <p class="testimonial-text">El servicio veterinario online me ha salvado en varias ocasiones. Pude consultar rápidamente cuando mi perro tenía un problema y recibí asesoramiento profesional inmediato.</p>
+              <div class="testimonial-author">
+                <div class="testimonial-author-img">
+                  <img src="/api/placeholder/60/60" alt="Usuario">
+                </div>
+                <div class="testimonial-author-info">
+                  <h4>Miguel Sánchez</h4>
+                  <p>Valencia</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Sección de blog -->
+    <section class="blog-section">
+      <div class="container">
+        <div class="section-title">
+          <h2>Nuestro Blog</h2>
+          <p>Artículos y consejos para el cuidado y bienestar de tus mascotas</p>
+        </div>
+        <div class="row">
+          <div class="col-lg-4 col-md-6">
+            <div class="blog-post">
+              <div class="blog-img">
+                <img src="/api/placeholder/400/200" alt="Blog Post">
+                <div class="blog-date">12 May</div>
+              </div>
+              <div class="blog-content">
+                <div class="blog-category">Salud</div>
+                <h3 class="blog-title">Consejos para mantener a tu mascota saludable en verano</h3>
+                <p class="blog-text">Descubre cómo proteger a tu mascota del calor y mantenerla hidratada durante los meses de verano...</p>
+                <a href="#" class="blog-link">Leer más <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="blog-post">
+              <div class="blog-img">
+                <img src="/api/placeholder/400/200" alt="Blog Post">
+                <div class="blog-date">5 May</div>
+              </div>
+              <div class="blog-content">
+                <div class="blog-category">Nutrición</div>
+                <h3 class="blog-title">Alimentos que nunca debes dar a tu perro</h3>
+                <p class="blog-text">Algunos alimentos humanos pueden ser peligrosos para tu perro. Aprende cuáles debes evitar a toda costa...</p>
+                <a href="#" class="blog-link">Leer más <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-4 col-md-6">
+            <div class="blog-post">
+              <div class="blog-img">
+                <img src="/api/placeholder/400/200" alt="Blog Post">
+                <div class="blog-date">28 Abr</div>
+              </div>
+              <div class="blog-content">
+                <div class="blog-category">Comportamiento</div>
+                <h3 class="blog-title">Cómo entrenar a tu gato para usar el arenero</h3>
+                <p class="blog-text">Guía paso a paso para enseñar a tu gatito a usar correctamente el arenero desde el primer día...</p>
+                <a href="#" class="blog-link">Leer más <i class="fas fa-arrow-right"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="text-center mt-5">
+          <a href="foro.html" class="btn btn-banner">Ver todos los artículos</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter">
+      <div class="container">
+        <div class="newsletter-content">
+          <h3>¡Suscríbete a nuestra newsletter!</h3>
+          <p>Recibe las últimas noticias, consejos de cuidado para mascotas y ofertas exclusivas directamente en tu correo.</p>
+          <form class="newsletter-form">
+            <input type="email" class="newsletter-input" placeholder="Tu correo electrónico" required>
+            <button type="submit" class="newsletter-btn">Suscribirse</button>
+          </form>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer mejorado -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h5>PetPedia</h5>
+            <p>Tu plataforma integral para el cuidado y bienestar de tus mascotas.</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h5>Explorar</h5>
+            <ul class="footer-links">
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Tienda</a></li>
+              <li><a href="#">Veterinaria</a></li>
+              <li><a href="#">Adopciones</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <h5>Soporte</h5>
+            <ul class="footer-links">
+              <li><a href="#">Centro de ayuda</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5>Suscríbete a nuestro boletín</h5>
+            <p>Mantente al día con las últimas noticias y consejos para tus mascotas.</p>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Tu email">
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 PetPedia. Todos los derechos reservados.</p>
+          <ul class="policy-links">
+            <li><a href="#">Términos de uso</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Cookies</a></li>
           </ul>
-      </div>
-    </nav>
-
-    <div class="container-fluid py-5"> <!-- Contenedor fluido con margen superior e inferior -->
-        <div class="row" style="margin-left: 0%;"> <!-- Fila para organizar las tarjetas de veterinarias -->
-          
-          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la primera veterinaria -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
-              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
-                <h3 class="pet-name">Veterinaria 1</h3> <!-- Nombre de la veterinaria -->
-                <p class="pet-description">Consulta y atención integral para tus mascotas, con un equipo profesional y amable.</p> <!-- Descripción de la veterinaria -->
-                <p><strong>Horario:</strong> Lunes a Viernes, 8:00 AM - 6:00 PM</p> <!-- Horario de atención -->
-                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
-                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
-                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
-                </div>
-              </div>
-            </div>
-          </div>
-      
-          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la segunda veterinaria -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
-              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
-                <h3 class="pet-name">Veterinaria 2</h3> <!-- Nombre de la veterinaria -->
-                <p class="pet-description">Especialistas en cirugía y tratamientos avanzados para la salud de tus animales.</p> <!-- Descripción de la veterinaria -->
-                <p><strong>Horario:</strong> Martes a Sábado, 9:00 AM - 5:00 PM</p> <!-- Horario de atención -->
-                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
-                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
-                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
-                </div>
-              </div>
-            </div>
-          </div>
-      
-          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la tercera veterinaria -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
-              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
-                <h3 class="pet-name">Veterinaria 3</h3> <!-- Nombre de la veterinaria -->
-                <p class="pet-description">Atención de emergencias y consultas generales, siempre listos para ayudar.</p> <!-- Descripción de la veterinaria -->
-                <p><strong>Horario:</strong> Lunes a Domingo, 10:00 AM - 8:00 PM</p> <!-- Horario de atención -->
-                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
-                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
-                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
-                </div>
-              </div>
-            </div>
-          </div>
-      
-          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la cuarta veterinaria -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
-              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
-                <h3 class="pet-name">Veterinaria 4</h3> <!-- Nombre de la veterinaria -->
-                <p class="pet-description">Cuidado preventivo y vacunación, asegurando la salud de tus mascotas.</p> <!-- Descripción de la veterinaria -->
-                <p><strong>Horario:</strong> Miércoles a Domingo, 9:00 AM - 4:00 PM</p> <!-- Horario de atención -->
-                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
-                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
-                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
-                </div>
-              </div>
-            </div>
-          </div>
-          
-          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la quinta veterinaria -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
-              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
-                <h3 class="pet-name">Veterinaria 5</h3> <!-- Nombre de la veterinaria -->
-                <p class="pet-description">Atención de emergencias y consultas generales, siempre listos para ayudar.</p> <!-- Descripción de la veterinaria -->
-                <p><strong>Horario:</strong> Lunes a Domingo, 10:00 AM - 8:00 PM</p> <!-- Horario de atención -->
-                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
-                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
-                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
-                </div>
-              </div>
-            </div>
-          </div>
-      
-          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la sexta veterinaria -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
-              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
-                <h3 class="pet-name">Veterinaria 6</h3> <!-- Nombre de la veterinaria -->
-                <p class="pet-description">Cuidado preventivo y vacunación, asegurando la salud de tus mascotas.</p> <!-- Descripción de la veterinaria -->
-                <p><strong>Horario:</strong> Miércoles a Domingo, 9:00 AM - 4:00 PM</p> <!-- Horario de atención -->
-                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
-                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
-                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
-                </div>
-              </div>
-            </div>
-          </div>
         </div>
       </div>
-        
-      <footer> <!-- Sección de pie de página -->
-        <div class="container"> <!-- Contenedor para el pie de página -->
-          <div class="row justify-content-center"> <!-- Fila centrada en el pie de página -->
-            <div class="col-md-6 text-center"> <!-- Columna centrada con texto -->
-              <p>&copy; 2024 Petpedia. Todos los derechos reservados.</p> <!-- Mensaje de derechos de autor -->
-              <div> <!-- Contenedor para los iconos de redes sociales -->
-                <a href="https://www.facebook.com" target="_blank" class="social-icon"> <!-- Enlace a Facebook -->
-                  <i class="fab fa-facebook-f"></i> <!-- Icono de Facebook -->
-                </a>
-                <a href="https://twitter.com" target="_blank" class="social-icon"> <!-- Enlace a Twitter -->
-                  <i class="fab fa-twitter"></i> <!-- Icono de Twitter -->
-                </a>
-                <a href="https://www.instagram.com" target="_blank" class="social-icon"> <!-- Enlace a Instagram -->
-                  <i class="fab fa-instagram"></i> <!-- Icono de Instagram -->
-                </a>
-                <a href="https://www.linkedin.com" target="_blank" class="social-icon"> <!-- Enlace a LinkedIn -->
-                  <i class="fab fa-linkedin-in"></i> <!-- Icono de LinkedIn -->
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+    </footer>
 
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> <!-- Enlace a jQuery -->
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gyb6Hf2XK4F8U1F6E1c9v4D0m4v1HqD+fG5y8V1b8+6e3M1F0X" crossorigin="anonymous"></script> <!-- Enlace a Popper.js -->
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-wX3cZ2k0C0P1Yx5L4d4Y3z2Z4v1HqD+fG5y8V1b8+6e3M1F0X" crossorigin="anonymous"></script> <!-- Enlace a Bootstrap JS -->
-      
-      <script src=""></script> <!-- Enlace a un archivo JavaScript personalizado -->
+    <!-- Botón volver arriba -->
+    <div class="back-to-top">
+      <i class="fas fa-arrow-up"></i>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  
+  <script>
+    // Script para botón volver arriba
+    $(window).scroll(function() {
+      if ($(this).scrollTop() > 300) {
+        $('.back-to-top').addClass('active');
+      } else {
+        $('.back-to-top').removeClass('active');
+      }
+    });
+
+    $('.back-to-top').click(function() {
+      $('html, body').animate({scrollTop: 0}, 800);
+      return false;
+    });
+
+    // Script para toggle del menú en móviles
+    $('.menu-toggle').click(function() {
+      $('.sidebar').toggleClass('active');
+    });
+
+    // Cerrar menú al hacer clic fuera en móviles
+    $(document).click(function(event) {
+      if (!$(event.target).closest('.sidebar, .menu-toggle').length) {
+        if ($('.sidebar').hasClass('active')) {
+          $('.sidebar').removeClass('active');
+        }
+      }
+    });
+
+    // Animación de contador
+    $(document).ready(function() {
+      $('.stat-count').each(function() {
+        $(this).prop('Counter', 0).animate({
+          Counter: $(this).text().replace('+', '')
+        }, {
+          duration: 2000,
+          easing: 'swing',
+          step: function(now) {
+            $(this).text(Math.ceil(now) + '+');
+          }
+        });
+      });
+    });
+  </script>
 </body>
 </html>

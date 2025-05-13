@@ -15,50 +15,94 @@ body {
 
 /* Estilos para la barra lateral */
 .sidebar {
-  position: fixed; /* Fija la barra lateral en la pantalla */
-  top: 0; /* Posición en la parte superior */
-  left: 0; /* Posición a la izquierda */
-  width: 70px; /* Ancho inicial de la barra lateral */
-  height: 100%; /* Altura completa */
-  background: var(--dark-color); /* Color de fondo de la barra lateral */
-  transition: width 0.3s ease; /* Transición suave para el cambio de ancho */
-  overflow-x: hidden; /* Oculta el desbordamiento horizontal */
-  z-index: 1000; /* Asegura que la barra lateral esté por encima de otros elementos */
-  box-shadow: 2px 0 5px rgba(0,0,0,0.1); /* Sombra para darle profundidad */
-}
-
-.sidebar a {
-  display: flex; /* Usa flexbox para alinear los elementos */
-  align-items: center; /* Centra verticalmente los elementos */
-  padding: 15px 20px; /* Espaciado interno */
-  color: var(--light-color); /* Color del texto */
-  text-decoration: none; /* Elimina el subrayado del texto */
-  transition: all 0.3s ease; /* Transición suave para todos los cambios */
-  white-space: nowrap; /* Evita que el texto se divida en varias líneas */
-}
-
-.sidebar a:hover {
-  background: var(--primary-color); /* Color de fondo al pasar el mouse */
-  color: white; /* Cambia el color del texto al pasar el mouse */
-}
-
-.sidebar a i {
-  font-size: 1.5rem; /* Tamaño de los iconos */
-  min-width: 30px; /* Ancho mínimo para los iconos */
-}
-
-.sidebar a span {
-  opacity: 0; /* Inicialmente oculto */
-  transition: opacity 0.2s ease; /* Transición suave para la opacidad */
-  margin-left: 10px; /* Espacio a la izquierda del texto */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 80px;
+  height: 100%;
+  background: var(--dark-color);
+  transition: width 0.3s ease;
+  overflow-x: hidden;
+  z-index: 1000;
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
 }
 
 .sidebar:hover {
-  width: 240px; /* Ancho expandido al pasar el mouse */
+  width: 240px;
 }
 
-.sidebar:hover a span {
-  opacity: 1; /* Muestra el texto al pasar el mouse */
+.sidebar-header {
+  padding: 20px 15px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
+.logo-text {
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  margin-left: 15px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar:hover .logo-text {
+  opacity: 1;
+}
+
+.sidebar-menu {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding-top: 15px;
+}
+
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 15px 20px;
+  color: var(--light-color);
+  text-decoration: none;
+  transition: var(--transition-normal);
+  margin: 5px 0;
+  border-left: 3px solid transparent;
+}
+
+.menu-item.active {
+  background: rgba(255, 255, 255, 0.1);
+  border-left: 3px solid var(--accent-color);
+}
+
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item i {
+  font-size: 1.5rem;
+  min-width: 30px;
+  text-align: center;
+}
+
+.menu-item span {
+  margin-left: 15px;
+  white-space: nowrap;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.sidebar:hover .menu-item span {
+  opacity: 1;
 }
 
 /* Estilos para la barra de navegación */
@@ -71,6 +115,7 @@ body {
 
 .navbar-brand img {
   height: 50px; /* Altura del logo */
+  width: 50px;
 }
 
 .search-filters {
@@ -201,31 +246,149 @@ body {
 }
 
 /* Estilos para el pie de página */
-footer {
-  background: var(--dark-color); /* Color de fondo del pie de página */
-  color: var(--light-color); /* Color del texto del pie de página */
-  padding: 3rem 0; /* Espaciado interno */
-  margin-left: 70px; /* Margen izquierdo */
+/* Footer */
+.footer {
+  background: var(--dark-color);
+  color: var(--light-color);
+  padding: 50px 0 20px;
+  margin-top: auto;
 }
 
-.social-links {
-  display: flex; /* Usa flexbox para organizar los enlaces sociales */
-  justify-content: center; /* Centra los enlaces */
-  gap: 1.5rem; /* Espacio entre los enlaces */
-  margin-top: 1.5rem; /* Margen superior */
+.footer h5 {
+  color: white;
+  margin-bottom: 20px;
+  font-size: 1.1rem;
 }
 
-.social-icon {
-  color: var(--light-color); /* Color de los iconos sociales */
-  font-size: 1.5rem; /* Tamaño de los iconos */
-  transition: all 0.3s ease; /* Transición suave para todos los cambios */
+.footer p {
+  opacity: 0.8;
+  font-size: 0.9rem;
+  line-height: 1.6;
 }
 
-.social-icon:hover {
-  color: var(--accent-color); /* Color de los iconos al pasar el mouse */
-  transform: translateY(-3px); /* Eleva el icono al pasar el mouse */
+.social-icons {
+  display: flex;
+  gap: 15px;
+  margin-top: 20px;
 }
 
+.social-icons a {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  transition: all var(--transition-speed) ease;
+}
+
+.social-icons a:hover {
+  background: var(--accent-color);
+  transform: translateY(-3px);
+}
+
+.footer-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-links li {
+  margin-bottom: 12px;
+}
+
+.footer-links a {
+  color: var(--gray-400);
+  font-size: 0.9rem;
+  transition: all var(--transition-speed) ease;
+}
+
+.footer-links a:hover {
+  color: white;
+  padding-left: 5px;
+}
+
+.footer-newsletter {
+  position: relative;
+  margin-top: 15px;
+}
+
+.footer-newsletter input {
+  width: 100%;
+  padding: 10px 50px 10px 15px;
+  border: none;
+  border-radius: 30px;
+  background: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.footer-newsletter input::placeholder {
+  color: var(--gray-400);
+}
+
+.footer-newsletter input:focus {
+  outline: none;
+  background: rgba(255, 255, 255, 0.15);
+}
+
+.footer-newsletter button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: var(--accent-color);
+  border: none;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition-speed) ease;
+}
+
+.footer-newsletter button:hover {
+  background: var(--accent-light);
+}
+
+.copyright {
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  padding-top: 20px;
+  margin-top: 30px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+}
+
+.copyright p {
+  margin: 0;
+  font-size: 0.85rem;
+}
+
+.policy-links {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+}
+
+.policy-links li {
+  margin-left: 20px;
+}
+
+.policy-links a {
+  color: var(--gray-400);
+  font-size: 0.85rem;
+}
+
+.policy-links a:hover {
+  color: white;
+}
 /* Estilos responsivos */
 @media (max-width: 768px) { /* Estilos para pantallas pequeñas */
   .search-filters {

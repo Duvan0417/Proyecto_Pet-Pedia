@@ -3,229 +3,519 @@
 <head>
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Petpedia</title> <!-- Título que aparece en la pestaña del navegador -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Enlace a la hoja de estilos de Bootstrap -->
-  <link rel="stylesheet" href="/project petpedia1/css/compra.css"> <!-- Enlace a la hoja de estilos personalizada -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Enlace a Font Awesome para iconos -->
+  <title>Petpedia - Tienda</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link rel="stylesheet" href="/project petpedia1/css/compra.css">
 </head>
 <body>
-  <div class="sidebar"> <!-- Contenedor de la barra lateral de navegación -->
-    <a href="inicio.html"> <!-- Enlace a la página de inicio -->
-      <i class="fas fa-home"></i> <!-- Icono de casa de Font Awesome -->
-      <span>Inicio</span> <!-- Texto del enlace -->
-    </a>
-    <a href="compra.html"> <!-- Enlace a la página de compras -->
-      <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito de compras -->
-      <span>Compra</span> <!-- Texto del enlace -->
-    </a>
-    <a href="veterinaria.html"> <!-- Enlace a la página de veterinaria -->
-      <i class="fas fa-clinic-medical"></i> <!-- Icono de clínica médica -->
-      <span>Veterinaria</span> <!-- Texto del enlace -->
-    </a>
-    <a href="adopcion.html"> <!-- Enlace a la página de adopciones -->
-      <i class="fas fa-paw"></i> <!-- Icono de pata de animal -->
-      <span>Adopciones</span> <!-- Texto del enlace -->
-    </a>
-    <a href="foro.html"> <!-- Enlace al foro (sin destino definido) -->
-      <i class="fas fa-comments"></i> <!-- Icono de comentarios -->
-      <span>Foro</span> <!-- Texto del enlace -->
-    </a>
-    <a href="#"> <!-- Enlace al perfil (sin destino definido) -->
-      <i class="fas fa-user"></i> <!-- Icono de usuario -->
-      <span>Perfil</span> <!-- Texto del enlace -->
-    </a>
-    <a href="ajustes.html"> <!-- Enlace a configuración (sin destino definido) -->
-      <i class="fas fa-cog"></i> <!-- Icono de engranaje -->
-      <span>Configuración</span> <!-- Texto del enlace -->
-    </a>
-  </div>
-
-  <div class="main-content"> <!-- Contenedor principal del contenido -->
-    <nav class="navbar navbar-expand-lg navbar-light"> <!-- Barra de navegación usando Bootstrap -->
-        <div class="search-filters"> <!-- Contenedor para los filtros de búsqueda -->
-            <div class="btn-group"> <!-- Grupo de botones para seleccionar tipo de mascota -->
-        <a class="navbar-brand" href="#"> <!-- Marca de navegación -->
-            <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo"> <!-- Imagen de logo -->
+  <!-- Barra lateral -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+        <img src="/api/placeholder/80/80" alt="Logo" class="logo">
+        <span class="logo-text">PetPedia</span>
+    </div>
+    <div class="sidebar-menu">
+        <a href="inicio.html" class="menu-item">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
         </a>
+        <a href="compra.html" class="menu-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Compra</span>
+        </a>
+        <a href="veterinaria.html" class="menu-item">
+            <i class="fas fa-clinic-medical"></i>
+            <span>Veterinaria</span>
+        </a>
+        <a href="adopcion.html" class="menu-item">
+            <i class="fas fa-paw"></i>
+            <span>Adopciones</span>
+        </a>
+        <a href="foro.html" class="menu-item active">
+            <i class="fas fa-comments"></i>
+            <span>Foro</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-user"></i>
+            <span>Perfil</span>
+        </a>
+        <a href="ajustes.html" class="menu-item">
+            <i class="fas fa-cog"></i>
+            <span>Configuración</span>
+        </a>
+    </div>
+</div>
+
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <!-- Barra de navegación mejorada -->
+    <nav class="navbar navbar-expand-lg navbar-light">
+      <button class="toggle-sidebar mr-3">
+        <i class="fas fa-bars"></i>
+      </button>
+      
+      <a class="navbar-brand" href="inicio.html">
+        <img src="/project petpedia1/imagenes/logo.png" alt="Petpedia Logo">
+      </a>
+      
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <i class="fas fa-th-large mr-2"></i>Categorías
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+              <a class="dropdown-item" href="#"><i class="fas fa-drumstick-bite mr-2"></i>Alimentos</a>
+              <a class="dropdown-item" href="#"><i class="fas fa-bone mr-2"></i>Juguetes</a>
+              <a class="dropdown-item" href="#"><i class="fas fa-tshirt mr-2"></i>Ropa y Accesorios</a>
+              <a class="dropdown-item" href="#"><i class="fas fa-bed mr-2"></i>Camas y Muebles</a>
+              <a class="dropdown-item" href="#"><i class="fas fa-shower mr-2"></i>Higiene y Cuidado</a>
+              <a class="dropdown-item" href="#"><i class="fas fa-pills mr-2"></i>Salud y Bienestar</a>
+              <a class="dropdown-item" href="#"><i class="fas fa-suitcase mr-2"></i>Viajes y Transporte</a>
+              <a class="dropdown-item" href="#"><i class="fas fa-graduation-cap mr-2"></i>Entrenamiento</a>
+            </div>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-percent mr-2"></i>Ofertas</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-star mr-2"></i>Novedades</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="fas fa-shipping-fast mr-2"></i>Mis Pedidos</a>
+          </li>
+        </ul>
         
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <!-- Botón para colapsar la navegación en pantallas pequeñas -->
-            <span class="navbar-toggler-icon"></span> <!-- Icono del botón de colapso -->
-        </button>
-        
-        <div class="collapse navbar-collapse" id="navbarNav"> <!-- Contenedor colapsable para la navegación -->
-            <ul class="navbar-nav mr-auto"> <!-- Lista de navegación -->
-                <li class="nav-item dropdown"> <!-- Elemento de menú desplegable -->
-                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"> <!-- Enlace del menú desplegable -->
-                        Categorías
-                    </a>
-                    <div class="dropdown-menu" aria-labelledby="navbarDropdown"> <!-- Contenedor del menú desplegable -->
-                        <a class="dropdown-item" href="#">Comida</a> <!-- Opción del menú -->
-                        <a class="dropdown-item" href="#">Juguetes</a> <!-- Opción del menú -->
-                        <a class="dropdown-item" href="#">Accesorios</a> <!-- Opción del menú -->
-                        <a class="dropdown-item" href="#">Ropa</a> <!-- Opción del menú -->
-                        <a class="dropdown-item" href="#">Camas y Muebles</a> <!-- Opción del menú -->
-                    </div>
-                </li>
-                
-                <li class="nav-item"> <!-- Elemento de navegación -->
-                    <a class="nav-link" href="#">Ofertas del Día</a> <!-- Enlace a ofertas del día -->
-                </li>
-                <li class="nav-item"> <!-- Elemento de navegación -->
-                    <a class="nav-link" href="#">Pedidos</a> <!-- Enlace a pedidos -->
-                </li>
-            </ul>
-            
-            <ul class="navbar-nav">  <!-- Segunda lista de navegación -->
-                <li class="nav-item d-flex align-items-center"> <!-- Elemento de navegación con alineación flexible -->
-                    <input type="text" class="form-control search-input" placeholder="Buscar productos" aria-label="Buscar productos"> <!-- Campo de texto para búsqueda -->
-                    <button class="btn-actions">Buscar</button> <!-- Botón para ejecutar la búsqueda -->
-                </li>
-                <li class="nav-item"> <!-- Elemento de navegación -->
-                    <a class="nav-link" href="#"> <!-- Enlace al carrito de compras -->
-                        <i class="fas fa-shopping-cart" style="font-size: 24px;"></i> <!-- Icono de carrito de compras -->
-                    </a>
-                </li>
-            </ul>
+        <div class="d-flex align-items-center ml-auto">
+          <div class="input-group mr-3">
+            <input type="text" class="form-control search-input" placeholder="¿Qué estás buscando?" aria-label="Buscar productos">
+            <div class="input-group-append">
+              <button class="btn-search" type="button">
+                <i class="fas fa-search mr-2"></i>Buscar
+              </button>
+            </div>
+          </div>
+          
+          <button class="cart-btn">
+            <i class="fas fa-shopping-cart"></i>
+            <span class="cart-badge">3</span>
+          </button>
         </div>
+      </div>
     </nav>
     
-    <div class="container-fluid py-5"> <!-- Contenedor fluido con margen superior e inferior -->
-        <div class="row" style="margin-left: 0%;"> <!-- Fila para organizar los productos -->
-          
-          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el primer producto -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
-              <img src="https://via.placeholder.com/400x200?text=Producto+1" alt="Producto 1" class="pet-image"> <!-- Imagen del producto -->
-              <div class="pet-info"> <!-- Contenedor para la información del producto -->
-                <h3 class="pet-name">Comida para Gatos</h3> <!-- Nombre del producto -->
-                <p class="pet-description">Alimento de alta calidad para gatos, ideal para su salud.</p> <!-- Descripción del producto -->
-                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
-                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
-                </div>
-              </div>
-            </div>
+    <!-- Banner promocional -->
+    <div class="promo-banner animated">
+      <div class="promo-content">
+        <h2 class="promo-title">¡Semana de mascotas felices!</h2>
+        <p class="promo-text">Hasta 40% de descuento en productos seleccionados para el cuidado y diversión de tus mejores amigos.</p>
+        <button class="btn-promo">Ver ofertas</button>
+      </div>
+    </div>
+    
+    <!-- Filtros de categoría -->
+    <div class="category-filter">
+      <a href="#" class="category-item active">
+        <i class="fas fa-th"></i> Todos
+      </a>
+      <a href="#" class="category-item">
+        <i class="fas fa-dog"></i> Perros
+      </a>
+      <a href="#" class="category-item">
+        <i class="fas fa-cat"></i> Gatos
+      </a>
+      <a href="#" class="category-item">
+        <i class="fas fa-fish"></i> Peces
+      </a>
+      <a href="#" class="category-item">
+        <i class="fas fa-feather"></i> Aves
+      </a>
+      <a href="#" class="category-item">
+        <i class="fas fa-rabbit"></i> Pequeños mamíferos
+      </a>
+      <a href="#" class="category-item">
+        <i class="fas fa-certificate"></i> Premium
+      </a>
+    </div>
+    
+    <!-- Sección de productos populares -->
+    <h2 class="section-title">Productos Populares</h2>
+    
+    <div class="row">
+      <!-- Producto 1 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="product-card animated" style="animation-delay: 0.1s">
+          <div class="product-badge new">Nuevo</div>
+          <div class="product-image-container">
+            <img src="/api/placeholder/400/300?text=Premium+Pet+Food" alt="Comida Premium para Mascotas" class="product-image">
+            <button class="quick-view">Vista Rápida</button>
           </div>
-      
-          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el segundo producto -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
-              <img src="https://via.placeholder.com/400x200?text=Producto+2" alt="Producto 2" class="pet-image"> <!-- Imagen del producto -->
-              <div class="pet-info"> <!-- Contenedor para la información del producto -->
-                <h3 class="pet-name">Juguete para Perros</h3> <!-- Nombre del producto -->
-                <p class="pet-description">Juguete resistente y divertido para perros activos.</p> <!-- Descripción del producto -->
-                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
-                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
-                </div>
-              </div>
+          <div class="product-info">
+            <div class="product-category">Alimentos</div>
+            <h3 class="product-name">Alimento Premium Natural Grain-Free</h3>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="ml-1" style="color: #666; font-size: 0.85rem">(128)</span>
             </div>
-          </div>
-      
-          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el tercer producto -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
-              <img src="https://via.placeholder.com/400x200?text=Producto+3" alt="Producto 3" class="pet-image"> <!-- Imagen del producto -->
-              <div class="pet-info"> <!-- Contenedor para la información del producto -->
-                <h3 class="pet-name">Collar para Mascotas</h3> <!-- Nombre del producto -->
-                <p class="pet-description">Collar cómodo y elegante para tu mascota.</p> <!-- Descripción del producto -->
-                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
-                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
-                </div>
-              </div>
+            <p class="product-description">Nutrición completa sin granos para perros de todas las edades. Formula con proteínas de alta calidad.</p>
+            <div class="product-price">
+              $24.99 <span class="product-original-price">$29.99</span>
             </div>
-          </div>
-      
-          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el cuarto producto -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
-              <img src="https://via.placeholder.com/400x200?text=Producto+4" alt="Producto 4" class="pet-image"> <!-- Imagen del producto -->
-              <div class="pet-info"> <!-- Contenedor para la información del producto -->
-                <h3 class="pet-name">Alimento para Perros</h3> <!-- Nombre del producto -->
-                <p class="pet-description">Nutrición completa para perros, adecuado para todas las razas.</p> <!-- Descripción del producto -->
-                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
-                  <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
-                </div>
-              </div>
-            </div>
-          </div>
-      
-          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el quinto producto -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
-              <img src="https://via.placeholder.com/400x200?text=Producto+5" alt="Producto 5" class="pet-image"> <!-- Imagen del producto -->
-              <div class="pet-info"> <!-- Contenedor para la información del producto -->
-                <h3 class="pet-name">Juguete Interactivo</h3> <!-- Nombre del producto -->
-                <p class="pet-description">Juguete que estimula la mente de tu mascota mientras juega.</p> <!-- Descripción del producto -->
-                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
-                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
-                </div>
-              </div>
-            </div>
-          </div>
-      
-          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el sexto producto -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
-              <img src="https://via.placeholder.com/400x200?text=Producto+6" alt="Producto 6" class="pet-image"> <!-- Imagen del producto -->
-              <div class="pet-info"> <!-- Contenedor para la información del producto -->
-                <h3 class="pet-name">Cama para Mascotas</h3> <!-- Nombre del producto -->
-                <p class="pet-description">Cama cómoda y suave para tu mascota, ideal para descansar.</p> <!-- Descripción del producto -->
-                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
-                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
-                </div>
-              </div>
-            </div>
-          </div>
-      
-          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el séptimo producto -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
-              <img src="https://via.placeholder.com/400x200?text=Producto+7" alt="Producto 7" class="pet-image"> <!-- Imagen del producto -->
-              <div class="pet-info"> <!-- Contenedor para la información del producto -->
-                <h3 class="pet-name">Correa para Perros</h3> <!-- Nombre del producto -->
-                <p class="pet-description">Correa resistente para paseos cómodos y seguros.</p> <!-- Descripción del producto -->
-                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
-                    <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="col-md-3 col-sm-6 mb-4" onclick="enlargeCard(this)"> <!-- Columna para el octavo producto -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta del producto -->
-              <img src="https://via.placeholder.com/400x200?text=Producto+4" alt="Producto 4" class="pet-image"> <!-- Imagen del producto -->
-              <div class="pet-info"> <!-- Contenedor para la información del producto -->
-                <h3 class="pet-name">Alimento para Perros</h3> <!-- Nombre del producto -->
-                <p class="pet-description">Nutrición completa para perros, adecuado para todas las razas.</p> <!-- Descripción del producto -->
-                <div class="d-flex justify-content-between"> <!-- Contenedor flex para los botones de acción -->
-                  <button class="btn-action flex-grow-1">agregar <i class="fas fa-shopping-cart"></i></button> <!-- Botón para agregar al carrito -->
-                </div>
-              </div>
+            <div class="product-actions">
+              <button class="btn-add-cart">
+                <i class="fas fa-shopping-cart mr-2"></i>Añadir
+              </button>
+              <button class="btn-wishlist">
+                <i class="far fa-heart"></i>
+              </button>
             </div>
           </div>
         </div>
       </div>
-        
-      <footer> <!-- Sección de pie de página -->
-        <div class="container"> <!-- Contenedor para el pie de página -->
-          <div class="row justify-content-center"> <!-- Fila centrada en el pie de página -->
-            <div class="col-md-6 text-center"> <!-- Columna centrada con texto -->
-              <p>&copy; 2024 Petpedia. Todos los derechos reservados.</p> <!-- Mensaje de derechos de autor -->
-              <div> <!-- Contenedor para los iconos de redes sociales -->
-                <a href="https://www.facebook.com" target="_blank" class="social-icon"> <!-- Enlace a Facebook -->
-                  <i class="fab fa-facebook-f"></i> <!-- Icono de Facebook -->
-                </a>
-                <a href="https://twitter.com" target="_blank" class="social-icon"> <!-- Enlace a Twitter -->
-                  <i class="fab fa-twitter"></i> <!-- Icono de Twitter -->
-                </a>
-                <a href="https://www.instagram.com" target="_blank" class="social-icon"> <!-- Enlace a Instagram -->
-                  <i class="fab fa-instagram"></i> <!-- Icono de Instagram -->
-                </a>
-                <a href="https://www.linkedin.com" target="_blank" class="social-icon"> <!-- Enlace a LinkedIn -->
-                  <i class="fab fa-linkedin-in"></i> <!-- Icono de LinkedIn -->
-                </a>
-              </div>
+      
+      <!-- Producto 2 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="product-card animated" style="animation-delay: 0.2s">
+          <div class="product-badge sale">-25%</div>
+          <div class="product-image-container">
+            <img src="/api/placeholder/400/300?text=Interactive+Toy" alt="Juguete Interactivo" class="product-image">
+            <button class="quick-view">Vista Rápida</button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Juguetes</div>
+            <h3 class="product-name">Juguete Interactivo Dispensador de Premios</h3>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span class="ml-1" style="color: #666; font-size: 0.85rem">(94)</span>
+            </div>
+            <p class="product-description">Juguete que estimula la mente de tu mascota mientras juega. Dispensador de premios ajustable.</p>
+            <div class="product-price">
+              $19.99 <span class="product-original-price">$26.99</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn-add-cart">
+                <i class="fas fa-shopping-cart mr-2"></i>Añadir
+              </button>
+              <button class="btn-wishlist">
+                <i class="far fa-heart"></i>
+              </button>
             </div>
           </div>
         </div>
-      </footer>
-
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> <!-- Enlace a jQuery -->
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gyb6Hf2XK4F8U1F6E1c9v4D0m4v1HqD+fG5y8V1b8+6e3M1F0X" crossorigin="anonymous"></script> <!-- Enlace a Popper.js -->
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-wX3cZ2k0C0P1Yx5L4d4Y3z2Z4v1HqD+fG5y8V1b8+6e3M1F0X" crossorigin="anonymous"></script> <!-- Enlace a Bootstrap JS -->
+      </div>
       
-      <script src=""></script> <!-- "no sirve, tener en cuenta"Enlace a un archivo JavaScript personalizado -->
+      <!-- Producto 3 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="product-card animated" style="animation-delay: 0.3s">
+          <div class="product-image-container">
+            <img src="/api/placeholder/400/300?text=Luxury+Pet+Bed" alt="Cama de Lujo para Mascotas" class="product-image">
+            <button class="quick-view">Vista Rápida</button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Camas y Muebles</div>
+            <h3 class="product-name">Cama Ortopédica de Lujo para Mascotas</h3>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span class="ml-1" style="color: #666; font-size: 0.85rem">(56)</span>
+            </div>
+            <p class="product-description">Cama ortopédica con espuma de memoria que reduce la presión articular. Ideal para mascotas mayores.</p>
+            <div class="product-price">
+              $59.99
+            </div>
+            <div class="product-actions">
+              <button class="btn-add-cart">
+                <i class="fas fa-shopping-cart mr-2"></i>Añadir
+              </button>
+              <button class="btn-wishlist">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Producto 4 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="product-card animated" style="animation-delay: 0.4s">
+          <div class="product-badge">Top</div>
+          <div class="product-image-container">
+            <img src="/api/placeholder/400/300?text=Premium+Collar" alt="Collar Premium" class="product-image">
+            <button class="quick-view">Vista Rápida</button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Accesorios</div>
+            <h3 class="product-name">Collar Premium con GPS y Seguimiento de Actividad</h3>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="ml-1" style="color: #666; font-size: 0.85rem">(72)</span>
+            </div>
+            <p class="product-description">Collar inteligente con GPS, monitor de actividad y alertas de seguridad. Compatible con iOS y Android.</p>
+            <div class="product-price">
+              $89.99 <span class="product-original-price">$109.99</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn-add-cart">
+                <i class="fas fa-shopping-cart mr-2"></i>Añadir
+              </button>
+              <button class="btn-wishlist">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Sección de ofertas especiales -->
+    <h2 class="section-title">Ofertas Especiales</h2>
+    
+    <div class="row">
+      <!-- Producto 5 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="product-card animated" style="animation-delay: 0.1s">
+          <div class="product-badge sale">-30%</div>
+          <div class="product-image-container">
+            <img src="/api/placeholder/400/300?text=Cat+Scratch+Post" alt="Rascador para Gatos" class="product-image">
+            <button class="quick-view">Vista Rápida</button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Muebles</div>
+            <h3 class="product-name">Rascador para Gatos con Plataformas</h3>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span class="ml-1" style="color: #666; font-size: 0.85rem">(48)</span>
+            </div>
+            <p class="product-description">Rascador de sisal con múltiples plataformas para descanso y juego. Estructura estable y duradera.</p>
+            <div class="product-price">
+              $34.99 <span class="product-original-price">$49.99</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn-add-cart">
+                <i class="fas fa-shopping-cart mr-2"></i>Añadir
+              </button>
+              <button class="btn-wishlist">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Producto 6 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="product-card animated" style="animation-delay: 0.2s">
+          <div class="product-badge sale">-15%</div>
+          <div class="product-image-container">
+            <img src="/api/placeholder/400/300?text=Pet+Grooming+Kit" alt="Kit de Aseo" class="product-image">
+            <button class="quick-view">Vista Rápida</button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Higiene</div>
+            <h3 class="product-name">Kit Completo de Aseo para Mascotas</h3>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star-half-alt"></i>
+              <span class="ml-1" style="color: #666; font-size: 0.85rem">(63)</span>
+            </div>
+            <p class="product-description">Kit profesional con cepillos, tijeras, peine y cortauñas. Ideal para el cuidado en casa de tu mascota.</p>
+            <div class="product-price">
+              $29.99 <span class="product-original-price">$34.99</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn-add-cart">
+                <i class="fas fa-shopping-cart mr-2"></i>Añadir
+              </button>
+              <button class="btn-wishlist">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Producto 7 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="product-card animated" style="animation-delay: 0.3s">
+          <div class="product-badge new">Nuevo</div>
+          <div class="product-image-container">
+            <img src="/api/placeholder/400/300?text=Pet+Carrier" alt="Transportín para Mascotas" class="product-image">
+            <button class="quick-view">Vista Rápida</button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Transporte</div>
+            <h3 class="product-name">Transportín Premium con Ventilación</h3>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="far fa-star"></i>
+              <span class="ml-1" style="color: #666; font-size: 0.85rem">(37)</span>
+            </div>
+            <p class="product-description">Transportín seguro y cómodo con ventilación 360° y acceso superior. Ideal para viajes y visitas al veterinario.</p>
+            <div class="product-price">
+              $45.99
+            </div>
+            <div class="product-actions">
+              <button class="btn-add-cart">
+                <i class="fas fa-shopping-cart mr-2"></i>Añadir
+              </button>
+              <button class="btn-wishlist">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Producto 8 -->
+      <div class="col-lg-3 col-md-4 col-sm-6 mb-4">
+        <div class="product-card animated" style="animation-delay: 0.4s">
+          <div class="product-badge sale">-20%</div>
+          <div class="product-image-container">
+            <img src="/api/placeholder/400/300?text=Pet+Feeder" alt="Dispensador de Alimento" class="product-image">
+            <button class="quick-view">Vista Rápida</button>
+          </div>
+          <div class="product-info">
+            <div class="product-category">Alimentación</div>
+            <h3 class="product-name">Dispensador Automático de Alimento</h3>
+            <div class="rating">
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <i class="fas fa-star"></i>
+              <span class="ml-1" style="color: #666; font-size: 0.85rem">(112)</span>
+            </div>
+            <p class="product-description">Programa hasta 4 comidas al día con porciones controladas. Ideal para cuando estás fuera de casa.</p>
+            <div class="product-price">
+              $59.99 <span class="product-original-price">$74.99</span>
+            </div>
+            <div class="product-actions">
+              <button class="btn-add-cart">
+                <i class="fas fa-shopping-cart mr-2"></i>Añadir
+              </button>
+              <button class="btn-wishlist">
+                <i class="far fa-heart"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h5>PetPedia</h5>
+            <p>Tu plataforma integral para el cuidado y bienestar de tus mascotas.</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h5>Explorar</h5>
+            <ul class="footer-links">
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Tienda</a></li>
+              <li><a href="#">Veterinaria</a></li>
+              <li><a href="#">Adopciones</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <h5>Soporte</h5>
+            <ul class="footer-links">
+              <li><a href="#">Centro de ayuda</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5>Suscríbete a nuestro boletín</h5>
+            <p>Mantente al día con las últimas noticias y consejos para tus mascotas.</p>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Tu email">
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 PetPedia. Todos los derechos reservados.</p>
+          <ul class="policy-links">
+            <li><a href="#">Términos de uso</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    // Toggle sidebar on mobile
+    $('.toggle-sidebar').click(function() {
+      $('.sidebar').toggleClass('active');
+    });
+    
+    // Quick view functionality
+    $('.quick-view').click(function(e) {
+      e.stopPropagation();
+      alert('Función de vista rápida en desarrollo');
+    });
+    
+    // Wishlist toggle
+    $('.btn-wishlist').click(function() {
+      $(this).toggleClass('active');
+      $(this).find('i').toggleClass('far fas');
+    });
+    // Agregar event listener al botón del carrito
+document.addEventListener('DOMContentLoaded', function() {
+  // Seleccionar el botón del carrito
+  const cartButton = document.querySelector('.cart-btn');
+  
+  // Añadir el event listener para redireccionar al hacer clic
+  if (cartButton) {
+    cartButton.addEventListener('click', function() {
+      window.location.href = 'carritocompra.html';
+    });
+  }
+});
+  </script>
 </body>
 </html>

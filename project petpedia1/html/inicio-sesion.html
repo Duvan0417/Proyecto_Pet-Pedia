@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Configuración básica del documento -->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PetPedia | Inicio de Sesión</title>
+    
+    <!-- Hojas de estilo y fuentes -->
+    <link rel="stylesheet" href="/project petpedia1/css/inicio-sesion.css">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+</head>
+<body>
+    <!-- Elementos decorativos de fondo -->
+    <div class="pet-grid"></div> <!-- Patrón de huellas de fondo -->
+    <div class="pet-paw-1"></div> <!-- Huella decorativa animada 1 -->
+    <div class="pet-paw-2"></div> <!-- Huella decorativa animada 2 -->
+    
+    <!-- Contenedor principal -->
+    <div class="container">
+        <!-- Formulario de inicio de sesión -->
+        <div class="login-box show" id="loginBox">
+            <div class="header">
+                <div class="logo">
+                    <i class="fas fa-paw"></i>
+                    <span>PETPEDIA</span>
+                </div>
+                <h2>Bienvenido de vuelta</h2>
+                <p>Accede para gestionar el perfil de tu mascota</p>
+            </div>
+            
+            <form id="loginForm">
+                <!-- Grupo de entrada para email -->
+                <div class="input-group">
+                    <input type="email" id="email" required>
+                    <label for="email">Correo Electrónico</label>
+                    <div class="underline"></div>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                
+                <!-- Grupo de entrada para contraseña -->
+                <div class="input-group">
+                    <input type="password" id="password" required>
+                    <label for="password">Contraseña</label>
+                    <div class="underline"></div>
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <!-- Opciones adicionales -->
+                <div class="options">
+                    <label class="remember">
+                        <input type="checkbox">
+                        <span class="checkmark"></span>
+                        Recordar sesión
+                    </label>
+                    <a href="inicio.html" class="forgot-password">¿Olvidaste tu contraseña?</a>
+                </div>
+                
+                <!-- Botón de inicio de sesión -->
+                <button type="submit" class="login-btn">
+                    <span>Iniciar Sesión</span>
+                    <i class="fas fa-bone"></i>
+                    <a href="inicio.html"></a>
+                </button>
+                
+                <!-- Divisor para redes sociales -->
+                <div class="divider">
+                    <span>o continúa con</span>
+                </div>
+                
+                <!-- Botón de inicio con Google -->
+                <div class="social-login">
+                    <div id="googleSignIn" class="social-btn google">
+                        <i class="fab fa-google"></i>
+                        <span>Google</span>
+                    </div>
+                </div>
+            </form>
+            
+            <!-- Enlace para cambiar a registro -->
+            <div class="footer">
+                ¿No tienes una cuenta? <a href="#" id="showRegister">Regístrate</a>
+            </div>
+        </div>
+        
+        <!-- Formulario de registro (oculto inicialmente) -->
+        <div class="register-box" id="registerBox">
+            <div class="header">
+                <div class="logo">
+                    <i class="fas fa-paw"></i>
+                    <span>PETPEDIA</span>
+                </div>
+                <h2>Únete a nuestra comunidad</h2>
+                <p>Crea un perfil para tu mascota</p>
+            </div>
+            
+            <form id="registerForm">
+                <!-- Campo para nombre del dueño -->
+                <div class="input-group">
+                    <input type="text" id="regName" required>
+                    <label for="regName">Nombre del Dueño</label>
+                    <div class="underline"></div>
+                    <i class="fas fa-user"></i>
+                </div>
+                
+                <!-- Campo para nombre de la mascota -->
+                <div class="input-group">
+                    <input type="text" id="regPetName" required>
+                    <label for="regPetName">Nombre de la Mascota</label>
+                    <div class="underline"></div>
+                    <i class="fas fa-dog"></i>
+                </div>
+                
+                <!-- Campo para email -->
+                <div class="input-group">
+                    <input type="email" id="regEmail" required>
+                    <label for="regEmail">Correo Electrónico</label>
+                    <div class="underline"></div>
+                    <i class="fas fa-envelope"></i>
+                </div>
+                
+                <!-- Campo para contraseña -->
+                <div class="input-group">
+                    <input type="password" id="regPassword" required>
+                    <label for="regPassword">Contraseña</label>
+                    <div class="underline"></div>
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <!-- Campo para confirmar contraseña -->
+                <div class="input-group">
+                    <input type="password" id="regConfirmPassword" required>
+                    <label for="regConfirmPassword">Confirmar Contraseña</label>
+                    <div class="underline"></div>
+                    <i class="fas fa-lock"></i>
+                </div>
+                
+                <!-- Botón de registro -->
+                <button type="submit" class="register-btn">
+                    <span>Registrar a mi mascota</span>
+                    <i class="fas fa-paw"></i>
+                </button>
+                
+                <!-- Enlace para volver a inicio de sesión -->
+                <div class="footer">
+                    ¿Ya tienes una cuenta? <a href="" id="showLogin">Inicia Sesión</a>
+                </div>
+            </form>
+        </div>
+    </div>
+    
+    <!-- Elementos decorativos adicionales -->
+    <div class="pet-lines"></div>
+    <div class="pet-particles" id="petParticles"></div>
+    
+    <!-- Script principal -->
+    <script src="/project petpedia1/js/inicio-sesion.js"></script>
+</body>
+</html>

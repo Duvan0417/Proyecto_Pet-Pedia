@@ -4,71 +4,443 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="/project petpedia1/css/ajustes.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>Ajustes</title>
+    <title>PetPedia - Ajustes</title>
 </head>
 <body>
-  <div class="sidebar"> <!-- Contenedor de la barra lateral de navegación -->
-    <a href="inicio.html"> <!-- Enlace a la página de inicio -->
-      <i class="fas fa-home"></i> <!-- Icono de casa de Font Awesome -->
-      <span>Inicio</span> <!-- Texto del enlace -->
-    </a>
-    <a href="compra.html"> <!-- Enlace a la página de compras -->
-      <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito de compras -->
-      <span>Compra</span> <!-- Texto del enlace -->
-    </a>
-    <a href="veterinaria.html"> <!-- Enlace a la página de veterinaria -->
-      <i class="fas fa-clinic-medical"></i> <!-- Icono de clínica médica -->
-      <span>Veterinaria</span> <!-- Texto del enlace -->
-    </a>
-    <a href="adopcion.html"> <!-- Enlace a la página de adopciones -->
-      <i class="fas fa-paw"></i> <!-- Icono de pata de animal -->
-      <span>Adopciones</span> <!-- Texto del enlace -->
-    </a>
-    <a href="foro.html"> <!-- Enlace al foro (sin destino definido) -->
-      <i class="fas fa-comments"></i> <!-- Icono de comentarios -->
-      <span>Foro</span> <!-- Texto del enlace -->
-    </a>
-    <a href="#"> <!-- Enlace al perfil (sin destino definido) -->
-      <i class="fas fa-user"></i> <!-- Icono de usuario -->
-      <span>Perfil</span> <!-- Texto del enlace -->
-    </a>
-    <a href="ajustes.html"> <!-- Enlace a configuración (sin destino definido) -->
-      <i class="fas fa-cog"></i> <!-- Icono de engranaje -->
-      <span>Configuración</span> <!-- Texto del enlace -->
-    </a>
+  <!-- Sidebar -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+        <img src="/api/placeholder/80/80" alt="Logo" class="logo">
+        <span class="logo-text">PetPedia</span>
+    </div>
+    <div class="sidebar-menu">
+        <a href="inicio.html" class="menu-item">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="compra.html" class="menu-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Compra</span>
+        </a>
+        <a href="veterinaria.html" class="menu-item">
+            <i class="fas fa-clinic-medical"></i>
+            <span>Veterinaria</span>
+        </a>
+        <a href="adopcion.html" class="menu-item">
+            <i class="fas fa-paw"></i>
+            <span>Adopciones</span>
+        </a>
+        <a href="foro.html" class="menu-item active">
+            <i class="fas fa-comments"></i>
+            <span>Foro</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-user"></i>
+            <span>Perfil</span>
+        </a>
+        <a href="ajustes.html" class="menu-item">
+            <i class="fas fa-cog"></i>
+            <span>Configuración</span>
+        </a>
+    </div>
+</div>
+
+  <!-- Contenido principal -->
+  <div class="main-content">
+    <!-- Barra de navegación superior -->
+    <nav class="top-navbar">
+      <div class="container-fluid">
+        <div class="nav-left">
+          <button class="menu-toggle" id="menu-toggle">
+            <i class="fas fa-bars"></i>
+          </button>
+          <h4 class="page-title">Ajustes</h4>
+        </div>
+        <div class="nav-right">
+          <div class="search-bar">
+            <input type="text" placeholder="Buscar...">
+            <button><i class="fas fa-search"></i></button>
+          </div>
+          <div class="nav-notifications">
+            <a href="#" class="notification-icon">
+              <i class="fas fa-bell"></i>
+              <span class="badge">3</span>
+            </a>
+          </div>
+          <div class="nav-profile">
+            <img src="/api/placeholder/40/40" alt="Perfil" class="profile-img">
+            <span class="profile-name">María García</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Contenido de Ajustes -->
+    <div class="settings-container">
+      <div class="row">
+        <!-- Panel de navegación de ajustes -->
+        <div class="col-md-3">
+          <div class="settings-nav">
+            <div class="settings-nav-header">
+              <img src="/api/placeholder/100/100" alt="Perfil" class="settings-profile-img">
+              <h5>María García</h5>
+              <p>mariag@email.com</p>
+              <span class="status-badge premium">Premium</span>
+            </div>
+            <ul class="settings-menu">
+              <li class="settings-menu-item active" data-target="account">
+                <i class="fas fa-user-circle"></i> Cuenta y Perfil
+              </li>
+              <li class="settings-menu-item" data-target="pets">
+                <i class="fas fa-paw"></i> Mis Mascotas
+              </li>
+              <li class="settings-menu-item" data-target="notifications">
+                <i class="fas fa-bell"></i> Notificaciones
+                <span class="menu-badge">3</span>
+              </li>
+              <li class="settings-menu-item" data-target="privacy">
+                <i class="fas fa-lock"></i> Privacidad y Seguridad
+              </li>
+              <li class="settings-menu-item" data-target="appearance">
+                <i class="fas fa-palette"></i> Apariencia
+              </li>
+              <li class="settings-menu-item" data-target="payments">
+                <i class="fas fa-credit-card"></i> Pagos y Suscripciones
+              </li>
+              <li class="settings-menu-item" data-target="language">
+                <i class="fas fa-globe"></i> Idioma y Región
+              </li>
+              <li class="settings-menu-item" data-target="help">
+                <i class="fas fa-question-circle"></i> Ayuda y Soporte
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Contenido de las secciones de ajustes -->
+        <div class="col-md-9">
+          <!-- Sección de Cuenta y Perfil -->
+          <div class="settings-section active" id="account">
+            <div class="section-header">
+              <h3>Cuenta y Perfil</h3>
+              <p>Gestiona tu información personal y detalles de la cuenta</p>
+            </div>
+            <div class="settings-card">
+              <div class="card-header">
+                <h5>Información Personal</h5>
+                <button class="btn-edit"><i class="fas fa-pen"></i> Editar</button>
+              </div>
+              <div class="card-body">
+                <div class="profile-preview">
+                  <div class="profile-avatar">
+                    <img src="/api/placeholder/120/120" alt="Foto de perfil">
+                    <div class="avatar-overlay">
+                      <i class="fas fa-camera"></i>
+                    </div>
+                  </div>
+                  <div class="profile-details">
+                    <div class="form-group row">
+                      <label class="col-sm-3">Nombre:</label>
+                      <div class="col-sm-9">
+                        <p class="form-control-static">María García Rodríguez</p>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3">Email:</label>
+                      <div class="col-sm-9">
+                        <p class="form-control-static">mariag@email.com</p>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3">Teléfono:</label>
+                      <div class="col-sm-9">
+                        <p class="form-control-static">+34 612 345 678</p>
+                      </div>
+                    </div>
+                    <div class="form-group row">
+                      <label class="col-sm-3">Dirección:</label>
+                      <div class="col-sm-9">
+                        <p class="form-control-static">Calle Principal 123, Madrid, España</p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-card">
+              <div class="card-header">
+                <h5>Seguridad de la Cuenta</h5>
+                <button class="btn-edit"><i class="fas fa-shield-alt"></i> Gestionar</button>
+              </div>
+              <div class="card-body">
+                <div class="security-options">
+                  <div class="security-option">
+                    <div class="option-info">
+                      <i class="fas fa-key"></i>
+                      <div>
+                        <h6>Contraseña</h6>
+                        <p>Actualizada hace 3 meses</p>
+                      </div>
+                    </div>
+                    <a href="#" class="btn-change">Cambiar</a>
+                  </div>
+                  <div class="security-option">
+                    <div class="option-info">
+                      <i class="fas fa-mobile-alt"></i>
+                      <div>
+                        <h6>Verificación en dos pasos</h6>
+                        <p>Activada</p>
+                      </div>
+                    </div>
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" class="custom-control-input" id="twoFactorSwitch" checked>
+                      <label class="custom-control-label" for="twoFactorSwitch"></label>
+                    </div>
+                  </div>
+                  <div class="security-option">
+                    <div class="option-info">
+                      <i class="fas fa-history"></i>
+                      <div>
+                        <h6>Historial de inicio de sesión</h6>
+                        <p>5 dispositivos conectados</p>
+                      </div>
+                    </div>
+                    <a href="#" class="btn-view">Ver</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div class="settings-card">
+              <div class="card-header">
+                <h5>Preferencias de Email</h5>
+              </div>
+              <div class="card-body">
+                <div class="email-preferences">
+                  <div class="preference-option">
+                    <div>
+                      <h6>Notificaciones del sistema</h6>
+                      <p>Actualizaciones importantes sobre tu cuenta</p>
+                    </div>
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" class="custom-control-input" id="emailSystemSwitch" checked>
+                      <label class="custom-control-label" for="emailSystemSwitch"></label>
+                    </div>
+                  </div>
+                  <div class="preference-option">
+                    <div>
+                      <h6>Boletín semanal</h6>
+                      <p>Noticias y consejos sobre mascotas</p>
+                    </div>
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" class="custom-control-input" id="emailNewsletterSwitch" checked>
+                      <label class="custom-control-label" for="emailNewsletterSwitch"></label>
+                    </div>
+                  </div>
+                  <div class="preference-option">
+                    <div>
+                      <h6>Promociones y ofertas</h6>
+                      <p>Descuentos y ofertas especiales</p>
+                    </div>
+                    <div class="custom-control custom-switch">
+                      <input type="checkbox" class="custom-control-input" id="emailPromotionsSwitch">
+                      <label class="custom-control-label" for="emailPromotionsSwitch"></label>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Sección de Mis Mascotas -->
+          <div class="settings-section" id="pets">
+            <div class="section-header">
+              <h3>Mis Mascotas</h3>
+              <p>Administra la información de tus compañeros peludos</p>
+              <button class="btn-add-pet"><i class="fas fa-plus"></i> Añadir mascota</button>
+            </div>
+            
+            <div class="pets-container">
+              <div class="pet-card">
+                <div class="pet-header">
+                  <img src="/api/placeholder/80/80" alt="Luna" class="pet-img">
+                  <div class="pet-info">
+                    <h5>Luna</h5>
+                    <span class="pet-type"><i class="fas fa-dog"></i> Labrador Retriever</span>
+                    <span class="pet-age">3 años</span>
+                  </div>
+                  <div class="pet-actions">
+                    <button class="btn-pet-edit"><i class="fas fa-pen"></i></button>
+                    <button class="btn-pet-delete"><i class="fas fa-trash"></i></button>
+                  </div>
+                </div>
+                <div class="pet-body">
+                  <div class="pet-stats">
+                    <div class="pet-stat">
+                      <span class="stat-label">Peso</span>
+                      <span class="stat-value">28 kg</span>
+                    </div>
+                    <div class="pet-stat">
+                      <span class="stat-label">Altura</span>
+                      <span class="stat-value">56 cm</span>
+                    </div>
+                    <div class="pet-stat">
+                      <span class="stat-label">Sexo</span>
+                      <span class="stat-value">Hembra</span>
+                    </div>
+                  </div>
+                  <div class="pet-menu">
+                    <a href="#" class="pet-menu-item"><i class="fas fa-clipboard-list"></i> Historial médico</a>
+                    <a href="#" class="pet-menu-item"><i class="fas fa-syringe"></i> Vacunas</a>
+                    <a href="#" class="pet-menu-item"><i class="fas fa-calendar-alt"></i> Citas</a>
+                    <a href="#" class="pet-menu-item"><i class="fas fa-utensils"></i> Alimentación</a>
+                  </div>
+                </div>
+              </div>
+
+              <div class="pet-card">
+                <div class="pet-header">
+                  <img src="/api/placeholder/80/80" alt="Milo" class="pet-img">
+                  <div class="pet-info">
+                    <h5>Milo</h5>
+                    <span class="pet-type"><i class="fas fa-cat"></i> Maine Coon</span>
+                    <span class="pet-age">2 años</span>
+                  </div>
+                  <div class="pet-actions">
+                    <button class="btn-pet-edit"><i class="fas fa-pen"></i></button>
+                    <button class="btn-pet-delete"><i class="fas fa-trash"></i></button>
+                  </div>
+                </div>
+                <div class="pet-body">
+                  <div class="pet-stats">
+                    <div class="pet-stat">
+                      <span class="stat-label">Peso</span>
+                      <span class="stat-value">7.5 kg</span>
+                    </div>
+                    <div class="pet-stat">
+                      <span class="stat-label">Altura</span>
+                      <span class="stat-value">26 cm</span>
+                    </div>
+                    <div class="pet-stat">
+                      <span class="stat-label">Sexo</span>
+                      <span class="stat-value">Macho</span>
+                    </div>
+                  </div>
+                  <div class="pet-menu">
+                    <a href="#" class="pet-menu-item"><i class="fas fa-clipboard-list"></i> Historial médico</a>
+                    <a href="#" class="pet-menu-item"><i class="fas fa-syringe"></i> Vacunas</a>
+                    <a href="#" class="pet-menu-item"><i class="fas fa-calendar-alt"></i> Citas</a>
+                    <a href="#" class="pet-menu-item"><i class="fas fa-utensils"></i> Alimentación</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Las otras secciones estarían aquí pero se muestran solo por referencia -->
+          <div class="settings-section" id="notifications">
+            <!-- Contenido de notificaciones -->
+          </div>
+          <div class="settings-section" id="privacy">
+            <!-- Contenido de privacidad -->
+          </div>
+          <div class="settings-section" id="appearance">
+            <!-- Contenido de apariencia -->
+          </div>
+          <div class="settings-section" id="payments">
+            <!-- Contenido de pagos -->
+          </div>
+          <div class="settings-section" id="language">
+            <!-- Contenido de idioma -->
+          </div>
+          <div class="settings-section" id="help">
+            <!-- Contenido de ayuda -->
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h5>PetPedia</h5>
+            <p>Tu plataforma integral para el cuidado y bienestar de tus mascotas.</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h5>Explorar</h5>
+            <ul class="footer-links">
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Tienda</a></li>
+              <li><a href="#">Veterinaria</a></li>
+              <li><a href="#">Adopciones</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <h5>Soporte</h5>
+            <ul class="footer-links">
+              <li><a href="#">Centro de ayuda</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5>Suscríbete a nuestro boletín</h5>
+            <p>Mantente al día con las últimas noticias y consejos para tus mascotas.</p>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Tu email">
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 PetPedia. Todos los derechos reservados.</p>
+          <ul class="policy-links">
+            <li><a href="#">Términos de uso</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
   </div>
 
-    <div class="container mt-5">
-        <h2>Opciones de Configuración</h2>
-
-        <div class="config-group">
-            <h3>Configuración de Cuenta</h3>
-            <div class="list-group">
-                <a href="perfil.html" class="list-group-item list-group-item-action">Perfil</a>
-                <a href="notificaciones.html" class="list-group-item list-group-item-action">Notificaciones</a>
-                <a href="privacidad.html" class="list-group-item list-group-item-action">Privacidad</a>
-                <a href="seguridad.html" class="list-group-item list-group-item-action">Seguridad</a>
-            </div>
-        </div>
-
-        <div class="config-group">
-            <h3>Configuración de Mascotas</h3>
-            <div class="list-group">
-                <a href="mascotas.html" class="list-group-item list-group-item-action">Mis Mascotas</a>
-                <a href="adopciones.html" class="list-group-item list-group-item-action">Adopciones</a>
-                <a href="cuidado.html" class="list-group-item list-group-item-action">Cuidados</a>
-                <a href="vacunas.html" class="list-group-item list-group-item-action">Vacunas</a>
-                <a href="alimentacion.html" class="list-group-item list-group-item-action">Alimentación</a>
-                <a href="historial.html" class="list-group-item list-group-item-action">Historial Médico</a>
-                <a href="citas.html" class="list-group-item list-group-item-action">Citas Veterinarias</a>
-            </div>
-        </div>
-    </div>
-
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <!-- Scripts -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+  <script>
+    $(document).ready(function() {
+      // Toggle sidebar
+      $('#menu-toggle').click(function() {
+        $('.sidebar').toggleClass('collapsed');
+        $('.main-content').toggleClass('expanded');
+      });
+      
+      // Settings navigation
+      $('.settings-menu-item').click(function() {
+        var target = $(this).data('target');
+        
+        // Update active menu item
+        $('.settings-menu-item').removeClass('active');
+        $(this).addClass('active');
+        
+        // Show target section
+        $('.settings-section').removeClass('active');
+        $('#' + target).addClass('active');
+      });
+    });
+  </script>
 </body>
 </html>

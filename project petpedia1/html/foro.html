@@ -6,96 +6,405 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="/project petpedia1/css/foro.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
-    <title>Foro</title>
+    <title>PetPedia - Foro</title>
 </head>
 <body>
-    <div class="sidebar"> <!-- Contenedor de la barra lateral de navegación -->
-        <a href="inicio.html"> <!-- Enlace a la página de inicio -->
-          <i class="fas fa-home"></i> <!-- Icono de casa de Font Awesome -->
-          <span>Inicio</span> <!-- Texto del enlace -->
-        </a>
-        <a href="compra.html"> <!-- Enlace a la página de compras -->
-          <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito de compras -->
-          <span>Compra</span> <!-- Texto del enlace -->
-        </a>
-        <a href="veterinaria.html"> <!-- Enlace a la página de veterinaria -->
-          <i class="fas fa-clinic-medical"></i> <!-- Icono de clínica médica -->
-          <span>Veterinaria</span> <!-- Texto del enlace -->
-        </a>
-        <a href="adopcion.html"> <!-- Enlace a la página de adopciones -->
-          <i class="fas fa-paw"></i> <!-- Icono de pata de animal -->
-          <span>Adopciones</span> <!-- Texto del enlace -->
-        </a>
-        <a href="foro.html"> <!-- Enlace al foro (sin destino definido) -->
-          <i class="fas fa-comments"></i> <!-- Icono de comentarios -->
-          <span>Foro</span> <!-- Texto del enlace -->
-        </a>
-        <a href="#"> <!-- Enlace al perfil (sin destino definido) -->
-          <i class="fas fa-user"></i> <!-- Icono de usuario -->
-          <span>Perfil</span> <!-- Texto del enlace -->
-        </a>
-        <a href="ajustes.html"> <!-- Enlace a configuración (sin destino definido) -->
-          <i class="fas fa-cog"></i> <!-- Icono de engranaje -->
-          <span>Configuración</span> <!-- Texto del enlace -->
-        </a>
-      </div>
-    <div class="container mt-5">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <h2 class="text-center">Foro</h2>
-                
-                <div class="post-list mb-4">
-                    <div class="post">
-                        <h5 class="post-title">Título de la Publicación 1</h5>
-                        <p class="post-content">Este es el contenido de la primera publicación. Aquí se pueden discutir diversos temas relacionados con el foro.</p>
-                        <div class="post-footer">
-                            <span class="post-author">Autor: Usuario1</span>
-                            <span class="post-date">Fecha: 01/04/2025</span>
-                        </div>
-                    </div>
+    <!-- Barra lateral de navegación -->
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="/api/placeholder/80/80" alt="Logo" class="logo">
+            <span class="logo-text">PetPedia</span>
+        </div>
+        <div class="sidebar-menu">
+            <a href="inicio.html" class="menu-item">
+                <i class="fas fa-home"></i>
+                <span>Inicio</span>
+            </a>
+            <a href="compra.html" class="menu-item">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Compra</span>
+            </a>
+            <a href="veterinaria.html" class="menu-item">
+                <i class="fas fa-clinic-medical"></i>
+                <span>Veterinaria</span>
+            </a>
+            <a href="adopcion.html" class="menu-item">
+                <i class="fas fa-paw"></i>
+                <span>Adopciones</span>
+            </a>
+            <a href="foro.html" class="menu-item active">
+                <i class="fas fa-comments"></i>
+                <span>Foro</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-user"></i>
+                <span>Perfil</span>
+            </a>
+            <a href="ajustes.html" class="menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Configuración</span>
+            </a>
+        </div>
+    </div>
 
-                    <div class="post">
-                        <h5 class="post-title">Título de la Publicación 2</h5>
-                        <p class="post-content">Contenido de la segunda publicación. Comparte tus pensamientos y opiniones sobre el tema.</p>
-                        <div class="post-footer">
-                            <span class="post-author">Autor: Usuario2</span>
-                            <span class="post-date">Fecha: 02/04/2025</span>
+    <!-- Contenido principal -->
+    <div class="main-content">
+        <header class="forum-header">
+            <div class="container">
+                <div class="row align-items-center">
+                    <div class="col-md-8">
+                        <h1 class="forum-title">Foro de la Comunidad PetPedia</h1>
+                        <p class="forum-subtitle">Comparte experiencias y conocimientos sobre mascotas con miles de amantes de los animales</p>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="search-container">
+                            <input type="text" placeholder="Buscar en el foro" class="search-input">
+                            <button class="btn-search"><i class="fas fa-search"></i></button>
                         </div>
                     </div>
                 </div>
-
-                <h3>Crear Nueva Publicación</h3>
-                <form class="mb-4">
-                    <div class="form-group">
-                        <label for="postTitle">Título</label>
-                        <input type="text" class="form-control" id="postTitle" placeholder="Escribe el título aquí" required>
-                    </div>
-                    <div class="form-group">
-                        <label for="postContent">Contenido</label>
-                        <textarea class="form-control" id="postContent" rows="4" placeholder="Escribe tu contenido aquí" required></textarea>
-                    </div>
-                    <button type="submit" class="btn btn-primary">Publicar</button>
-                </form>
             </div>
+        </header>
 
-            <div class="col-md-4">
-                <div class="groups-section">
-                    <h3>Grupos</h3>
-                    <div class="group">
-                        <h5>Grupo 1</h5>
-                        <p>Descripción breve del grupo 1.</p>
-                        <button class="btn btn-outline-primary btn-sm">Unirse</button>
+        <div class="container mt-4">
+            <div class="row">
+                <!-- Sección principal del foro -->
+                <div class="col-lg-8">
+                    <!-- Filtros y ordenamiento -->
+                    <div class="forum-actions">
+                        <div class="filters">
+                            <button class="btn-filter active">Todos</button>
+                            <button class="btn-filter">Populares</button>
+                            <button class="btn-filter">Recientes</button>
+                            <button class="btn-filter">Sin responder</button>
+                        </div>
+                        <div class="sort-options">
+                            <select class="form-control form-control-sm">
+                                <option>Más recientes</option>
+                                <option>Más antiguos</option>
+                                <option>Más comentarios</option>
+                                <option>Más populares</option>
+                            </select>
+                        </div>
                     </div>
-                    <div class="group">
-                        <h5>Grupo 2</h5>
-                        <p>Descripción breve del grupo 2.</p>
-                        <button class="btn btn-outline-primary btn-sm">Unirse</button>
+
+                    <!-- Publicaciones -->
+                    <div class="forum-posts">
+                        <!-- Publicación 1 -->
+                        <div class="post-card">
+                            <div class="post-author">
+                                <img src="/api/placeholder/50/50" alt="Avatar" class="author-avatar">
+                                <div class="author-info">
+                                    <h6 class="author-name">Maria González</h6>
+                                    <span class="post-date">05 May 2025 · 10:45 AM</span>
+                                </div>
+                                <div class="post-category" data-category="consejos">
+                                    <i class="fas fa-lightbulb"></i> Consejos
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title">Mi perro no quiere comer: Consejos que funcionaron para mí</h4>
+                                <p class="post-text">Después de semanas de preocupación porque mi labrador no quería comer, descubrí algunas técnicas que realmente funcionaron. Comparto mi experiencia para ayudar a otros dueños con el mismo problema...</p>
+                                <div class="post-image">
+                                    <img src="/api/placeholder/600/300" alt="Imagen del post" class="img-fluid rounded">
+                                </div>
+                            </div>
+                            <div class="post-stats">
+                                <div class="stat">
+                                    <i class="far fa-heart"></i>
+                                    <span>24</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="far fa-comment"></i>
+                                    <span>18</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="far fa-eye"></i>
+                                    <span>142</span>
+                                </div>
+                            </div>
+                            <div class="post-comments-section">
+                                <h5 class="comments-title">Comentarios (18)</h5>
+                                <div class="comment">
+                                    <img src="/api/placeholder/40/40" alt="Usuario" class="comment-avatar">
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <span class="comment-author">Carlos Ruiz</span>
+                                            <span class="comment-date">Hace 2 horas</span>
+                                        </div>
+                                        <p class="comment-text">¡Gracias por compartir! Mi golden retriever tuvo el mismo problema y voy a probar tus consejos.</p>
+                                    </div>
+                                </div>
+                                <div class="comment">
+                                    <img src="/api/placeholder/40/40" alt="Usuario" class="comment-avatar">
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <span class="comment-author">Ana Martínez</span>
+                                            <span class="comment-date">Hace 5 horas</span>
+                                        </div>
+                                        <p class="comment-text">Yo también tuve ese problema. Algo que me funcionó fue cambiar el horario de alimentación.</p>
+                                    </div>
+                                </div>
+                                <div class="add-comment">
+                                    <img src="/api/placeholder/40/40" alt="Tu avatar" class="comment-avatar">
+                                    <textarea placeholder="Escribe un comentario..." class="comment-input"></textarea>
+                                    <button class="btn-comment">Comentar</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Publicación 2 -->
+                        <div class="post-card">
+                            <div class="post-author">
+                                <img src="/api/placeholder/50/50" alt="Avatar" class="author-avatar">
+                                <div class="author-info">
+                                    <h6 class="author-name">Pedro Sánchez</h6>
+                                    <span class="post-date">04 May 2025 · 18:20 PM</span>
+                                </div>
+                                <div class="post-category" data-category="salud">
+                                    <i class="fas fa-heartbeat"></i> Salud
+                                </div>
+                            </div>
+                            <div class="post-content">
+                                <h4 class="post-title">¿Cuáles son las vacunas obligatorias para gatos en 2025?</h4>
+                                <p class="post-text">Con los recientes cambios en las regulaciones veterinarias, me gustaría saber cuáles son las vacunas que necesita mi gato este año. ¿Alguien tiene información actualizada?</p>
+                            </div>
+                            <div class="post-stats">
+                                <div class="stat">
+                                    <i class="far fa-heart"></i>
+                                    <span>16</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="far fa-comment"></i>
+                                    <span>7</span>
+                                </div>
+                                <div class="stat">
+                                    <i class="far fa-eye"></i>
+                                    <span>98</span>
+                                </div>
+                            </div>
+                            <div class="post-comments-section">
+                                <h5 class="comments-title">Comentarios (7)</h5>
+                                <div class="comment">
+                                    <img src="/api/placeholder/40/40" alt="Usuario" class="comment-avatar">
+                                    <div class="comment-content">
+                                        <div class="comment-header">
+                                            <span class="comment-author">Laura Vega</span>
+                                            <span class="comment-date">Hace 1 día</span>
+                                        </div>
+                                        <p class="comment-text">Según mi veterinario, las obligatorias siguen siendo la trivalente felina y la antirrábica. La leucemia felina es recomendable dependiendo del estilo de vida del gato.</p>
+                                    </div>
+                                </div>
+                                <div class="add-comment">
+                                    <img src="/api/placeholder/40/40" alt="Tu avatar" class="comment-avatar">
+                                    <textarea placeholder="Escribe un comentario..." class="comment-input"></textarea>
+                                    <button class="btn-comment">Comentar</button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
-                    <div class="group">
-                        <h5>Grupo 3</h5>
-                        <p>Descripción breve del grupo 3.</p>
-                        <button class="btn btn-outline-primary btn-sm">Unirse</button>
+
+                    <!-- Botón para crear nueva publicación -->
+                    <button class="btn-new-post" data-toggle="modal" data-target="#newPostModal">
+                        <i class="fas fa-plus"></i> Nueva publicación
+                    </button>
+                </div>
+
+                <!-- Barra lateral derecha -->
+                <div class="col-lg-4">
+                    <!-- Panel de comunidades -->
+                    <div class="sidebar-card communities-card">
+                        <h4 class="sidebar-card-title">Comunidades</h4>
+                        <div class="community-list">
+                            <div class="community-item">
+                                <img src="/api/placeholder/40/40" alt="Comunidad" class="community-icon">
+                                <div class="community-info">
+                                    <h6>Amantes de los Perros</h6>
+                                    <span>5.2k miembros</span>
+                                </div>
+                                <button class="btn-join-community">Unirse</button>
+                            </div>
+                            <div class="community-item">
+                                <img src="/api/placeholder/40/40" alt="Comunidad" class="community-icon">
+                                <div class="community-info">
+                                    <h6>Gatos y Felinos</h6>
+                                    <span>4.8k miembros</span>
+                                </div>
+                                <button class="btn-join-community joined">Unido</button>
+                            </div>
+                            <div class="community-item">
+                                <img src="/api/placeholder/40/40" alt="Comunidad" class="community-icon">
+                                <div class="community-info">
+                                    <h6>Mascotas Exóticas</h6>
+                                    <span>2.1k miembros</span>
+                                </div>
+                                <button class="btn-join-community">Unirse</button>
+                            </div>
+                            <div class="community-item">
+                                <img src="/api/placeholder/40/40" alt="Comunidad" class="community-icon">
+                                <div class="community-info">
+                                    <h6>Veterinaria y Salud</h6>
+                                    <span>3.7k miembros</span>
+                                </div>
+                                <button class="btn-join-community">Unirse</button>
+                            </div>
+                        </div>
+                        <a href="#" class="see-all-link">Ver todas las comunidades <i class="fas fa-arrow-right"></i></a>
                     </div>
+
+                    <!-- Panel de temas tendencia -->
+                    <div class="sidebar-card trending-card">
+                        <h4 class="sidebar-card-title">Tendencias</h4>
+                        <div class="trending-topics">
+                            <div class="trending-topic">
+                                <span class="trending-tag">#AdopciónResponsable</span>
+                                <span class="trending-count">520 publicaciones</span>
+                            </div>
+                            <div class="trending-topic">
+                                <span class="trending-tag">#AlimentaciónNatural</span>
+                                <span class="trending-count">358 publicaciones</span>
+                            </div>
+                            <div class="trending-topic">
+                                <span class="trending-tag">#EntrenamientoCanino</span>
+                                <span class="trending-count">245 publicaciones</span>
+                            </div>
+                            <div class="trending-topic">
+                                <span class="trending-tag">#CuidadoFelino</span>
+                                <span class="trending-count">189 publicaciones</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Panel de usuarios activos -->
+                    <div class="sidebar-card active-users-card">
+                        <h4 class="sidebar-card-title">Usuarios Activos</h4>
+                        <div class="active-users">
+                            <div class="user-item">
+                                <img src="/api/placeholder/40/40" alt="Usuario" class="user-avatar">
+                                <div class="user-info">
+                                    <h6>Laura Torres</h6>
+                                    <span class="user-badge">Experto en Perros</span>
+                                </div>
+                            </div>
+                            <div class="user-item">
+                                <img src="/api/placeholder/40/40" alt="Usuario" class="user-avatar">
+                                <div class="user-info">
+                                    <h6>Carlos Méndez</h6>
+                                    <span class="user-badge">Veterinario</span>
+                                </div>
+                            </div>
+                            <div class="user-item">
+                                <img src="/api/placeholder/40/40" alt="Usuario" class="user-avatar">
+                                <div class="user-info">
+                                    <h6>Ana Gómez</h6>
+                                    <span class="user-badge">Entrenadora</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <footer class="footer">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4">
+                  <h5>PetPedia</h5>
+                  <p>Tu plataforma integral para el cuidado y bienestar de tus mascotas.</p>
+                  <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                  </div>
+                </div>
+                <div class="col-md-2">
+                  <h5>Explorar</h5>
+                  <ul class="footer-links">
+                    <li><a href="#">Inicio</a></li>
+                    <li><a href="#">Tienda</a></li>
+                    <li><a href="#">Veterinaria</a></li>
+                    <li><a href="#">Adopciones</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-2">
+                  <h5>Soporte</h5>
+                  <ul class="footer-links">
+                    <li><a href="#">Centro de ayuda</a></li>
+                    <li><a href="#">Contacto</a></li>
+                    <li><a href="#">FAQ</a></li>
+                    <li><a href="#">Blog</a></li>
+                  </ul>
+                </div>
+                <div class="col-md-4">
+                  <h5>Suscríbete a nuestro boletín</h5>
+                  <p>Mantente al día con las últimas noticias y consejos para tus mascotas.</p>
+                  <div class="footer-newsletter">
+                    <input type="email" placeholder="Tu email">
+                    <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                  </div>
+                </div>
+              </div>
+              <div class="copyright">
+                <p>&copy; 2025 PetPedia. Todos los derechos reservados.</p>
+                <ul class="policy-links">
+                  <li><a href="#">Términos de uso</a></li>
+                  <li><a href="#">Política de privacidad</a></li>
+                  <li><a href="#">Cookies</a></li>
+                </ul>
+              </div>
+            </div>
+          </footer>
+        </div>
+    </div>
+
+    <!-- Modal para nueva publicación -->
+    <div class="modal fade" id="newPostModal" tabindex="-1" role="dialog" aria-labelledby="newPostModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="newPostModalLabel">Crear Nueva Publicación</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="postCategory">Categoría</label>
+                            <select class="form-control" id="postCategory">
+                                <option>General</option>
+                                <option>Consejos</option>
+                                <option>Salud</option>
+                                <option>Comportamiento</option>
+                                <option>Alimentación</option>
+                                <option>Adopción</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="postTitle">Título</label>
+                            <input type="text" class="form-control" id="postTitle" placeholder="Un título claro y conciso">
+                        </div>
+                        <div class="form-group">
+                            <label for="postContent">Contenido</label>
+                            <textarea class="form-control" id="postContent" rows="5" placeholder="Comparte tus ideas, preguntas o experiencias..."></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="postImage">Añadir imagen (opcional)</label>
+                            <div class="custom-file">
+                                <input type="file" class="custom-file-input" id="postImage">
+                                <label class="custom-file-label" for="postImage">Elegir archivo</label>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label for="postTags">Etiquetas (separadas por comas)</label>
+                            <input type="text" class="form-control" id="postTags" placeholder="ej: perros, alimentación, salud">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+                    <button type="button" class="btn btn-primary">Publicar</button>
                 </div>
             </div>
         </div>

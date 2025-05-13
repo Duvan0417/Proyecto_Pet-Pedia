@@ -3,194 +3,543 @@
 <head>
   <meta charset="UTF-8"> 
   <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
-  <title>Petpedia</title> <!-- Título que aparece en la pestaña del navegador -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"> <!-- Enlace a la hoja de estilos de Bootstrap -->
-  <link rel="stylesheet" href="/project petpedia1/css/veterinaria.css"> <!-- Enlace a la hoja de estilos personalizada -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"> <!-- Enlace a Font Awesome para iconos -->
+  <title>Petpedia - Clínicas Veterinarias</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/project petpedia1/css/veterinaria.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
-  <div class="sidebar"> <!-- Contenedor de la barra lateral de navegación -->
-    <a href="inicio.html"> <!-- Enlace a la página de inicio -->
-      <i class="fas fa-home"></i> <!-- Icono de casa de Font Awesome -->
-      <span>Inicio</span> <!-- Texto del enlace -->
-    </a>
-    <a href="compra.html"> <!-- Enlace a la página de compras -->
-      <i class="fas fa-shopping-cart"></i> <!-- Icono de carrito de compras -->
-      <span>Compra</span> <!-- Texto del enlace -->
-    </a>
-    <a href="veterinaria.html"> <!-- Enlace a la página de veterinaria -->
-      <i class="fas fa-clinic-medical"></i> <!-- Icono de clínica médica -->
-      <span>Veterinaria</span> <!-- Texto del enlace -->
-    </a>
-    <a href="adopcion.html"> <!-- Enlace a la página de adopciones -->
-      <i class="fas fa-paw"></i> <!-- Icono de pata de animal -->
-      <span>Adopciones</span> <!-- Texto del enlace -->
-    </a>
-    <a href="foro.html"> <!-- Enlace al foro (sin destino definido) -->
-      <i class="fas fa-comments"></i> <!-- Icono de comentarios -->
-      <span>Foro</span> <!-- Texto del enlace -->
-    </a>
-    <a href="#"> <!-- Enlace al perfil (sin destino definido) -->
-      <i class="fas fa-user"></i> <!-- Icono de usuario -->
-      <span>Perfil</span> <!-- Texto del enlace -->
-    </a>
-    <a href="ajustes.html"> <!-- Enlace a configuración (sin destino definido) -->
-      <i class="fas fa-cog"></i> <!-- Icono de engranaje -->
-      <span>Configuración</span> <!-- Texto del enlace -->
-    </a>
+  <!-- Barra lateral con animación mejorada -->
+  <div class="sidebar">
+    <div class="sidebar-header">
+        <img src="/project petpedia1/imagenes/logo.png" alt="Logo" class="logo">
+        <span class="logo-text">PetPedia</span>
+    </div>
+    <div class="sidebar-menu">
+        <a href="inicio.html" class="menu-item">
+            <i class="fas fa-home"></i>
+            <span>Inicio</span>
+        </a>
+        <a href="compra.html" class="menu-item">
+            <i class="fas fa-shopping-cart"></i>
+            <span>Compra</span>
+        </a>
+        <a href="veterinaria.html" class="menu-item">
+            <i class="fas fa-clinic-medical"></i>
+            <span>Veterinaria</span>
+        </a>
+        <a href="adopcion.html" class="menu-item">
+            <i class="fas fa-paw"></i>
+            <span>Adopciones</span>
+        </a>
+        <a href="foro.html" class="menu-item active">
+            <i class="fas fa-comments"></i>
+            <span>Foro</span>
+        </a>
+        <a href="#" class="menu-item">
+            <i class="fas fa-user"></i>
+            <span>Perfil</span>
+        </a>
+        <a href="ajustes.html" class="menu-item">
+            <i class="fas fa-cog"></i>
+            <span>Configuración</span>
+        </a>
+    </div>
+</div>
+
+  <div class="main-content"> 
+    <!-- Header mejorado con barra de búsqueda destacada -->
+    <header class="site-header">
+      <div class="header-container">
+        <div class="mobile-toggle">
+          <i class="fas fa-bars"></i>
+        </div>
+        <div class="search-container">
+          <div class="search-box">
+            <i class="fas fa-search search-icon"></i>
+            <input type="text" placeholder="Buscar veterinarias, especialidades, servicios...">
+            <div class="search-filters-dropdown">
+              <select class="custom-select">
+                <option selected>Todos los servicios</option>
+                <option>Urgencias 24h</option>
+                <option>Cirugía</option>
+                <option>Exóticos</option>
+                <option>Dermatología</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="user-actions">
+          <a href="citasveterinarias.html" class="btn-appointments">
+            <i class="far fa-calendar-alt"></i>
+            <span>Mis Citas</span>
+          </a>
+          <div class="user-profile">
+            <img src="/api/placeholder/40/40" alt="Usuario" class="avatar">
+            <span class="username">Usuario</span>
+            <i class="fas fa-chevron-down"></i>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Banner llamativo con imagen de fondo -->
+    <div class="hero-banner">
+      <div class="hero-content">
+        <h1>Clínicas Veterinarias</h1>
+        <p>Encuentra los mejores profesionales para el cuidado de tu mascota</p>
+        <div class="quick-filters">
+          <button class="filter-btn active"><i class="fas fa-star"></i> Mejor valoradas</button>
+          <button class="filter-btn"><i class="fas fa-clock"></i> Abiertas ahora</button>
+          <button class="filter-btn"><i class="fas fa-ambulance"></i> Urgencias 24h</button>
+          <button class="filter-btn"><i class="fas fa-map-marker-alt"></i> Cercanas</button>
+        </div>
+      </div>
+    </div>
+    
+    <!-- Sección principal con tarjetas de veterinarias mejoradas -->
+    <div class="container-fluid py-4">
+      <div class="section-header">
+        <h2>Clínicas Recomendadas</h2>
+        <div class="view-options">
+          <button class="view-btn active"><i class="fas fa-th-large"></i></button>
+          <button class="view-btn"><i class="fas fa-list"></i></button>
+        </div>
+      </div>
+      
+      <div class="row vet-cards-container">
+        <!-- Veterinaria 1 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="vet-card">
+            <div class="vet-card-header">
+              <img src="https://tse1.mm.bing.net/th/id/OIP.CjJXuzT1vxUJmPnFXL654gHaGD?rs=1&pid=ImgDetMain" alt="Veterinaria 1" class="vet-image">
+              <div class="vet-badges">
+                <span class="vet-badge urgent">Urgencias 24h</span>
+                <span class="vet-badge top">Top rated</span>
+              </div>
+              <div class="vet-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>4.5</span>
+              </div>
+            </div>
+            <div class="vet-card-body">
+              <h3 class="vet-name">PetCare Centro Veterinario</h3>
+              <p class="vet-location"><i class="fas fa-map-marker-alt"></i> Centro, 1.2 km</p>
+              <div class="vet-services">
+                <span class="service-tag"><i class="fas fa-syringe"></i> Vacunación</span>
+                <span class="service-tag"><i class="fas fa-heartbeat"></i> Cardiología</span>
+                <span class="service-tag"><i class="fas fa-cut"></i> Peluquería</span>
+                <span class="service-tag"><i class="fas fa-pills"></i> Farmacia</span>
+              </div>
+              <p class="vet-description">Centro veterinario de última generación con especialistas en medicina preventiva, diagnóstico avanzado y cuidados intensivos para todas las especies.</p>
+              <div class="vet-schedule">
+                <div class="schedule-icon"><i class="far fa-clock"></i></div>
+                <div class="schedule-text">
+                  <p class="open-now">Abierto ahora</p>
+                  <p>Lunes a Viernes: 8:00 - 20:00<br>Sábados: 9:00 - 14:00</p>
+                </div>
+              </div>
+            </div>
+            <div class="vet-card-footer">
+              <a href="#" class="btn-primary-action">
+                <i class="far fa-calendar-plus"></i> Pedir Cita
+              </a>
+              <div class="secondary-actions">
+                <a href="#" class="btn-icon" title="Llamar"><i class="fas fa-phone-alt"></i></a>
+                <a href="#" class="btn-icon" title="Ver en mapa"><i class="fas fa-map-marked-alt"></i></a>
+                <a href="#" class="btn-icon" title="Favoritos"><i class="far fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Veterinaria 2 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="vet-card">
+            <div class="vet-card-header">
+              <img src="https://tse1.mm.bing.net/th/id/OIP.CjJXuzT1vxUJmPnFXL654gHaGD?rs=1&pid=ImgDetMain" alt="Veterinaria 2" class="vet-image">
+              <div class="vet-badges">
+                <span class="vet-badge specialty">Exóticos</span>
+              </div>
+              <div class="vet-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>4.0</span>
+              </div>
+            </div>
+            <div class="vet-card-body">
+              <h3 class="vet-name">Exotic Vet - Especialistas</h3>
+              <p class="vet-location"><i class="fas fa-map-marker-alt"></i> Norte, 3.5 km</p>
+              <div class="vet-services">
+                <span class="service-tag"><i class="fas fa-microscope"></i> Laboratorio</span>
+                <span class="service-tag"><i class="fas fa-x-ray"></i> Radiología</span>
+                <span class="service-tag"><i class="fas fa-dog"></i> Etología</span>
+              </div>
+              <p class="vet-description">Clínica especializada en animales exóticos con equipamiento avanzado para diagnóstico y tratamiento de especies no convencionales.</p>
+              <div class="vet-schedule">
+                <div class="schedule-icon"><i class="far fa-clock"></i></div>
+                <div class="schedule-text">
+                  <p class="open-now">Abierto ahora</p>
+                  <p>Martes a Sábado: 9:00 - 19:00<br>Domingos: Cerrado</p>
+                </div>
+              </div>
+            </div>
+            <div class="vet-card-footer">
+              <a href="#" class="btn-primary-action">
+                <i class="far fa-calendar-plus"></i> Pedir Cita
+              </a>
+              <div class="secondary-actions">
+                <a href="#" class="btn-icon" title="Llamar"><i class="fas fa-phone-alt"></i></a>
+                <a href="#" class="btn-icon" title="Ver en mapa"><i class="fas fa-map-marked-alt"></i></a>
+                <a href="#" class="btn-icon" title="Favoritos"><i class="fas fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Veterinaria 3 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="vet-card">
+            <div class="vet-card-header">
+              <img src="https://tse1.mm.bing.net/th/id/OIP.CjJXuzT1vxUJmPnFXL654gHaGD?rs=1&pid=ImgDetMain" alt="Veterinaria 3" class="vet-image">
+              <div class="vet-badges">
+                <span class="vet-badge discount">15% Descuento</span>
+              </div>
+              <div class="vet-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <span>5.0</span>
+              </div>
+            </div>
+            <div class="vet-card-body">
+              <h3 class="vet-name">VetPlus Centro Quirúrgico</h3>
+              <p class="vet-location"><i class="fas fa-map-marker-alt"></i> Sur, 4.8 km</p>
+              <div class="vet-services">
+                <span class="service-tag"><i class="fas fa-user-md"></i> Cirugía</span>
+                <span class="service-tag"><i class="fas fa-tooth"></i> Odontología</span>
+                <span class="service-tag"><i class="fas fa-stethoscope"></i> Oftalmología</span>
+              </div>
+              <p class="vet-description">Centro veterinario especializado en cirugías avanzadas y tratamientos de rehabilitación con tecnología de vanguardia.</p>
+              <div class="vet-schedule">
+                <div class="schedule-icon"><i class="far fa-clock"></i></div>
+                <div class="schedule-text">
+                  <p class="closed-now">Cerrado ahora</p>
+                  <p>Lunes a Domingo: 10:00 - 18:00<br>Urgencias: 24h</p>
+                </div>
+              </div>
+            </div>
+            <div class="vet-card-footer">
+              <a href="#" class="btn-primary-action">
+                <i class="far fa-calendar-plus"></i> Pedir Cita
+              </a>
+              <div class="secondary-actions">
+                <a href="#" class="btn-icon" title="Llamar"><i class="fas fa-phone-alt"></i></a>
+                <a href="#" class="btn-icon" title="Ver en mapa"><i class="fas fa-map-marked-alt"></i></a>
+                <a href="#" class="btn-icon" title="Favoritos"><i class="far fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Veterinaria 4 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="vet-card">
+            <div class="vet-card-header">
+              <img src="https://tse1.mm.bing.net/th/id/OIP.CjJXuzT1vxUJmPnFXL654gHaGD?rs=1&pid=ImgDetMain" alt="Veterinaria 4" class="vet-image">
+              <div class="vet-badges">
+                <span class="vet-badge new">Nuevo</span>
+              </div>
+              <div class="vet-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <i class="far fa-star"></i>
+                <span>3.5</span>
+              </div>
+            </div>
+            <div class="vet-card-body">
+              <h3 class="vet-name">MascotaSana Preventiva</h3>
+              <p class="vet-location"><i class="fas fa-map-marker-alt"></i> Este, 2.3 km</p>
+              <div class="vet-services">
+                <span class="service-tag"><i class="fas fa-syringe"></i> Vacunación</span>
+                <span class="service-tag"><i class="fas fa-paw"></i> Nutrición</span>
+                <span class="service-tag"><i class="fas fa-shield-alt"></i> Prevención</span>
+              </div>
+              <p class="vet-description">Centro especializado en medicina preventiva, vacunación y nutrición para mascotas con planes personalizados de cuidado.</p>
+              <div class="vet-schedule">
+                <div class="schedule-icon"><i class="far fa-clock"></i></div>
+                <div class="schedule-text">
+                  <p class="open-now">Abierto ahora</p>
+                  <p>Miércoles a Domingo: 9:00 - 16:00<br>Consulta online: 24h</p>
+                </div>
+              </div>
+            </div>
+            <div class="vet-card-footer">
+              <a href="#" class="btn-primary-action">
+                <i class="far fa-calendar-plus"></i> Pedir Cita
+              </a>
+              <div class="secondary-actions">
+                <a href="#" class="btn-icon" title="Llamar"><i class="fas fa-phone-alt"></i></a>
+                <a href="#" class="btn-icon" title="Ver en mapa"><i class="fas fa-map-marked-alt"></i></a>
+                <a href="#" class="btn-icon" title="Favoritos"><i class="far fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Veterinaria 5 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="vet-card">
+            <div class="vet-card-header">
+              <img src="https://tse1.mm.bing.net/th/id/OIP.CjJXuzT1vxUJmPnFXL654gHaGD?rs=1&pid=ImgDetMain" alt="Veterinaria 5" class="vet-image">
+              <div class="vet-badges">
+                <span class="vet-badge urgent">Urgencias 24h</span>
+                <span class="vet-badge promo">Primera visita gratis</span>
+              </div>
+              <div class="vet-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="far fa-star"></i>
+                <span>4.0</span>
+              </div>
+            </div>
+            <div class="vet-card-body">
+              <h3 class="vet-name">Animal Health Hospital</h3>
+              <p class="vet-location"><i class="fas fa-map-marker-alt"></i> Oeste, 5.7 km</p>
+              <div class="vet-services">
+                <span class="service-tag"><i class="fas fa-ambulance"></i> Emergencias</span>
+                <span class="service-tag"><i class="fas fa-heartbeat"></i> Cardiología</span>
+                <span class="service-tag"><i class="fas fa-brain"></i> Neurología</span>
+              </div>
+              <p class="vet-description">Hospital veterinario completo con atención de emergencias las 24 horas. Equipamiento completo para diagnóstico y tratamiento avanzado.</p>
+              <div class="vet-schedule">
+                <div class="schedule-icon"><i class="far fa-clock"></i></div>
+                <div class="schedule-text">
+                  <p class="open-now">Abierto 24/7</p>
+                  <p>Consultas: Lunes a Domingo: 10:00 - 20:00<br>Emergencias: 24h</p>
+                </div>
+              </div>
+            </div>
+            <div class="vet-card-footer">
+              <a href="#" class="btn-primary-action">
+                <i class="far fa-calendar-plus"></i> Pedir Cita
+              </a>
+              <div class="secondary-actions">
+                <a href="#" class="btn-icon" title="Llamar"><i class="fas fa-phone-alt"></i></a>
+                <a href="#" class="btn-icon" title="Ver en mapa"><i class="fas fa-map-marked-alt"></i></a>
+                <a href="#" class="btn-icon" title="Favoritos"><i class="far fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Veterinaria 6 -->
+        <div class="col-lg-4 col-md-6 mb-4">
+          <div class="vet-card">
+            <div class="vet-card-header">
+              <img src="https://tse1.mm.bing.net/th/id/OIP.CjJXuzT1vxUJmPnFXL654gHaGD?rs=1&pid=ImgDetMain" alt="Veterinaria 6" class="vet-image">
+              <div class="vet-badges">
+                <span class="vet-badge eco">Eco-friendly</span>
+              </div>
+              <div class="vet-rating">
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star"></i>
+                <i class="fas fa-star-half-alt"></i>
+                <span>4.5</span>
+              </div>
+            </div>
+            <div class="vet-card-body">
+              <h3 class="vet-name">NaturPet Holística</h3>
+              <p class="vet-location"><i class="fas fa-map-marker-alt"></i> Norte, 3.2 km</p>
+              <div class="vet-services">
+                <span class="service-tag"><i class="fas fa-spa"></i> Acupuntura</span>
+                <span class="service-tag"><i class="fas fa-leaf"></i> Homeopatía</span>
+                <span class="service-tag"><i class="fas fa-seedling"></i> Nutrición natural</span>
+              </div>
+              <p class="vet-description">Centro veterinario especializado en medicina integrativa y tratamientos holísticos para el bienestar completo de tu mascota.</p>
+              <div class="vet-schedule">
+                <div class="schedule-icon"><i class="far fa-clock"></i></div>
+                <div class="schedule-text">
+                  <p class="closed-now">Cerrado ahora</p>
+                  <p>Miércoles a Domingo: 9:00 - 18:00<br>Lunes y Martes: Cerrado</p>
+                </div>
+              </div>
+            </div>
+            <div class="vet-card-footer">
+              <a href="#" class="btn-primary-action">
+                <i class="far fa-calendar-plus"></i> Pedir Cita
+              </a>
+              <div class="secondary-actions">
+                <a href="#" class="btn-icon" title="Llamar"><i class="fas fa-phone-alt"></i></a>
+                <a href="#" class="btn-icon" title="Ver en mapa"><i class="fas fa-map-marked-alt"></i></a>
+                <a href="#" class="btn-icon" title="Favoritos"><i class="far fa-heart"></i></a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Paginación -->
+      <div class="pagination-container">
+        <ul class="pagination">
+          <li class="page-item disabled">
+            <a class="page-link" href="" aria-label="Previous">
+              <i class="fas fa-chevron-left"></i>
+            </a>
+          </li>
+          <li class="page-item active"><a class="page-link" href="#">1</a></li>
+          <li class="page-item"><a class="page-link" href="#">2</a></li>
+          <li class="page-item"><a class="page-link" href="#">3</a></li>
+          <li class="page-item">
+            <a class="page-link" href="#" aria-label="Next">
+              <i class="fas fa-chevron-right"></i>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+    
+    <!-- Banner promocional -->
+    <div class="promo-banner">
+      <div class="promo-content">
+        <div class="promo-text">
+          <h3>¿Eres veterinario?</h3>
+          <p>Únete a nuestra red de profesionales y aumenta tu visibilidad</p>
+        </div>
+        <a href="#" class="btn-register">Registra tu clínica</a>
+      </div>
+    </div>
+    
+    <!-- Footer mejorado con secciones y newsletter -->
+    <footer class="footer">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-4">
+            <h5>PetPedia</h5>
+            <p>Tu plataforma integral para el cuidado y bienestar de tus mascotas.</p>
+            <div class="social-icons">
+              <a href="#"><i class="fab fa-facebook-f"></i></a>
+              <a href="#"><i class="fab fa-twitter"></i></a>
+              <a href="#"><i class="fab fa-instagram"></i></a>
+              <a href="#"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+          <div class="col-md-2">
+            <h5>Explorar</h5>
+            <ul class="footer-links">
+              <li><a href="#">Inicio</a></li>
+              <li><a href="#">Tienda</a></li>
+              <li><a href="#">Veterinaria</a></li>
+              <li><a href="#">Adopciones</a></li>
+            </ul>
+          </div>
+          <div class="col-md-2">
+            <h5>Soporte</h5>
+            <ul class="footer-links">
+              <li><a href="#">Centro de ayuda</a></li>
+              <li><a href="#">Contacto</a></li>
+              <li><a href="#">FAQ</a></li>
+              <li><a href="#">Blog</a></li>
+            </ul>
+          </div>
+          <div class="col-md-4">
+            <h5>Suscríbete a nuestro boletín</h5>
+            <p>Mantente al día con las últimas noticias y consejos para tus mascotas.</p>
+            <div class="footer-newsletter">
+              <input type="email" placeholder="Tu email">
+              <button type="submit"><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </div>
+        </div>
+        <div class="copyright">
+          <p>&copy; 2025 PetPedia. Todos los derechos reservados.</p>
+          <ul class="policy-links">
+            <li><a href="#">Términos de uso</a></li>
+            <li><a href="#">Política de privacidad</a></li>
+            <li><a href="#">Cookies</a></li>
+          </ul>
+        </div>
+      </div>
+    </footer>
   </div>
 
-  <div class="main-content"> <!-- Contenedor principal del contenido -->
-    <nav class="navbar navbar-expand-lg navbar-light"> <!-- Barra de navegación usando Bootstrap -->
-      <a class="navbar-brand" href="#"> <!-- Marca de navegación -->
-          <img src="https://via.placeholder.com/150x50?text=Logo" alt="Logo"> <!-- Imagen de logo -->
-      </a>
-      <div class="search-filters"> <!-- Contenedor para los filtros de búsqueda -->
-        <div class="btn-group"> <!-- Grupo de botones para seleccionar tipo de mascota -->
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation"> <!-- Botón para colapsar la navegación en pantallas pequeñas -->
-          <span class="navbar-toggler-icon"></span> <!-- Icono del botón de colapso -->
-      </button>
-      
-      <div class="collapse navbar-collapse" id="navbarNav"> <!-- Contenedor colapsable para la navegación -->
-          <ul class="navbar-nav ml-auto"> <!-- Lista de navegación alineada a la derecha -->
-              <li class="nav-item"> <!-- Elemento de navegación -->
-                  <a class="nav-link" href="#">Ofertas del Día</a> <!-- Enlace a ofertas del día -->
-              </li>
-              <li class="nav-item"> <!-- Elemento de navegación -->
-                  <a class="nav-link" href="#">Historial de Citas</a> <!-- Enlace a historial de citas -->
-              </li>
-              <li class="nav-item"> 
-                <a class="nav-link" href="citasveterinarias.html">Gestion de Citas</a> 
-            </li>
-              <li class="nav-item"> <!-- Elemento de navegación -->
-                  <div class="input-group"> <!-- Contenedor para el grupo de entrada -->
-                      <input type="text" class="form-control search-input" placeholder="Buscar..."> <!-- Campo de texto para búsqueda -->
-                      <div class="input-group-append"> <!-- Contenedor para el botón de búsqueda -->
-                        <button class="btn-actions">Buscar</button> <!-- Botón para ejecutar la búsqueda -->
-                      </div>
-                  </div>
-              </li>
-          </ul>
-      </div>
-    </nav>
-
-    <div class="container-fluid py-5"> <!-- Contenedor fluido con margen superior e inferior -->
-        <div class="row" style="margin-left: 0%;"> <!-- Fila para organizar las tarjetas de veterinarias -->
-          
-          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la primera veterinaria -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
-              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
-                <h3 class="pet-name">Veterinaria 1</h3> <!-- Nombre de la veterinaria -->
-                <p class="pet-description">Consulta y atención integral para tus mascotas, con un equipo profesional y amable.</p> <!-- Descripción de la veterinaria -->
-                <p><strong>Horario:</strong> Lunes a Viernes, 8:00 AM - 6:00 PM</p> <!-- Horario de atención -->
-                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
-                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
-                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
-                </div>
-              </div>
+  <!-- Modal para programar cita -->
+  <div class="modal fade" id="appointmentModal" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">Programar Cita Veterinaria</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          <form>
+            <div class="form-group">
+              <label>Mascota</label>
+              <select class="form-control">
+                <option>Selecciona tu mascota</option>
+                <option>Rocky (Perro)</option>
+                <option>Luna (Gato)</option>
+                <option>+ Agregar nueva mascota</option>
+              </select>
             </div>
-          </div>
-      
-          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la segunda veterinaria -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
-              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
-                <h3 class="pet-name">Veterinaria 2</h3> <!-- Nombre de la veterinaria -->
-                <p class="pet-description">Especialistas en cirugía y tratamientos avanzados para la salud de tus animales.</p> <!-- Descripción de la veterinaria -->
-                <p><strong>Horario:</strong> Martes a Sábado, 9:00 AM - 5:00 PM</p> <!-- Horario de atención -->
-                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
-                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
-                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
-                </div>
-              </div>
+            <div class="form-group">
+              <label>Tipo de consulta</label>
+              <select class="form-control">
+                <option>Consulta general</option>
+                <option>Vacunación</option>
+                <option>Urgencia</option>
+                <option>Cirugía</option>
+                <option>Dermatología</option>
+              </select>
             </div>
-          </div>
-      
-          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la tercera veterinaria -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
-              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
-                <h3 class="pet-name">Veterinaria 3</h3> <!-- Nombre de la veterinaria -->
-                <p class="pet-description">Atención de emergencias y consultas generales, siempre listos para ayudar.</p> <!-- Descripción de la veterinaria -->
-                <p><strong>Horario:</strong> Lunes a Domingo, 10:00 AM - 8:00 PM</p> <!-- Horario de atención -->
-                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
-                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
-                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
-                </div>
-              </div>
+            <div class="form-group">
+              <label>Fecha preferida</label>
+              <input type="date" class="form-control">
             </div>
-          </div>
-      
-          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la cuarta veterinaria -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
-              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
-                <h3 class="pet-name">Veterinaria 4</h3> <!-- Nombre de la veterinaria -->
-                <p class="pet-description">Cuidado preventivo y vacunación, asegurando la salud de tus mascotas.</p> <!-- Descripción de la veterinaria -->
-                <p><strong>Horario:</strong> Miércoles a Domingo, 9:00 AM - 4:00 PM</p> <!-- Horario de atención -->
-                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
-                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
-                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
-                </div>
-              </div>
+            <div class="form-group">
+              <label>Hora preferida</label>
+              <select class="form-control">
+                <option>9:00 AM</option>
+                <option>10:00 AM</option>
+                <option>11:00 AM</option>
+                <option>12:00 PM</option>
+                <option>4:00 PM</option>
+                <option>5:00 PM</option>
+              </select>
             </div>
-          </div>
-          
-          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la quinta veterinaria -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
-              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
-                <h3 class="pet-name">Veterinaria 5</h3> <!-- Nombre de la veterinaria -->
-                <p class="pet-description">Atención de emergencias y consultas generales, siempre listos para ayudar.</p> <!-- Descripción de la veterinaria -->
-                <p><strong>Horario:</strong> Lunes a Domingo, 10:00 AM - 8:00 PM</p> <!-- Horario de atención -->
-                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
-                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
-                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
-                </div>
-              </div>
+            <div class="form-group">
+              <label>Notas adicionales</label>
+              <textarea class="form-control" rows="3" placeholder="Describe brevemente el motivo de la consulta..."></textarea>
             </div>
-          </div>
-      
-          <div class="col-md-4 col-sm-6 mb-4"> <!-- Columna para la sexta veterinaria -->
-            <div class="pet-card"> <!-- Contenedor para la tarjeta de la veterinaria -->
-              <div class="pet-info"> <!-- Contenedor para la información de la veterinaria -->
-                <h3 class="pet-name">Veterinaria 6</h3> <!-- Nombre de la veterinaria -->
-                <p class="pet-description">Cuidado preventivo y vacunación, asegurando la salud de tus mascotas.</p> <!-- Descripción de la veterinaria -->
-                <p><strong>Horario:</strong> Miércoles a Domingo, 9:00 AM - 4:00 PM</p> <!-- Horario de atención -->
-                <div class="btn-container"> <!-- Contenedor para los botones de acción -->
-                    <a href="#" class="btn-action">Consulta</a> <!-- Botón para consulta -->
-                    <a href="#" class="btn-action">Programar Cita</a> <!-- Botón para programar cita -->
-                </div>
-              </div>
-            </div>
-          </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancelar</button>
+          <button type="button" class="btn btn-primary">Confirmar Cita</button>
         </div>
       </div>
-        
-      <footer> <!-- Sección de pie de página -->
-        <div class="container"> <!-- Contenedor para el pie de página -->
-          <div class="row justify-content-center"> <!-- Fila centrada en el pie de página -->
-            <div class="col-md-6 text-center"> <!-- Columna centrada con texto -->
-              <p>&copy; 2024 Petpedia. Todos los derechos reservados.</p> <!-- Mensaje de derechos de autor -->
-              <div> <!-- Contenedor para los iconos de redes sociales -->
-                <a href="https://www.facebook.com" target="_blank" class="social-icon"> <!-- Enlace a Facebook -->
-                  <i class="fab fa-facebook-f"></i> <!-- Icono de Facebook -->
-                </a>
-                <a href="https://twitter.com" target="_blank" class="social-icon"> <!-- Enlace a Twitter -->
-                  <i class="fab fa-twitter"></i> <!-- Icono de Twitter -->
-                </a>
-                <a href="https://www.instagram.com" target="_blank" class="social-icon"> <!-- Enlace a Instagram -->
-                  <i class="fab fa-instagram"></i> <!-- Icono de Instagram -->
-                </a>
-                <a href="https://www.linkedin.com" target="_blank" class="social-icon"> <!-- Enlace a LinkedIn -->
-                  <i class="fab fa-linkedin-in"></i> <!-- Icono de LinkedIn -->
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+    </div>
+  </div>
 
-      <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script> <!-- Enlace a jQuery -->
-      <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js" integrity="sha384-oBqDVmMz4fnFO9gyb6Hf2XK4F8U1F6E1c9v4D0m4v1HqD+fG5y8V1b8+6e3M1F0X" crossorigin="anonymous"></script> <!-- Enlace a Popper.js -->
-      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-wX3cZ2k0C0P1Yx5L4d4Y3z2Z4v1HqD+fG5y8V1b8+6e3M1F0X" crossorigin="anonymous"></script> <!-- Enlace a Bootstrap JS -->
-      
-      <script src=""></script> <!-- Enlace a un archivo JavaScript personalizado -->
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
-</html>

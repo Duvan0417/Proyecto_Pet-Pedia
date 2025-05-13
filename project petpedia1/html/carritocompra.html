@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrito de Compras - Tienda de Mascotas</title>
+    <link rel="stylesheet" href="../css/carritocompra.css">
+</head>
+<body>
+    <div class="cart-container">
+        <div class="cart-header">
+            <h2>Mi Carrito <span class="paw-icon">🐾</span></h2>
+            <span class="items-count">3 productos</span>
+        </div>
+        
+        <div class="cart-items">
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="/api/placeholder/120/120" alt="Alimento premium para perros">
+                    <span class="pet-type dog">🐶</span>
+                </div>
+                <div class="item-details">
+                    <h3>Alimento Premium para Perros</h3>
+                    <p class="item-description">Nutrición completa y balanceada, 5kg</p>
+                    <div class="item-price-row">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn">-</button>
+                            <input type="number" value="1" min="1" class="quantity-input">
+                            <button class="quantity-btn">+</button>
+                        </div>
+                        <p class="item-price">$24.99</p>
+                    </div>
+                </div>
+                <button class="remove-btn">×</button>
+            </div>
+
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="/api/placeholder/120/120" alt="Juguete para gatos">
+                    <span class="pet-type cat">🐱</span>
+                </div>
+                <div class="item-details">
+                    <h3>Ratón Interactivo para Gatos</h3>
+                    <p class="item-description">Juguete electrónico con movimiento aleatorio</p>
+                    <div class="item-price-row">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn">-</button>
+                            <input type="number" value="2" min="1" class="quantity-input">
+                            <button class="quantity-btn">+</button>
+                        </div>
+                        <p class="item-price">$18.50</p>
+                    </div>
+                </div>
+                <button class="remove-btn">×</button>
+            </div>
+
+            <div class="cart-item">
+                <div class="item-image">
+                    <img src="/api/placeholder/120/120" alt="Cama para mascotas">
+                    <span class="pet-type multi">🐾</span>
+                </div>
+                <div class="item-details">
+                    <h3>Cama Acolchada Premium</h3>
+                    <p class="item-description">Cama suave y lavable, tamaño mediano</p>
+                    <div class="item-price-row">
+                        <div class="quantity-selector">
+                            <button class="quantity-btn">-</button>
+                            <input type="number" value="1" min="1" class="quantity-input">
+                            <button class="quantity-btn">+</button>
+                        </div>
+                        <p class="item-price">$32.99</p>
+                    </div>
+                </div>
+                <button class="remove-btn">×</button>
+            </div>
+        </div>
+
+        <div class="cart-summary">
+            <div class="summary-row">
+                <span>Subtotal:</span>
+                <span>$94.98</span>
+            </div>
+            <div class="summary-row">
+                <span>Envío:</span>
+                <span>$5.99</span>
+            </div>
+            <div class="summary-row discount">
+                <span>Descuento:</span>
+                <span>-$10.00</span>
+            </div>
+            <div class="summary-row total">
+                <span>Total:</span>
+                <span>$90.97</span>
+            </div>
+        </div>
+
+        <div class="promo-code">
+            <input type="text" placeholder="Código promocional">
+            <button class="apply-btn">Aplicar</button>
+        </div>
+
+        <div class="cart-actions">
+            <button class="continue-shopping" id="continueShoppingBtn">Seguir comprando</button>
+            <button class="checkout-btn" id="checkoutBtn">Proceder al pago</button>
+        </div>
+
+        <!-- Formulario de pago (oculto por defecto) -->
+        <div class="payment-section" id="paymentSection">
+            <div class="payment-header">
+                <h3>Método de Pago</h3>
+                <button class="close-payment">×</button>
+            </div>
+            
+            <div class="saved-methods">
+                <h4>Métodos Guardados</h4>
+                <div class="payment-methods">
+                    <div class="payment-method">
+                        <input type="radio" name="payment-method" id="card1" checked>
+                        <label for="card1">
+                            <div class="card-info">
+                                <span class="card-icon">💳</span>
+                                <div class="card-details">
+                                    <p class="card-name">Visa terminada en 4321</p>
+                                    <p class="card-expiry">Expira: 05/26</p>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                    <div class="payment-method">
+                        <input type="radio" name="payment-method" id="card2">
+                        <label for="card2">
+                            <div class="card-info">
+                                <span class="card-icon">💳</span>
+                                <div class="card-details">
+                                    <p class="card-name">Mastercard terminada en 8765</p>
+                                    <p class="card-expiry">Expira: 11/25</p>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+                </div>
+                
+                <div class="add-new">
+                    <button class="new-card-btn" id="newCardBtn">+ Agregar nueva tarjeta</button>
+                </div>
+            </div>
+            
+            <div class="new-card-form" id="newCardForm">
+                <h4>Nueva Tarjeta</h4>
+                <form>
+                    <div class="form-group">
+                        <label for="cardNumber">Número de Tarjeta</label>
+                        <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="cardExpiry">Fecha de Expiración</label>
+                            <input type="text" id="cardExpiry" placeholder="MM/AA">
+                        </div>
+                        <div class="form-group">
+                            <label for="cardCVV">CVV</label>
+                            <input type="text" id="cardCVV" placeholder="123">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="cardName">Nombre en la Tarjeta</label>
+                        <input type="text" id="cardName" placeholder="Nombre como aparece en la tarjeta">
+                    </div>
+                    <div class="form-check">
+                        <input type="checkbox" id="saveCard">
+                        <label for="saveCard">Guardar esta tarjeta para futuras compras</label>
+                    </div>
+                </form>
+            </div>
+            
+            <div class="payment-actions">
+                <button class="cancel-payment" id="cancelPayment">Cancelar</button>
+                <button class="confirm-payment">Confirmar Pago</button>
+            </div>
+        </div>
+
+        <div class="pet-footprints">
+            <span class="footprint">🐾</span>
+            <span class="footprint">🐾</span>
+            <span class="footprint">🐾</span>
+        </div>
+    </div>
+
+    <script>
+        // Script para mostrar/ocultar el formulario de pago
+        document.addEventListener('DOMContentLoaded', function() {
+            const checkoutBtn = document.getElementById('checkoutBtn');
+            const paymentSection = document.getElementById('paymentSection');
+            const cancelPayment = document.getElementById('cancelPayment');
+            const closePayment = document.querySelector('.close-payment');
+            const newCardBtn = document.getElementById('newCardBtn');
+            const newCardForm = document.getElementById('newCardForm');
+            const continueShoppingBtn = document.getElementById('continueShoppingBtn');
+
+            // Inicialmente ocultar el formulario de nueva tarjeta
+            newCardForm.style.display = 'none';
+            
+            // Mostrar sección de pago
+            checkoutBtn.addEventListener('click', function() {
+                paymentSection.classList.add('active');
+            });
+            
+            // Ocultar sección de pago
+            cancelPayment.addEventListener('click', function() {
+                paymentSection.classList.remove('active');
+            });
+            
+            closePayment.addEventListener('click', function() {
+                paymentSection.classList.remove('active');
+            });
+            
+            // Mostrar/ocultar formulario de nueva tarjeta
+            newCardBtn.addEventListener('click', function() {
+                if (newCardForm.style.display === 'none') {
+                    newCardForm.style.display = 'block';
+                    newCardBtn.textContent = '- Cancelar';
+                } else {
+                    newCardForm.style.display = 'none';
+                    newCardBtn.textContent = '+ Agregar nueva tarjeta';
+                }
+            });
+
+            // Redireccionar a compra.html al hacer clic en "Seguir comprando"
+            continueShoppingBtn.addEventListener('click', function() {
+                window.location.href = 'compra.html';
+            });
+        });
+    </script>
+</body>
+</html>
