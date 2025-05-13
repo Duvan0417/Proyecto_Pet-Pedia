@@ -4,9 +4,47 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Carrito de Compras - Tienda de Mascotas</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <link rel="stylesheet" href="../css/carritocompra.css">
 </head>
 <body>
+    <div class="sidebar">
+        <div class="sidebar-header">
+            <img src="../imagenes/logo.png" alt="Logo" class="logo">
+            <span class="logo-text">PetPedia</span>
+        </div>
+        <div class="sidebar-menu">
+            <a href="inicio.html" class="menu-item">
+                <i class="fas fa-home"></i>
+                <span>Inicio</span>
+            </a>
+            <a href="compra.html" class="menu-item">
+                <i class="fas fa-shopping-cart"></i>
+                <span>Compra</span>
+            </a>
+            <a href="veterinaria.html" class="menu-item">
+                <i class="fas fa-clinic-medical"></i>
+                <span>Veterinaria</span>
+            </a>
+            <a href="adopcion.html" class="menu-item">
+                <i class="fas fa-paw"></i>
+                <span>Adopciones</span>
+            </a>
+            <a href="foro.html" class="menu-item active">
+                <i class="fas fa-comments"></i>
+                <span>Foro</span>
+            </a>
+            <a href="#" class="menu-item">
+                <i class="fas fa-user"></i>
+                <span>Perfil</span>
+            </a>
+            <a href="ajustes.html" class="menu-item">
+                <i class="fas fa-cog"></i>
+                <span>Configuración</span>
+            </a>
+        </div>
+    </div>
     <div class="cart-container">
         <div class="cart-header">
             <h2>Mi Carrito <span class="paw-icon">🐾</span></h2>
@@ -185,7 +223,8 @@
             <span class="footprint">🐾</span>
         </div>
     </div>
-
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <script>
         // Script para mostrar/ocultar el formulario de pago
         document.addEventListener('DOMContentLoaded', function() {

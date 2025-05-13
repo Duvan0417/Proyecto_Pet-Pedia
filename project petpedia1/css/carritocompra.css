@@ -613,3 +613,93 @@ body {
 .confirm-payment:hover {
     background-color: #78b723;
 }
+.sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 80px;
+    height: 100%;
+    background: var(--dark-color);
+    transition: width 0.3s ease;
+    overflow-x: hidden;
+    z-index: 1000;
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+}
+
+.sidebar:hover {
+    width: 240px;
+}
+
+.sidebar-header {
+    padding: 20px 15px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.logo {
+    width: 40px;
+    height: 40px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.logo-text {
+    color: white;
+    font-weight: 600;
+    font-size: 18px;
+    margin-left: 15px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar:hover .logo-text {
+    opacity: 1;
+}
+
+.sidebar-menu {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding-top: 15px;
+}
+
+.menu-item {
+    display: flex;
+    align-items: center;
+    padding: 15px 20px;
+    color: var(--light-color);
+    text-decoration: none;
+    transition: var(--transition-normal);
+    margin: 5px 0;
+    border-left: 3px solid transparent;
+}
+
+.menu-item.active {
+    background: rgba(255, 255, 255, 0.1);
+    border-left: 3px solid var(--accent-color);
+}
+
+.menu-item:hover {
+    background: rgba(255, 255, 255, 0.1);
+}
+
+.menu-item i {
+    font-size: 1.5rem;
+    min-width: 30px;
+    text-align: center;
+}
+
+.menu-item span {
+    margin-left: 15px;
+    white-space: nowrap;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.sidebar:hover .menu-item span {
+    opacity: 1;
+}
