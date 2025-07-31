@@ -1,8 +1,8 @@
 :root {
   --primary-color: #3D5A80; /* Color primario para la interfaz */
-  --secondary-color: #98C1D9; /* Color secundario */
+  --secondary-color: #ffffff; /* Color secundario */
   --accent-color: #EE6C4D; /* Color de acento */
-  --light-color: #E0FBFC; /* Color claro */
+  --light-color: #ffffff; /* Color claro */
   --dark-color: #293241; /* Color oscuro */
 }
 
@@ -10,7 +10,6 @@ body {
   margin: 0; /* Elimina el margen por defecto del body */
   padding: 0; /* Elimina el padding por defecto del body */
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Establece la fuente de la página */
-  background-color: #f8f9fa; /* Color de fondo */
 }
 
 /* Estilos para la barra lateral */

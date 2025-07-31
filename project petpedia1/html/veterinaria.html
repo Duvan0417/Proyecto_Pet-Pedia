@@ -10,6 +10,56 @@
   <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700;800&display=swap" rel="stylesheet">
 </head>
 <body>
+  <!-- Navbar estilo compra -->
+  <nav class="navbar navbar-expand-lg navbar-light">
+    <a class="navbar-brand" href="inicio.html">
+      <img src="/project petpedia1/imagenes/logo.png" alt="Petpedia Logo">
+    </a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarVet" aria-controls="navbarVet" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarVet">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownVet" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-th-large mr-2"></i>Especialidades
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownVet">
+            <a class="dropdown-item" href="#"><i class="fas fa-ambulance mr-2"></i>Urgencias 24h</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-user-md mr-2"></i>Cirugía</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-dog mr-2"></i>Exóticos</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-allergies mr-2"></i>Dermatología</a>
+            <a class="dropdown-item" href="#"><i class="fas fa-heartbeat mr-2"></i>Cardiología</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-star mr-2"></i>Mejor valoradas</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#"><i class="fas fa-clock mr-2"></i>Abiertas ahora</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="citasveterinarias.html"><i class="fas fa-calendar-alt mr-2"></i>Mis Citas</a>
+        </li>
+      </ul>
+      <div class="d-flex align-items-center ml-auto">
+        <div class="input-group mr-3">
+          <input type="text" class="form-control search-input" placeholder="Buscar veterinarias, servicios...">
+          <div class="input-group-append">
+            <button class="btn-search" type="button">
+              <i class="fas fa-search mr-2"></i>Buscar
+            </button>
+          </div>
+        </div>
+        <div class="user-profile ml-3">
+          <img src="/api/placeholder/40/40" alt="Usuario" class="avatar">
+          <span class="username">Usuario</span>
+          <i class="fas fa-chevron-down"></i>
+        </div>
+      </div>
+    </div>
+  </nav>
+
   <!-- Barra lateral con animación mejorada -->
   <div class="sidebar">
     <div class="sidebar-header">
@@ -48,55 +98,7 @@
     </div>
 </div>
 
-  <div class="main-content"> 
-    <!-- Header mejorado con barra de búsqueda destacada -->
-    <header class="site-header">
-      <div class="header-container">
-        <div class="mobile-toggle">
-          <i class="fas fa-bars"></i>
-        </div>
-        <div class="search-container">
-          <div class="search-box">
-            <i class="fas fa-search search-icon"></i>
-            <input type="text" placeholder="Buscar veterinarias, especialidades, servicios...">
-            <div class="search-filters-dropdown">
-              <select class="custom-select">
-                <option selected>Todos los servicios</option>
-                <option>Urgencias 24h</option>
-                <option>Cirugía</option>
-                <option>Exóticos</option>
-                <option>Dermatología</option>
-              </select>
-            </div>
-          </div>
-        </div>
-        <div class="user-actions">
-          <a href="citasveterinarias.html" class="btn-appointments">
-            <i class="far fa-calendar-alt"></i>
-            <span>Mis Citas</span>
-          </a>
-          <div class="user-profile">
-            <img src="/api/placeholder/40/40" alt="Usuario" class="avatar">
-            <span class="username">Usuario</span>
-            <i class="fas fa-chevron-down"></i>
-          </div>
-        </div>
-      </div>
-    </header>
-
-    <!-- Banner llamativo con imagen de fondo -->
-    <div class="hero-banner">
-      <div class="hero-content">
-        <h1>Clínicas Veterinarias</h1>
-        <p>Encuentra los mejores profesionales para el cuidado de tu mascota</p>
-        <div class="quick-filters">
-          <button class="filter-btn active"><i class="fas fa-star"></i> Mejor valoradas</button>
-          <button class="filter-btn"><i class="fas fa-clock"></i> Abiertas ahora</button>
-          <button class="filter-btn"><i class="fas fa-ambulance"></i> Urgencias 24h</button>
-          <button class="filter-btn"><i class="fas fa-map-marker-alt"></i> Cercanas</button>
-        </div>
-      </div>
-    </div>
+  
     
     <!-- Sección principal con tarjetas de veterinarias mejoradas -->
     <div class="container-fluid py-4">
