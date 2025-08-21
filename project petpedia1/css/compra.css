@@ -1,12 +1,13 @@
 :root {
-  --primary-color: #4E67EB;
-  --secondary-color: #A1C6EA;
-  --accent-color: #FF6B6B;
-  --light-color: #F9F9F9;
-  --dark-color: #2C3E50;
-  --success-color: #4CAF50;
-  --warning-color: #FFC107;
+  --primary-color: #4E67EB;   /* Azul principal */
+  --secondary-color: #A1C6EA; /* Azul claro */
+  --accent-color: #1E90FF;    /* Azul vibrante para botones/destacados */
+  --light-color: #F9F9F9;     /* Fondo claro */
+  --dark-color: #2C3E50;      /* Azul grisáceo oscuro */
+  --success-color: #4CAF50;   /* Verde (mantener para alertas) */
+  --warning-color: #FFC107;   /* Amarillo (mantener para alertas) */
 }
+
 
 body {
   margin: 0;
@@ -23,13 +24,15 @@ body {
   left: 0;
   width: 80px;
   height: 100%;
-  background: var(--dark-color);
+  background: #224ca5;
   transition: width 0.3s ease;
   overflow-x: hidden;
   z-index: 1000;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+    border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .sidebar:hover {

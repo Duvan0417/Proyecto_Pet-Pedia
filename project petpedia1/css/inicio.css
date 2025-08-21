@@ -1,11 +1,12 @@
-:root {
-  --primary-color: #4A6FA5;
-  --secondary-color: #6FB3B8;
-  --accent-color: #FF6B6B;
-  --light-color: #F0F7F4;
-  --dark-color: #2C3E50;
+:root { 
+  --primary-color: #224ca5; /* azul principal */
+  --secondary-color: #4a90e2; /* azul claro */
+  --accent-color: #1a71c2; /* acento azul vibrante */
+  --light-color: #f0f7ff; /* azul muy claro */
+  --dark-color: #1c2a3a; /* azul oscuro */
   --gradient-bg: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
+
 
 body {
   font-family: 'Nunito', sans-serif;
@@ -15,20 +16,23 @@ body {
   overflow-x: hidden;
 }
 
-/* Sidebar mejorado */
+/* SIDEBAR */
 .sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 80px;
   height: 100%;
-  background: var(--dark-color);
+  background: #224ca5;
   transition: width 0.3s ease;
   overflow-x: hidden;
   z-index: 1000;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
+
 }
 
 .sidebar:hover {
@@ -116,7 +120,7 @@ body {
 
 .banner {
   height: 500px;
-  background-image: url('/api/placeholder/1200/500');
+  background-image:var(--secondary-color);
   background-size: cover;
   background-position: center;
   position: relative;

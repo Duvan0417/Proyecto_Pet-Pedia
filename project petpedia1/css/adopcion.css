@@ -1,10 +1,11 @@
 :root {
-  --primary-color: #3D5A80; /* Color primario para la interfaz */
-  --secondary-color: #ffffff; /* Color secundario */
-  --accent-color: #EE6C4D; /* Color de acento */
-  --light-color: #ffffff; /* Color claro */
-  --dark-color: #293241; /* Color oscuro */
+  --primary-color: #1E3A8A;   /* Azul marino */
+  --secondary-color: #3B82F6; /* Azul intermedio */
+  --accent-color: #60A5FA;    /* Azul vibrante para botones/acento */
+  --light-color: #fafbfc;     /* Azul muy claro (fondos suaves) */
+  --dark-color: #0F172A;      /* Azul oscuro para sidebar/footer */
 }
+
 
 body {
   margin: 0; /* Elimina el margen por defecto del body */
@@ -19,13 +20,15 @@ body {
   left: 0;
   width: 80px;
   height: 100%;
-  background: var(--dark-color);
+  background: #224ca5;
   transition: width 0.3s ease;
   overflow-x: hidden;
   z-index: 1000;
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+    border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .sidebar:hover {

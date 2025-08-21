@@ -1,33 +1,50 @@
 :root {
-    --primary-color: #3D5A80; /* Color primario para la interfaz */
-    --primary-light: #5d7599; /* Versión más clara del color primario */
-    --primary-dark: #2d4a70; /* Versión más oscura del color primario */
-    --secondary-color: #98C1D9; /* Color secundario */
-    --accent-color: #EE6C4D; /* Color de acento */
-    --accent-light: #f08b71; /* Versión más clara del color de acento */
-    --accent-dark: #d5532e; /* Versión más oscura del color de acento */
-    --light-color: #E0FBFC; /* Color claro */
-    --dark-color: #293241; /* Color oscuro */
-    --success-color: #4CAF50; /* Color de éxito */
-    --warning-color: #FFC107; /* Color de advertencia */
-    --danger-color: #F44336; /* Color de peligro */
-    --gray-100: #f8f9fa;
-    --gray-200: #e9ecef;
-    --gray-300: #dee2e6;
-    --gray-400: #ced4da;
-    --gray-500: #adb5bd;
-    --gray-600: #6c757d;
-    --gray-700: #495057;
-    --gray-800: #343a40;
-    --gray-900: #212529;
-    --shadow-sm: 0 2px 4px rgba(0,0,0,0.05);
-    --shadow-md: 0 4px 8px rgba(0,0,0,0.1);
-    --shadow-lg: 0 8px 16px rgba(0,0,0,0.15);
-    --border-radius-sm: 0.25rem;
-    --border-radius-md: 0.5rem;
-    --border-radius-lg: 1rem;
-    --transition-speed: 0.3s;
+  --primary-color: #224ca5;       /* Azul principal */
+  --secondary-color: #4a90e2;     /* Azul claro */
+  --accent-color: #1e90ff;        /* Azul vibrante (antes rojo) */
+  --light-color: #f0f7ff;         /* Azul muy claro para fondos */
+  --dark-color: #1c2a3a;          /* Azul marino oscuro */
+  --success-color: #4CAF50;       /* Verde (alertas ok) */
+  --warning-color: #FFC107;       /* Amarillo (alertas warning) */
+  --gradient-bg: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
+
+/* --- BOTONES --- */
+.btn-adopt,
+.btn-add-cart,
+.btn-search,
+.btn-promo,
+.newsletter-btn,
+.back-to-top,
+.btn-wishlist.active {
+  background: var(--accent-color);
+  color: white;
+  box-shadow: 0 4px 10px rgba(30, 144, 255, 0.3);
+}
+
+.btn-adopt:hover,
+.btn-add-cart:hover,
+.btn-search:hover,
+.btn-promo:hover,
+.newsletter-btn:hover,
+.back-to-top:hover,
+.btn-wishlist:hover {
+  background: #0066cc; /* azul más oscuro en hover */
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 6px 15px rgba(30, 144, 255, 0.4);
+}
+
+/* --- BADGES / ICONOS --- */
+.product-badge,
+.cart-badge,
+.pet-tag,
+.blog-date,
+.feature-item .feature-icon {
+  background: var(--accent-color);
+  color: white;
+}
+
 
 /* Estilos generales */
 body {
@@ -62,13 +79,15 @@ h1, h2, h3, h4, h5, h6 {
     left: 0;
     width: 80px;
     height: 100%;
-    background: var(--dark-color);
+    background: #224ca5;
     transition: width 0.3s ease;
     overflow-x: hidden;
     z-index: 1000;
     box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
     display: flex;
     flex-direction: column;
+      border-bottom-right-radius: 20px;
+  border-top-right-radius: 20px;
 }
 
 .sidebar:hover {
