@@ -1,40 +1,51 @@
-:root { 
-  --primary-color: #224ca5; /* azul principal */
-  --secondary-color: #4a90e2; /* azul claro */
-  --accent-color: #1a71c2; /* acento azul vibrante */
-  --light-color: #f0f7ff; /* azul muy claro */
-  --dark-color: #1c2a3a; /* azul oscuro */
+/* ==========================================================================
+   1. VARIABLES GLOBALES Y ESTILOS BASE
+   ========================================================================== */
+
+:root {
+  /* Paleta de colores principal de la web */
+  --primary-color: #224ca5;     /* Azul principal */
+  --secondary-color: #4a90e2;    /* Azul claro */
+  --accent-color: #1a71c2;      /* Acento azul vibrante para botones y elementos destacados */
+  --light-color: #f0f7ff;       /* Tono muy claro, casi blanco, para fondos */
+  --dark-color: #1c2a3a;        /* Azul oscuro para textos y fondos de contraste */
+
+  /* Gradiente reutilizable */
   --gradient-bg: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
 }
 
-
 body {
-  font-family: 'Nunito', sans-serif;
-  background-color: #f9f9f9;
+  font-family: 'Nunito', sans-serif; /* Fuente principal para mejorar la legibilidad */
+  background-color: #f9f9f9;       /* Color de fondo base para toda la página */
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
+  overflow-x: hidden;              /* Evita el desbordamiento horizontal */
 }
 
-/* SIDEBAR */
+
+/* ==========================================================================
+   2. LAYOUT PRINCIPAL (BARRA LATERAL Y CONTENIDO)
+   ========================================================================== */
+
+/* --- Barra lateral (Sidebar) --- */
 .sidebar {
-  position: fixed;
+  position: fixed;                 /* Fija en la pantalla */
   top: 0;
   left: 0;
-  width: 80px;
+  width: 80px;                     /* Ancho inicial (colapsado) */
   height: 100%;
-  background: #224ca5;
-  transition: width 0.3s ease;
-  overflow-x: hidden;
-  z-index: 1000;
+  background: var(--primary-color);
+  transition: width 0.3s ease;     /* Animación suave para la expansión */
+  overflow-x: hidden;              /* Oculta el texto cuando está colapsado */
+  z-index: 1000;                   /* Se asegura de que esté por encima de otros elementos */
   box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
   display: flex;
   flex-direction: column;
+  border-top-right-radius: 20px;   /* Bordes redondeados para un look moderno */
   border-bottom-right-radius: 20px;
-  border-top-right-radius: 20px;
-
 }
 
+/* Expande la barra lateral al pasar el cursor sobre ella */
 .sidebar:hover {
   width: 240px;
 }
@@ -43,7 +54,7 @@ body {
   padding: 20px 15px;
   display: flex;
   align-items: center;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Línea sutil de separación */
 }
 
 .logo {
@@ -58,11 +69,12 @@ body {
   font-weight: 600;
   font-size: 18px;
   margin-left: 15px;
-  white-space: nowrap;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  white-space: nowrap;             /* Evita que el texto se parta en dos líneas */
+  opacity: 0;                      /* Oculto por defecto */
+  transition: opacity 0.3s ease;   /* Animación de aparición */
 }
 
+/* Muestra el texto del logo cuando la barra lateral está expandida */
 .sidebar:hover .logo-text {
   opacity: 1;
 }
@@ -70,7 +82,7 @@ body {
 .sidebar-menu {
   display: flex;
   flex-direction: column;
-  flex-grow: 1;
+  flex-grow: 1;                    /* Ocupa el espacio restante */
   padding-top: 15px;
 }
 
@@ -80,18 +92,18 @@ body {
   padding: 15px 20px;
   color: var(--light-color);
   text-decoration: none;
-  transition: var(--transition-normal);
+  transition: background 0.3s ease;
   margin: 5px 0;
-  border-left: 3px solid transparent;
+  border-left: 3px solid transparent; /* Borde para el ítem activo */
+}
+
+.menu-item.active,
+.menu-item:hover {
+  background: rgba(255, 255, 255, 0.1); /* Resaltado sutil al pasar el cursor o si está activo */
 }
 
 .menu-item.active {
-  background: rgba(255, 255, 255, 0.1);
-  border-left: 3px solid var(--accent-color);
-}
-
-.menu-item:hover {
-  background: rgba(255, 255, 255, 0.1);
+  border-left-color: var(--accent-color); /* Borde de color para el ítem activo */
 }
 
 .menu-item i {
@@ -103,65 +115,63 @@ body {
 .menu-item span {
   margin-left: 15px;
   white-space: nowrap;
-  opacity: 0;
+  opacity: 0; /* Oculto por defecto */
   transition: opacity 0.3s ease;
 }
 
+/* Muestra el texto de los ítems cuando la barra lateral está expandida */
 .sidebar:hover .menu-item span {
   opacity: 1;
 }
 
-/* Header con banner */
+/* --- Contenido Principal --- */
 .main-header {
-  margin-left: 80px;
-  transition: margin-left 0.3s ease;
+  margin-left: 80px; /* Deja espacio para la barra lateral colapsada */
+  transition: margin-left 0.3s ease; /* Anima el cambio de margen */
   position: relative;
 }
 
-.banner {
-  height: 500px;
-  background-image:var(--secondary-color);
-  background-size: cover;
-  background-position: center;
-  position: relative;
-  overflow: hidden;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
 
-.banner-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.4));
-  z-index: 1;
-}
+/* ==========================================================================
+   3. COMPONENTES REUTILIZABLES
+   ========================================================================== */
 
-.banner-content {
-  position: relative;
-  z-index: 2;
+/* --- Títulos de Sección --- */
+.section-title {
   text-align: center;
-  color: white;
-  max-width: 800px;
-  padding: 0 20px;
+  margin-bottom: 60px;
 }
 
-.banner-content h1 {
-  font-size: 3.5rem;
+.section-title h2 {
+  font-size: 2.5rem;
+  color: var(--dark-color);
   font-weight: 800;
-  margin-bottom: 20px;
-  text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+  margin-bottom: 15px;
+  position: relative;
+  display: inline-block;
 }
 
-.banner-content p {
-  font-size: 1.2rem;
-  margin-bottom: 30px;
-  text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+/* Línea decorativa debajo del título */
+.section-title h2:after {
+  content: '';
+  position: absolute;
+  bottom: -10px;
+  left: 50%;
+  width: 80px;
+  height: 4px;
+  background: var(--accent-color);
+  transform: translateX(-50%);
+  border-radius: 2px;
 }
 
+.section-title p {
+  color: #666;
+  font-size: 1.1rem;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* --- Botones --- */
 .btn-banner {
   background-color: var(--accent-color);
   color: white;
@@ -171,18 +181,116 @@ body {
   font-weight: 700;
   font-size: 1.1rem;
   transition: all 0.3s ease;
-  box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+  box-shadow: 0 4px 15px rgba(26, 113, 194, 0.4);
   text-transform: uppercase;
   letter-spacing: 1px;
 }
 
 .btn-banner:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.6);
+  transform: translateY(-3px); /* Efecto de "levantarse" */
+  box-shadow: 0 8px 20px rgba(26, 113, 194, 0.6);
   color: white;
 }
 
-/* Sección de características */
+.btn-pet {
+  padding: 10px 20px;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  flex: 1; /* Ocupa el espacio disponible de forma equitativa */
+  text-align: center;
+  margin: 0 5px;
+}
+
+.btn-adopt {
+  background: var(--accent-color);
+  color: white;
+  box-shadow: 0 5px 15px rgba(26, 113, 194, 0.3);
+}
+
+.btn-adopt:hover {
+  background: #1565b3; /* Tono ligeramente más oscuro al pasar el cursor */
+  color: white;
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(26, 113, 194, 0.5);
+}
+
+.btn-info {
+  background: transparent;
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
+}
+
+.btn-info:hover {
+  background: var(--primary-color);
+  color: white;
+  transform: translateY(-3px);
+}
+
+/* --- Banner Principal con Slider --- */
+
+.banner {
+  height: 550px;
+  position: relative; /* Necesario para posicionar los elementos hijos */
+  overflow: hidden;   /* Oculta las partes de las imágenes que se salen */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Contenedor del slider */
+.banner-slider {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0; /* Detrás del contenido y del overlay */
+}
+
+/* Estilo para cada imagen (slide) */
+.slide {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  opacity: 0; /* Oculto por defecto */
+  transition: opacity 1.5s ease-in-out; /* Transición suave de opacidad */
+}
+
+/* La imagen activa se hace visible */
+.slide.active {
+  opacity: 1;
+}
+
+/* Capa oscura sobre la imagen del banner para mejorar contraste del texto */
+.banner-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(rgba(44, 62, 80, 0.7), rgba(44, 62, 80, 0.4));
+  z-index: 1; /* Por encima de las imágenes, pero debajo del contenido */
+}
+
+/* El contenido del banner debe estar por encima de todo */
+.banner-content {
+  position: relative;
+  z-index: 2; /* Se asegura de que esté por encima del overlay y las imágenes */
+  text-align: center;
+  color: white;
+  max-width: 900px;
+  padding: 0 30px;
+}
+
+/* --- Sección de Características/Servicios --- */
 .features-section {
   padding: 80px 0;
   background-color: white;
@@ -208,7 +316,7 @@ body {
   font-size: 3rem;
   color: var(--accent-color);
   margin-bottom: 25px;
-  background: rgba(255, 107, 107, 0.1);
+  background: rgba(26, 113, 194, 0.1); /* Fondo sutil para el icono */
   width: 100px;
   height: 100px;
   border-radius: 50%;
@@ -231,43 +339,10 @@ body {
   line-height: 1.6;
 }
 
-/* Sección de mascotas destacadas */
+/* --- Sección de Mascotas Destacadas --- */
 .featured-pets {
   padding: 80px 0;
   background-color: var(--light-color);
-}
-
-.section-title {
-  text-align: center;
-  margin-bottom: 60px;
-}
-
-.section-title h2 {
-  font-size: 2.5rem;
-  color: var(--dark-color);
-  font-weight: 800;
-  margin-bottom: 15px;
-  position: relative;
-  display: inline-block;
-}
-
-.section-title h2:after {
-  content: '';
-  position: absolute;
-  bottom: -10px;
-  left: 50%;
-  width: 80px;
-  height: 4px;
-  background: var(--accent-color);
-  transform: translateX(-50%);
-  border-radius: 2px;
-}
-
-.section-title p {
-  color: #666;
-  font-size: 1.1rem;
-  max-width: 700px;
-  margin: 0 auto;
 }
 
 .pet-card {
@@ -297,11 +372,11 @@ body {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transition: all 0.5s ease;
+  transition: transform 0.5s ease;
 }
 
 .pet-card:hover .pet-card-img img {
-  transform: scale(1.1);
+  transform: scale(1.1); /* Efecto de zoom en la imagen */
 }
 
 .pet-tag {
@@ -316,7 +391,7 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 5px 15px rgba(26, 113, 194, 0.3);
 }
 
 .pet-card-content {
@@ -361,48 +436,43 @@ body {
 .pet-actions {
   display: flex;
   justify-content: space-between;
-  margin-top: auto;
+  margin-top: auto; /* Empuja los botones al final de la tarjeta */
 }
 
-.btn-pet {
-  padding: 10px 20px;
-  border-radius: 50px;
-  font-weight: 600;
-  font-size: 0.9rem;
-  transition: all 0.3s ease;
-  text-transform: uppercase;
-  letter-spacing: 0.5px;
-  flex: 1;
+/* --- Sección de Estadísticas --- */
+.stats-section {
+  background: var(--gradient-bg);
+  padding: 80px 0;
+  color: white;
+}
+
+.stat-item {
   text-align: center;
-  margin: 0 5px;
+  padding: 20px;
 }
 
-.btn-adopt {
-  background: var(--accent-color);
-  color: white;
-  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+.stat-icon {
+  font-size: 3rem;
+  margin-bottom: 20px;
+  color: rgba(255,255,255,0.9);
 }
 
-.btn-adopt:hover {
-  background: #ff5252;
-  color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 8px 20px rgba(255, 107, 107, 0.5);
+.stat-count {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+  line-height: 1;
 }
 
-.btn-info {
-  background: transparent;
-  color: var(--primary-color);
-  border: 2px solid var(--primary-color);
+.stat-title {
+  font-size: 1.2rem;
+  font-weight: 600;
+  opacity: 0.9;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
-.btn-info:hover {
-  background: var(--primary-color);
-  color: white;
-  transform: translateY(-3px);
-}
-
-/* Testimonios */
+/* --- Sección de Testimonios --- */
 .testimonials {
   padding: 80px 0;
   background-color: white;
@@ -466,40 +536,7 @@ body {
   font-size: 0.9rem;
 }
 
-/* Contador de estadísticas */
-.stats-section {
-  background: var(--gradient-bg);
-  padding: 80px 0;
-  color: white;
-}
-
-.stat-item {
-  text-align: center;
-  padding: 20px;
-}
-
-.stat-icon {
-  font-size: 3rem;
-  margin-bottom: 20px;
-  color: rgba(255,255,255,0.9);
-}
-
-.stat-count {
-  font-size: 3rem;
-  font-weight: 800;
-  margin-bottom: 10px;
-  line-height: 1;
-}
-
-.stat-title {
-  font-size: 1.2rem;
-  font-weight: 600;
-  opacity: 0.9;
-  text-transform: uppercase;
-  letter-spacing: 1px;
-}
-
-/* Sección de blog */
+/* --- Sección del Blog --- */
 .blog-section {
   padding: 80px 0;
   background-color: #f9f9f9;
@@ -541,7 +578,7 @@ body {
   border-radius: 50px;
   font-size: 0.8rem;
   font-weight: 700;
-  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
+  box-shadow: 0 5px 15px rgba(26, 113, 194, 0.3);
 }
 
 .blog-content {
@@ -575,18 +612,19 @@ body {
   font-weight: 600;
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 
 .blog-link i {
   margin-left: 5px;
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease;
 }
 
 .blog-link:hover i {
-  transform: translateX(5px);
+  transform: translateX(5px); /* Anima la flecha hacia la derecha */
 }
 
-/* Newsletter */
+/* --- Sección de Newsletter --- */
 .newsletter {
   padding: 80px 0;
   background-color: var(--dark-color);
@@ -635,20 +673,21 @@ body {
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 1px;
-  transition: all 0.3s ease;
+  transition: background-color 0.3s ease;
 }
 
 .newsletter-btn:hover {
-  background-color: #ff5252;
+  background-color: #1565b3;
 }
 
-/* Footer mejorado */
-/* Footer */
+
+/* ==========================================================================
+   5. FOOTER
+   ========================================================================== */
 .footer {
   background: var(--dark-color);
   color: var(--light-color);
   padding: 50px 0 20px;
-  margin-top: auto;
 }
 
 .footer h5 {
@@ -678,7 +717,7 @@ body {
   align-items: center;
   justify-content: center;
   color: white;
-  transition: all var(--transition-speed) ease;
+  transition: all 0.3s ease;
 }
 
 .social-icons a:hover {
@@ -697,14 +736,15 @@ body {
 }
 
 .footer-links a {
-  color: var(--gray-400);
+  color: #ccc;
   font-size: 0.9rem;
-  transition: all var(--transition-speed) ease;
+  text-decoration: none;
+  transition: all 0.3s ease;
 }
 
 .footer-links a:hover {
   color: white;
-  padding-left: 5px;
+  padding-left: 5px; /* Sutil efecto de desplazamiento */
 }
 
 .footer-newsletter {
@@ -722,7 +762,7 @@ body {
 }
 
 .footer-newsletter input::placeholder {
-  color: var(--gray-400);
+  color: #ccc;
 }
 
 .footer-newsletter input:focus {
@@ -745,11 +785,11 @@ body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: all var(--transition-speed) ease;
+  transition: background-color 0.3s ease;
 }
 
 .footer-newsletter button:hover {
-  background: var(--accent-light);
+  background: #1565b3;
 }
 
 .copyright {
@@ -779,143 +819,7 @@ body {
 }
 
 .policy-links a {
-  color: var(--gray-400);
+  color: #ccc;
+  text-decoration: none;
   font-size: 0.85rem;
-}
-
-.policy-links a:hover {
-  color: white;
-}
-
-/* Back to Top Button */
-.back-to-top {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  width: 50px;
-  height: 50px;
-  background: var(--accent-color);
-  color: white;
-  border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.2rem;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  cursor: pointer;
-  opacity: 0;
-  visibility: hidden;
-  transition: all 0.3s ease;
-  z-index: 999;
-}
-
-.back-to-top.active {
-  opacity: 1;
-  visibility: visible;
-}
-
-.back-to-top:hover {
-  background: #ff5252;
-  transform: translateY(-5px);
-}
-
-/* Carousel mejorado para testimonios */
-.testimonial-carousel .owl-nav {
-  text-align: center;
-  margin-top: 30px;
-}
-
-.testimonial-carousel .owl-nav button {
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-  background: white;
-  color: var(--dark-color);
-  font-size: 1.5rem;
-  margin: 0 10px;
-  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
-  transition: all 0.3s ease;
-}
-
-.testimonial-carousel .owl-nav button:hover {
-  background: var(--primary-color);
-  color: white;
-}
-
-/* Estilos responsivos */
-@media (max-width: 992px) {
-  .sidebar {
-    width: 0;
-    transform: translateX(-100%);
-  }
-
-  .sidebar.active {
-    width: 250px;
-    transform: translateX(0);
-  }
-
-  .main-header, footer {
-    margin-left: 0;
-  }
-
-  .navbar-toggler {
-    display: block;
-  }
-
-  .banner-content h1 {
-    font-size: 2.5rem;
-  }
-}
-
-@media (max-width: 768px) {
-  .banner {
-    height: 400px;
-  }
-
-  .banner-content h1 {
-    font-size: 2rem;
-  }
-
-  .feature-card, .pet-card, .blog-post {
-    margin-bottom: 30px;
-  }
-
-  .newsletter-form {
-    flex-direction: column;
-  }
-
-  .newsletter-input {
-    border-radius: 30px;
-    margin-bottom: 15px;
-  }
-
-  .newsletter-btn {
-    border-radius: 30px;
-    width: 100%;
-    padding: 15px;
-  }
-}
-
-/* Menu Toggle Button */
-.menu-toggle {
-  position: fixed;
-  top: 20px;
-  left: 20px;
-  width: 45px;
-  height: 45px;
-  background: var(--accent-color);
-  border-radius: 50%;
-  display: none;
-  justify-content: center;
-  align-items: center;
-  color: white;
-  box-shadow: 0 5px 15px rgba(255, 107, 107, 0.3);
-  cursor: pointer;
-  z-index: 1001;
-}
-
-@media (max-width: 992px) {
-  .menu-toggle {
-    display: flex;
-  }
 }
